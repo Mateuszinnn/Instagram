@@ -3,6 +3,7 @@ import 'themes/theme.dart';
 import 'pages/home.dart';
 import 'pages/search.dart';
 import 'pages/reel.dart';
+import 'pages/profile.dart';
 import 'components/bottom_navigation_bar.dart';
 
 void main() {
@@ -61,6 +62,7 @@ class _InstaHomePage extends State<InstaHomePage> {
           HomePage(),
           SearchPage(),
           ReelPage(),
+          Profile(),
         ],
       ),
       bottomNavigationBar: Bottomnavigationbar(
