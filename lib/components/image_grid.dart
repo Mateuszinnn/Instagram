@@ -20,8 +20,10 @@ class ImageGrid extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        buildSquareImage('assets/images/mineira.jpg', widthTela),
-                        buildSquareImage('assets/images/images.jpeg', widthTela),
+                        buildSquareImage(
+                            'assets/images/mineira.jpg', widthTela),
+                        buildSquareImage(
+                            'assets/images/images.jpeg', widthTela),
                       ],
                     ),
                     Row(
@@ -33,7 +35,8 @@ class ImageGrid extends StatelessWidget {
                   ],
                 ),
                 Expanded(
-                  child: buildRectangularImage('assets/images/pasta.jpeg', widthTela),
+                  child: buildRectangularImage(
+                      'assets/images/pasta.jpeg', widthTela),
                 ),
               ],
             )
@@ -82,8 +85,8 @@ class ImageGrid extends StatelessWidget {
   Widget buildRectangularImage(String imagePath, double size) {
     return Container(
       margin: const EdgeInsets.all(1),
-      width: 1.3*size,
-      height: 2.015*size,
+      width: 1.3 * size,
+      height: 2.015 * size,
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(imagePath),
