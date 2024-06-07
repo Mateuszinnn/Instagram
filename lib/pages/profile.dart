@@ -173,12 +173,27 @@ class _ProfileState extends State<Profile> {
                   style: ButtonStyle(
                     backgroundColor: WidgetStateProperty.all(
                         Theme.of(context).colorScheme.secondary),
+                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                    ),
                   ),
-                  child: Info(
-                    text: 'Painel profissional',
-                    text2: 'X contas alcançadas nos ultimos 30 dias',
-                    fontsize: 14,
-                    textColor: Theme.of(context).colorScheme.primary,
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Painel profissional', style: TextStyle(
+                          color: Theme.of(context).colorScheme.primary,
+                          fontFamily: 'Instagram',
+                        ),),
+                        Text('X contas alcançadas nos últimos 30 dias', style: TextStyle(
+                          color: Theme.of(context).colorScheme.primary,
+                          fontFamily: 'Instagram',
+                        ),),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -196,6 +211,12 @@ class _ProfileState extends State<Profile> {
                           style: ButtonStyle(
                             backgroundColor: WidgetStateProperty.all(
                                 Theme.of(context).colorScheme.secondary),
+                            shape:
+                                WidgetStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5.0),
+                              ),
+                            ),
                           ),
                           child: Text(
                             'Editar perfil',
@@ -219,6 +240,12 @@ class _ProfileState extends State<Profile> {
                           style: ButtonStyle(
                             backgroundColor: WidgetStateProperty.all(
                                 Theme.of(context).colorScheme.secondary),
+                            shape:
+                                WidgetStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5.0),
+                              ),
+                            ),
                           ),
                           child: Text(
                             ' Compartilhar perfil',
