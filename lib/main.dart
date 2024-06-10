@@ -4,7 +4,9 @@ import 'pages/home.dart';
 import 'pages/search.dart';
 import 'pages/reel.dart';
 import 'pages/profile.dart';
+import 'pages/publication.dart';
 import 'components/bottom_navigation_bar.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -61,6 +63,7 @@ class _InstaHomePage extends State<InstaHomePage> {
         children: const <Widget>[
           HomePage(),
           SearchPage(),
+          PublicationPage(),
           ReelPage(),
           Profile(),
         ],

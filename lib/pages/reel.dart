@@ -9,26 +9,6 @@ class ReelPage extends StatefulWidget {
 }
 
 class _ReelPageState extends State<ReelPage> {
-  bool _showPage = true;
-  late ScrollController _scrollController;
-
-  @override
-  void initState() {
-    super.initState();
-    _scrollController = ScrollController();
-    _scrollController.addListener(_scrollListener);
-  }
-
-  void _scrollListener() {
-    if (_scrollController.offset <=
-            _scrollController.position.minScrollExtent &&
-        !_scrollController.position.outOfRange) {
-      setState(() {
-        _showPage = true;
-      });
-    }
-  }
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,10 +78,10 @@ class _ReelPageState extends State<ReelPage> {
                               borderRadius: BorderRadius.circular(12.0),
                               color: Colors.black,
                             ),
-                            child: Icon(
+                            child: const Icon(
                               Icons.person,
                               size: 24,
-                              color: Theme.of(context).colorScheme.primary,
+                              color: Colors.white,
                             ),
                           ),
                         ),
@@ -134,35 +114,47 @@ class _ReelPageState extends State<ReelPage> {
           children: [
             Row(
               children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(12, 18, 12, 12),
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(12, 18, 12, 12),
                   child: CircleAvatar(
                     radius: 17.1,
-                    backgroundColor: Theme.of(context).colorScheme.primary,
+                    backgroundColor: Colors.white,
                     child: CircleAvatar(
                       radius: 17,
-                      backgroundColor: Theme.of(context).colorScheme.surface,
+                      backgroundColor: Colors.black,
                       child: Icon(
                         Icons.person,
                         size: 17,
-                        color: Theme.of(context).colorScheme.primary,
+                        color: Colors.white,
                       ),
                     ),
                   ),
                 ),
                 const Text(
                   'Profile Name',
-                  style: TextStyle(fontFamily: 'instagram bold'),
+                  style: TextStyle(
+                      fontFamily: 'instagram bold',
+                      color: Colors.white),
                 ),
                 const SizedBox(width: 10),
                 SizedBox(
                   height: 25,
                   child: OutlinedButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'Seguir',
-                        style: TextStyle(fontFamily: 'Instagram'),
-                      )),
+                    style: ButtonStyle(
+                      side: WidgetStateProperty.all(
+                        const BorderSide(
+                            color: Colors.white),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: const Text(
+                      'Seguir',
+                      style: TextStyle(
+                        fontFamily: 'Instagram',
+                        color: Colors.white
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),

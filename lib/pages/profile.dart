@@ -13,7 +13,8 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
-    double widthTela = MediaQuery.of(context).size.width / 3.05;
+    double widthTela = MediaQuery.of(context).size.width / 3.059;
+    double widhtTotal = MediaQuery.of(context).size.width;
     double imageHeight = widthTela;
 
     return Scaffold(
@@ -28,7 +29,8 @@ class _ProfileState extends State<Profile> {
                     'Profile name',
                     style: TextStyle(
                         color: Theme.of(context).colorScheme.primary,
-                        fontFamily: 'Instagram'),
+                        fontFamily: 'Instagram',
+                        fontSize: widhtTotal <= 390 ? 17 : null),
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),

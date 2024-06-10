@@ -37,8 +37,8 @@ class _HomePage extends State<HomePage> {
               fit: BoxFit.contain,
               height:
                   Theme.of(context).colorScheme.brightness == Brightness.dark
-                      ? 40
-                      : 50,
+                      ? 36.45
+                      : 46.45,
             ),
             PopupMenuButton(
               icon: const Icon(Icons.keyboard_arrow_down_outlined),
