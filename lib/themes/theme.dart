@@ -15,5 +15,6 @@ ThemeData darkmode = ThemeData(
     surface: Colors.black,
     primary: Colors.white,
     secondary: Color(0xFF363636),
+    tertiary: Color(0xFF484848)
   ),
 );

@@ -7,7 +7,6 @@ import 'pages/profile.dart';
 import 'pages/publication.dart';
 import 'components/bottom_navigation_bar.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
