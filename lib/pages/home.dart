@@ -26,7 +26,7 @@ class _HomePage extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.surface,
-        elevation: 1,
+        elevation: 0,
         shadowColor: Colors.black,
         title: Row(
           children: [

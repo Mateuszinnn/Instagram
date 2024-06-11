@@ -1,12 +1,32 @@
 import 'package:flutter/material.dart';
 
-class PostWidget extends StatelessWidget {
+class PostWidget extends StatefulWidget {
   final String image;
-  
+
   const PostWidget({
-    Key? key, 
+    Key? key,
     required this.image,
-    }) : super(key: key);
+  }) : super(key: key);
+
+  @override
+  State<PostWidget> createState() => _PostWidgetState();
+}
+
+class _PostWidgetState extends State<PostWidget> {
+  bool _isFavorite = false;
+  bool _isSaved = false;
+
+  void _toggleFavorite() {
+    setState(() {
+      _isFavorite = !_isFavorite;
+    });
+  }
+
+  void _toggleSaved() {
+    setState(() {
+      _isSaved = !_isSaved;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,18 +57,59 @@ class PostWidget extends StatelessWidget {
             const Spacer(),
             IconButton(
               icon: const Icon(Icons.more_horiz),
-              onPressed: () {},
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return Container(
+                      height: 200,
+                      color: Theme.of(context).colorScheme.secondary,
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Row(
+                              children: [
+                                IconButton(
+                                  icon: const Icon(Icons.bookmark_border), onPressed: () {  },
+                                ),
+                                IconButton(
+                                  icon: const Icon(Icons.add), onPressed: () {  },
+                                ),
+                              ],
+                            ),
+                            ListTile(
+                              leading:  const Icon(Icons.link),
+                              title: const Text('Get link'),
+                              onTap: () {},
+                            ),
+                            ListTile(
+                              leading: const Icon(Icons.edit),
+                              title: const Text('Edit'),
+                              onTap: () {},
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
             ),
           ],
         ),
         SizedBox(
             width: double.infinity,
-            child: Image.asset(image, fit: BoxFit.contain)),
+            child: Image.asset(widget.image, fit: BoxFit.contain)),
         Row(
           children: [
             IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.favorite_border),
+              onPressed: _toggleFavorite,
+              icon: Icon(
+                _isFavorite ? Icons.favorite : Icons.favorite_border,
+                color: _isFavorite ? Colors.red : null,
+              ),
             ),
             IconButton(
               onPressed: () {},
@@ -60,8 +121,11 @@ class PostWidget extends StatelessWidget {
             ),
             const Spacer(),
             IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.bookmark_border_sharp),
+              onPressed: _toggleSaved,
+              icon: Icon(
+                _isSaved ? Icons.bookmark : Icons.bookmark_border_sharp,
+                color: _isSaved ? Colors.white : null,
+              ),
             ),
           ],
         ),
