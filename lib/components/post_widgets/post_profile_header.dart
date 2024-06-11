@@ -43,7 +43,7 @@ class PostProfileHeader extends StatelessWidget {
               context: context,
               builder: (BuildContext context) {
                 return Container(
-                  height: 400,
+                  height: 600,
                   color: Theme.of(context).colorScheme.secondary,
                   child: Center(
                     child: Column(
@@ -111,92 +111,248 @@ class PostProfileHeader extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                          child: SizedBox(
-                            height: 50,
-                            width: (widthButton * 2) + 15,
-                            child: FilledButton(
-                              onPressed: () {},
-                              style: ButtonStyle(
-                                backgroundColor: WidgetStateProperty.all(
-                                    Theme.of(context).colorScheme.tertiary),
-                                shape: WidgetStateProperty.all<
-                                    RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(5.0),
+                        SizedBox(
+                          height: 50,
+                          width: (widthButton * 2) + 15,
+                          child: FilledButton(
+                            onPressed: () {},
+                            style: ButtonStyle(
+                              backgroundColor: WidgetStateProperty.all(
+                                  Theme.of(context).colorScheme.tertiary),
+                              shape: WidgetStateProperty.all<
+                                  RoundedRectangleBorder>(
+                                const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.vertical(
+                                    top: Radius.circular(5.0),
+                                    bottom: Radius.zero,
                                   ),
                                 ),
                               ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.star_border,
-                                    color:
-                                        Theme.of(context).colorScheme.primary,
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.star_border,
+                                  color:
+                                      Theme.of(context).colorScheme.primary,
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  'Adicionar favoritos',
+                                  style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .primary,
+                                    fontFamily: 'Instagram',
                                   ),
-                                  const SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    'Adicionar favoritos',
-                                    style: TextStyle(
-                                      color:
-                                          Theme.of(context).colorScheme.primary,
-                                      fontFamily: 'Instagram',
-                                    ),
-                                  ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                          child: SizedBox(
-                            height: 50,
-                            width: (widthButton * 2) + 15,
-                            child: FilledButton(
-                              onPressed: () {},
-                              style: ButtonStyle(
-                                backgroundColor: WidgetStateProperty.all(
-                                    Theme.of(context).colorScheme.tertiary),
-                                shape: WidgetStateProperty.all<
-                                    RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(5.0),
+                        SizedBox(
+                          height: 1,
+                          width: (widthButton * 2) + 15,
+                          child: Container(
+                            color: Colors.white,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 50,
+                          width: (widthButton * 2) + 15,
+                          child: FilledButton(
+                            onPressed: () {},
+                            style: ButtonStyle(
+                              backgroundColor: WidgetStateProperty.all(
+                                  Theme.of(context).colorScheme.tertiary),
+                              shape: WidgetStateProperty.all<
+                                  RoundedRectangleBorder>(
+                                const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.vertical(
+                                    top: Radius.zero,
+                                    bottom: Radius.circular(5.0),
                                   ),
                                 ),
                               ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Transform(
-                                    alignment: Alignment.center,
-                                    transform: Matrix4.identity()
-                                      ..scale(-1.0, 1.0),
-                                    child: Icon(
-                                      Icons.person_remove_outlined,
-                                      color:
-                                          Theme.of(context).colorScheme.primary,
-                                    ),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Transform(
+                                  alignment: Alignment.center,
+                                  transform: Matrix4.identity()
+                                    ..scale(-1.0, 1.0),
+                                  child: Icon(
+                                    Icons.person_remove_outlined,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .primary,
                                   ),
-                                  const SizedBox(
-                                    width: 5,
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  'Deixar de seguir',
+                                  style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .primary,
+                                    fontFamily: 'Instagram',
                                   ),
-                                  Text(
-                                    'Deixar de seguir',
-                                    style: TextStyle(
-                                      color:
-                                          Theme.of(context).colorScheme.primary,
-                                      fontFamily: 'Instagram',
-                                    ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 10,),
+                        SizedBox(
+                          height: 50,
+                          width: (widthButton * 2) + 15,
+                          child: FilledButton(
+                            onPressed: () {},
+                            style: ButtonStyle(
+                              backgroundColor: WidgetStateProperty.all(
+                                  Theme.of(context).colorScheme.tertiary),
+                              shape: WidgetStateProperty.all<
+                                  RoundedRectangleBorder>(
+                                const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.vertical(
+                                    top: Radius.circular(5.0),
+                                    bottom: Radius.zero,
                                   ),
-                                ],
+                                ),
                               ),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.person_pin_rounded,
+                                  color:
+                                      Theme.of(context).colorScheme.primary,
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  'Sobre essa conta',
+                                  style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .primary,
+                                    fontFamily: 'Instagram',
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 1,
+                          width: (widthButton * 2) + 15,
+                          child: Container(
+                            color: Colors.white,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 50,
+                          width: (widthButton * 2) + 15,
+                          child: FilledButton(
+                            onPressed: () {},
+                            style: ButtonStyle(
+                              backgroundColor: WidgetStateProperty.all(
+                                  Theme.of(context).colorScheme.tertiary),
+                              shape: WidgetStateProperty.all<
+                                  RoundedRectangleBorder>(
+                                const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.vertical(
+                                    top: Radius.zero,
+                                    bottom: Radius.circular(5.0),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.qr_code_scanner_rounded,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .primary,
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  'QR code',
+                                  style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .primary,
+                                    fontFamily: 'Instagram',
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 1,
+                          width: (widthButton * 2) + 15,
+                          child: Container(
+                            color: Colors.white,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 50,
+                          width: (widthButton * 2) + 15,
+                          child: FilledButton(
+                            onPressed: () {},
+                            style: ButtonStyle(
+                              backgroundColor: WidgetStateProperty.all(
+                                  Theme.of(context).colorScheme.tertiary),
+                              shape: WidgetStateProperty.all<
+                                  RoundedRectangleBorder>(
+                                const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.vertical(
+                                    top: Radius.zero,
+                                    bottom: Radius.circular(5.0),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.info_outline,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .primary,
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  'Por que você está vendo essa publicação',
+                                  style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .primary,
+                                    fontFamily: 'Instagram',
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
