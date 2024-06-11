@@ -5,10 +5,10 @@ class Storieswidget extends StatelessWidget {
   final String profileName;
 
   const Storieswidget({
-    Key? key,
+    super.key,
     required this.index,
     required this.profileName,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -7,12 +7,12 @@ class PostInteractionButton extends StatelessWidget {
   final VoidCallback toggleSaved;
 
   const PostInteractionButton({
-    Key? key,
+    super.key,
     required this.isFavorite,
     required this.toggleFavorite,
     required this.isSaved,
     required this.toggleSaved,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

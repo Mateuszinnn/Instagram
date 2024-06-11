@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class PostCommentsSection extends StatelessWidget {
-  const PostCommentsSection({Key? key}) : super(key: key);
+  const PostCommentsSection({super.key});
 
   @override
   Widget build(BuildContext context) {

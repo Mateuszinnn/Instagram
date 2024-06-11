@@ -9,14 +9,14 @@ class ButtonReels extends StatelessWidget {
   final Icon icon;
 
   const ButtonReels({
-    Key? key,
+    super.key,
     required this.onPressed,
     required this.text,
     required this.icon,
     this.iconColor = Colors.white,
     this.textColor = Colors.white,
     this.fontFamily = 'Instagram',
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

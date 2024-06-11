@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:instagram/components/button_reels.dart';
 
 class ReelPage extends StatefulWidget {
-  const ReelPage({Key? key}) : super(key: key);
+  const ReelPage({super.key});
 
   @override
   _ReelPageState createState() => _ReelPageState();

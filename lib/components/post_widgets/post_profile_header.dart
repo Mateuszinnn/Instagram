@@ -6,10 +6,10 @@ class PostProfileHeader extends StatelessWidget {
   final double widthButton;
 
   const PostProfileHeader({
-    Key? key,
+    super.key,
     required this.height,
     required this.widthButton,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -40,323 +40,186 @@ class PostProfileHeader extends StatelessWidget {
           icon: const Icon(Icons.more_horiz),
           onPressed: () {
             showModalBottomSheet(
+              showDragHandle: true,
+              backgroundColor: Theme.of(context).colorScheme.onSecondaryContainer,
               context: context,
               builder: (BuildContext context) {
-                return Container(
-                  height: 600,
-                  color: Theme.of(context).colorScheme.secondary,
-                  child: Center(
-                    child: Column(
-                      children: <Widget>[
-                        Row(
-                          children: [
-                            PostBottomsheet(
-                              icon: Icons.bookmark_border,
-                              label: 'Salvar',
-                              height: height,
-                              width: widthButton,
-                              index: 0,
+                return SingleChildScrollView(
+                  child: Container(
+                    height: 550,
+                    color: Theme.of(context).colorScheme.onSecondaryContainer,
+                    child: Center(
+                      child: Column(
+                        children: <Widget>[
+                          Row(
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(10, 10, 5, 0),
+                                child: PostBottomSheetButton(
+                                  icon: Icons.bookmark_border,
+                                  label: 'Salvar',
+                                  width: widthButton,
+                                  isTopRounded: true,
+                                  isBottomRounded: true,
+                                  backgroundColor:
+                                      Theme.of(context).colorScheme.tertiary,
+                                  textColor:
+                                      Theme.of(context).colorScheme.primary,
+                                  iconColor:
+                                      Theme.of(context).colorScheme.primary,
+                                  isColumn: true,
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(5, 10, 10, 0),
+                                child: PostBottomSheetButton(
+                                  icon: Icons.add_box_outlined,
+                                  label: 'Remixar',
+                                  width: widthButton,
+                                  isTopRounded: true,
+                                  isBottomRounded: true,
+                                  backgroundColor:
+                                      Theme.of(context).colorScheme.tertiary,
+                                  textColor:
+                                      Theme.of(context).colorScheme.primary,
+                                  iconColor:
+                                      Theme.of(context).colorScheme.primary,
+                                  isColumn: true,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: PostBottomSheetButton(
+                              icon: Icons.cut,
+                              label: 'Crie uma figurinha de recorte',
+                              width: (widthButton * 2) + 15,
+                              isTopRounded: true,
+                              isBottomRounded: true,
+                              isIconRotated: true,
+                              backgroundColor:
+                                  Theme.of(context).colorScheme.tertiary,
+                              textColor: Theme.of(context).colorScheme.primary,
+                              iconColor: Theme.of(context).colorScheme.primary,
+                              isColumn: false,
                             ),
-                            PostBottomsheet(
-                              icon: Icons.add_box_outlined,
-                              label: 'Remixar',
-                              height: height,
-                              width: widthButton,
-                              index: 1,
-                            ),
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-                          child: SizedBox(
-                            height: 50,
+                          ),
+                          PostBottomSheetButton(
+                            icon: Icons.star_border,
+                            label: 'Adicionar favoritos',
                             width: (widthButton * 2) + 15,
-                            child: FilledButton(
-                              onPressed: () {},
-                              style: ButtonStyle(
-                                backgroundColor: WidgetStateProperty.all(
-                                    Theme.of(context).colorScheme.tertiary),
-                                shape: WidgetStateProperty.all<
-                                    RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(5.0),
-                                  ),
-                                ),
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Transform.rotate(
-                                    angle: 270 * (3.1415926535897932 / 180),
-                                    child: Icon(
-                                      Icons.cut,
-                                      color:
-                                          Theme.of(context).colorScheme.primary,
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    'Crie uma figurinha de recorte',
-                                    style: TextStyle(
-                                      color:
-                                          Theme.of(context).colorScheme.primary,
-                                      fontFamily: 'Instagram',
-                                    ),
-                                  ),
-                                ],
-                              ),
+                            isTopRounded: true,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.tertiary,
+                            textColor: Theme.of(context).colorScheme.primary,
+                            iconColor: Theme.of(context).colorScheme.primary,
+                            isColumn: false,
+                          ),
+                          SizedBox(
+                            width: (widthButton * 2) + 15,
+                            child: Divider(
+                              height: 0.1,
+                              color: Theme.of(context).colorScheme.primary,
                             ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 50,
-                          width: (widthButton * 2) + 15,
-                          child: FilledButton(
-                            onPressed: () {},
-                            style: ButtonStyle(
-                              backgroundColor: WidgetStateProperty.all(
-                                  Theme.of(context).colorScheme.tertiary),
-                              shape: WidgetStateProperty.all<
-                                  RoundedRectangleBorder>(
-                                const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.vertical(
-                                    top: Radius.circular(5.0),
-                                    bottom: Radius.zero,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.star_border,
-                                  color:
-                                      Theme.of(context).colorScheme.primary,
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  'Adicionar favoritos',
-                                  style: TextStyle(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .primary,
-                                    fontFamily: 'Instagram',
-                                  ),
-                                ),
-                              ],
+                          PostBottomSheetButton(
+                            icon: Icons.person_remove_outlined,
+                            label: 'Deixar de seguir',
+                            width: (widthButton * 2) + 15,
+                            isBottomRounded: true,
+                            isIconFlipped: true,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.tertiary,
+                            textColor: Theme.of(context).colorScheme.primary,
+                            iconColor: Theme.of(context).colorScheme.primary,
+                            isColumn: false,
+                          ),
+                          const SizedBox(height: 10),
+                          PostBottomSheetButton(
+                            icon: Icons.person_pin_rounded,
+                            label: 'Sobre essa conta',
+                            width: (widthButton * 2) + 15,
+                            isTopRounded: true,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.tertiary,
+                            textColor: Theme.of(context).colorScheme.primary,
+                            iconColor: Theme.of(context).colorScheme.primary,
+                            isColumn: false,
+                          ),
+                          SizedBox(
+                            width: (widthButton * 2) + 15,
+                            child: Divider(
+                              height: 0.1,
+                              color: Theme.of(context).colorScheme.primary,
                             ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 1,
-                          width: (widthButton * 2) + 15,
-                          child: Container(
-                            color: Colors.white,
+                          PostBottomSheetButton(
+                            icon: Icons.qr_code_scanner_rounded,
+                            label: 'QR code',
+                            width: (widthButton * 2) + 15,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.tertiary,
+                            textColor: Theme.of(context).colorScheme.primary,
+                            iconColor: Theme.of(context).colorScheme.primary,
+                            isColumn: false,
                           ),
-                        ),
-                        SizedBox(
-                          height: 50,
-                          width: (widthButton * 2) + 15,
-                          child: FilledButton(
-                            onPressed: () {},
-                            style: ButtonStyle(
-                              backgroundColor: WidgetStateProperty.all(
-                                  Theme.of(context).colorScheme.tertiary),
-                              shape: WidgetStateProperty.all<
-                                  RoundedRectangleBorder>(
-                                const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.vertical(
-                                    top: Radius.zero,
-                                    bottom: Radius.circular(5.0),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Transform(
-                                  alignment: Alignment.center,
-                                  transform: Matrix4.identity()
-                                    ..scale(-1.0, 1.0),
-                                  child: Icon(
-                                    Icons.person_remove_outlined,
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .primary,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  'Deixar de seguir',
-                                  style: TextStyle(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .primary,
-                                    fontFamily: 'Instagram',
-                                  ),
-                                ),
-                              ],
+                          SizedBox(
+                            width: (widthButton * 2) + 15,
+                            child: Divider(
+                              height: 0.1,
+                              color: Theme.of(context).colorScheme.primary,
                             ),
                           ),
-                        ),
-                        const SizedBox(height: 10,),
-                        SizedBox(
-                          height: 50,
-                          width: (widthButton * 2) + 15,
-                          child: FilledButton(
-                            onPressed: () {},
-                            style: ButtonStyle(
-                              backgroundColor: WidgetStateProperty.all(
-                                  Theme.of(context).colorScheme.tertiary),
-                              shape: WidgetStateProperty.all<
-                                  RoundedRectangleBorder>(
-                                const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.vertical(
-                                    top: Radius.circular(5.0),
-                                    bottom: Radius.zero,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.person_pin_rounded,
-                                  color:
-                                      Theme.of(context).colorScheme.primary,
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  'Sobre essa conta',
-                                  style: TextStyle(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .primary,
-                                    fontFamily: 'Instagram',
-                                  ),
-                                ),
-                              ],
+                          PostBottomSheetButton(
+                            icon: Icons.info_outline,
+                            label: 'Por que você está vendo essa publicação',
+                            width: (widthButton * 2) + 15,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.tertiary,
+                            textColor: Theme.of(context).colorScheme.primary,
+                            iconColor: Theme.of(context).colorScheme.primary,
+                            isColumn: false,
+                          ),
+                          SizedBox(
+                            width: (widthButton * 2) + 15,
+                            child: Divider(
+                              height: 0.1,
+                              color: Theme.of(context).colorScheme.primary,
                             ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 1,
-                          width: (widthButton * 2) + 15,
-                          child: Container(
-                            color: Colors.white,
+                          PostBottomSheetButton(
+                            icon: Icons.visibility_off_outlined,
+                            label: 'Ocultar',
+                            width: (widthButton * 2) + 15,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.tertiary,
+                            textColor: Theme.of(context).colorScheme.primary,
+                            iconColor: Theme.of(context).colorScheme.primary,
+                            isColumn: false,
                           ),
-                        ),
-                        SizedBox(
-                          height: 50,
-                          width: (widthButton * 2) + 15,
-                          child: FilledButton(
-                            onPressed: () {},
-                            style: ButtonStyle(
-                              backgroundColor: WidgetStateProperty.all(
-                                  Theme.of(context).colorScheme.tertiary),
-                              shape: WidgetStateProperty.all<
-                                  RoundedRectangleBorder>(
-                                const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.vertical(
-                                    top: Radius.zero,
-                                    bottom: Radius.circular(5.0),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.qr_code_scanner_rounded,
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .primary,
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  'QR code',
-                                  style: TextStyle(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .primary,
-                                    fontFamily: 'Instagram',
-                                  ),
-                                ),
-                              ],
+                          SizedBox(
+                            width: (widthButton * 2) + 15,
+                            child: Divider(
+                              height: 0.1,
+                              color: Theme.of(context).colorScheme.primary,
                             ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 1,
-                          width: (widthButton * 2) + 15,
-                          child: Container(
-                            color: Colors.white,
+                          PostBottomSheetButton(
+                            icon: Icons.report_gmailerrorred,
+                            label: 'Denunciar',
+                            width: (widthButton * 2) + 15,
+                            isBottomRounded: true,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.tertiary,
+                            textColor: Colors.red,
+                            iconColor: Colors.red,
+                            isColumn: false,
                           ),
-                        ),
-                        SizedBox(
-                          height: 50,
-                          width: (widthButton * 2) + 15,
-                          child: FilledButton(
-                            onPressed: () {},
-                            style: ButtonStyle(
-                              backgroundColor: WidgetStateProperty.all(
-                                  Theme.of(context).colorScheme.tertiary),
-                              shape: WidgetStateProperty.all<
-                                  RoundedRectangleBorder>(
-                                const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.vertical(
-                                    top: Radius.zero,
-                                    bottom: Radius.circular(5.0),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.info_outline,
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .primary,
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  'Por que você está vendo essa publicação',
-                                  style: TextStyle(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .primary,
-                                    fontFamily: 'Instagram',
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 );

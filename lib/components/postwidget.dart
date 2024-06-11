@@ -8,9 +8,9 @@ class PostWidget extends StatefulWidget {
   final String image;
 
   const PostWidget({
-    Key? key,
+    super.key,
     required this.image,
-  }) : super(key: key);
+  });
 
   @override
   State<PostWidget> createState() => _PostWidgetState();

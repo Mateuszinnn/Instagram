@@ -6,6 +6,8 @@ ThemeData lightmode = ThemeData(
     surface: Colors.white,
     primary: Colors.black,
     secondary: Color(0xFFEFEFEF),
+    tertiary: Color(0xFFEFEFEF),
+    onSecondaryContainer: Colors.white,
   ),
 );
 
@@ -15,6 +17,7 @@ ThemeData darkmode = ThemeData(
     surface: Colors.black,
     primary: Colors.white,
     secondary: Color(0xFF363636),
-    tertiary: Color(0xFF484848)
+    tertiary: Color(0xFF484848),
+    onSecondaryContainer: Color(0xFF363636),
   ),
 );

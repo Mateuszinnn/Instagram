@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class PublicationPage extends StatefulWidget {
-  const PublicationPage({Key? key}) : super(key: key);
+  const PublicationPage({super.key});
 
   @override
   _PublicationPageState createState() => _PublicationPageState();

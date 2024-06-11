@@ -8,13 +8,13 @@ class Info extends StatelessWidget {
   final double fontsize;
 
   const Info({
-    Key? key,
+    super.key,
     required this.text,
     required this.text2,
     required this.fontsize,
     required this.textColor,
     this.fontFamily = 'Instagram',
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

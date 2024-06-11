@@ -1,64 +1,84 @@
 import 'package:flutter/material.dart';
 
-class PostBottomsheet extends StatelessWidget {
+class PostBottomSheetButton extends StatelessWidget {
   final IconData icon;
   final String label;
-  final double height;
   final double width;
-  final int index;
+  final bool isColumn;
+  final bool isTopRounded;
+  final bool isBottomRounded;
+  final bool isIconRotated;
+  final bool isIconFlipped;
+  final Color iconColor;
+  final Color textColor;
+  final Color backgroundColor;
+  final Color borderColor;
 
-  const PostBottomsheet({
-    Key? key,
+  const PostBottomSheetButton({
+    super.key,
     required this.icon,
     required this.label,
-    required this.height,
     required this.width,
-    required this.index,
-  }) : super(key: key);
+    required this.isColumn,
+    this.isTopRounded = false,
+    this.isBottomRounded = false,
+    this.isIconRotated = false,
+    this.isIconFlipped = false,
+    this.iconColor = Colors.black,
+    this.textColor = Colors.black,
+    this.backgroundColor = Colors.grey,
+    this.borderColor = Colors.transparent,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: index == 0
-              ? const EdgeInsets.fromLTRB(10, 10, 5, 10)
-              : const EdgeInsets.fromLTRB(5, 10, 10, 10),
-          child: SizedBox(
-            height: height,
-            width: width == 185 ? width : 181,
-            child: FilledButton(
-              onPressed: () {},
-              style: ButtonStyle(
-                backgroundColor: WidgetStateProperty.all(
-                    Theme.of(context).colorScheme.tertiary),
-                shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5.0),
-                  ),
-                ),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+    return Container(
+      width: width,
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        borderRadius: BorderRadius.vertical(
+          top: isTopRounded ? const Radius.circular(5.0) : Radius.zero,
+          bottom: isBottomRounded ? const Radius.circular(5.0) : Radius.zero,
+        ),
+        border: Border.all(color: borderColor),
+      ),
+      child: TextButton(
+        onPressed: () {},
+        child: isColumn == true
+            ? Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Icon(
                     icon,
-                    color: Theme.of(context).colorScheme.primary,
+                    color: iconColor,
                   ),
                   Text(
                     label,
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.primary,
-                      fontFamily: 'Instagram',
-                    ),
+                    style: TextStyle(color: textColor, fontFamily: 'Instagram'),
+                  ),
+                ],
+              )
+            : Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Transform(
+                    alignment: Alignment.center,
+                    transform: Matrix4.identity()
+                      ..rotateZ(
+                          isIconRotated ? 270 * (3.1415926535897932 / 180) : 0)
+                      ..scale(isIconFlipped ? -1.0 : 1.0, 1.0),
+                    child: Icon(icon, color: iconColor),
+                  ),
+                  const SizedBox(width: 5),
+                  Text(
+                    label,
+                    style: TextStyle(color: textColor, fontFamily: 'Instagram'),
                   ),
                 ],
               ),
-            ),
-          ),
-        ),
-      ],
+      ),
     );
   }
 }
