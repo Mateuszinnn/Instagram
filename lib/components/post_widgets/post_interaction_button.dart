@@ -49,7 +49,7 @@ class PostInteractionButton extends StatelessWidget {
                             return Container(
                               color: Theme.of(context)
                                   .colorScheme
-                                  .onSecondaryContainer,
+                                  .onPrimaryContainer,
                               child: SingleChildScrollView(
                                 controller: scrollController,
                                 child: Column(
@@ -63,22 +63,77 @@ class PostInteractionButton extends StatelessWidget {
                                         borderRadius: BorderRadius.circular(10),
                                       ),
                                     ),
+                                    const SizedBox(height: 10),
                                     const Text(
                                       'Comentários',
-                                      style: TextStyle(fontFamily: 'Instagram', fontWeight: FontWeight.bold),
+                                      style: TextStyle(
+                                          fontFamily: 'Instagram',
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20),
                                     ),
-                                    const SizedBox(height: 20),
-                                    const Text(
-                                      'Este é um Bottom Sheet que vai até o topo!',
-                                      style: TextStyle(fontSize: 60),
-                                    ),
-                                    const Text(
-                                      'Este é um Bottom Sheet que vai até o topo!',
-                                      style: TextStyle(fontSize: 60),
-                                    ),
-                                    const Text(
-                                      'Este é um Bottom Sheet que vai até o topo!',
-                                      style: TextStyle(fontSize: 60),
+                                    const SizedBox(height: 10),
+                                    const Divider(height: 0.1,),
+                                    const SizedBox(height: 10),
+                                    Column(
+                                      children: List.generate(
+                                        10,
+                                        (index) => Padding(
+                                          padding: const EdgeInsets.fromLTRB(
+                                              12, 18, 12, 12),
+                                          child: Row(
+                                            children: [
+                                              CircleAvatar(
+                                                radius: 17.1,
+                                                backgroundColor:
+                                                    Theme.of(context)
+                                                        .colorScheme
+                                                        .primary,
+                                                child: CircleAvatar(
+                                                  radius: 17,
+                                                  backgroundColor:
+                                                      Theme.of(context)
+                                                          .colorScheme
+                                                          .surface,
+                                                  child: Icon(
+                                                    Icons.person,
+                                                    size: 17,
+                                                    color: Theme.of(context)
+                                                        .colorScheme
+                                                        .primary,
+                                                  ),
+                                                ),
+                                              ),
+                                              const SizedBox(width: 10,),
+                                              const Column(
+                                                children: [
+                                                   SizedBox(
+                                                    child: Column(
+                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                      mainAxisAlignment: MainAxisAlignment.center,
+                                                      children: [
+                                                        Text(
+                                                          'Profile Name',
+                                                          style: TextStyle(
+                                                              fontFamily:
+                                                                  'instagram bold'),
+                                                        ),
+                                                        Text(
+                                                          'Lorem ipsum dolor sit amet',
+                                                          style: TextStyle(
+                                                            fontFamily: 'instagram',
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              const Spacer(),
+                                              Icon(Icons.favorite_border, color: Theme.of(context).colorScheme.tertiary,),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
                                     ),
                                   ],
                                 ),
