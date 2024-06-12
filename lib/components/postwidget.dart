@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/components/post_widgets/post_profile_header.dart';
 import 'package:instagram/components/post_widgets/post_interaction_button.dart';
-import 'package:instagram/components/post_widgets/post_description.dart';
-import 'package:instagram/components/post_widgets/post_comments_section.dart';
-
+import 'package:instagram/components/post_widgets/post_bottom.dart';
 class PostWidget extends StatefulWidget {
   final String image;
 
@@ -54,8 +52,7 @@ class _PostWidgetState extends State<PostWidget> {
           isSaved: _isSaved,
           toggleSaved: _toggleSaved,
         ),
-        const PostDescription(),
-        const PostCommentsSection(),
+        const PostBottom(),
       ],
     );
   }

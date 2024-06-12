@@ -228,7 +228,7 @@ class _ProfileState extends State<Profile> {
                         padding: const EdgeInsets.fromLTRB(10, 0, 5, 10),
                         child: SizedBox(
                           height: height,
-                          width: widthButton == 185 ? widthButton : 181,
+                          width: widthButton == 185 ? 181 : widthButton,
                           child: IntrinsicWidth(
                             child: FilledButton(
                               onPressed: () {},
@@ -257,28 +257,37 @@ class _ProfileState extends State<Profile> {
                         padding: const EdgeInsets.fromLTRB(5, 0, 10, 10),
                         child: SizedBox(
                           height: height,
-                          width: widthButton == 185 ? widthButton : 181,
+                          width: widthButton == 185 ? 181 : widthButton,
                           child: IntrinsicWidth(
                             child: FilledButton(
-                              onPressed: () {},
-                              style: ButtonStyle(
-                                backgroundColor: WidgetStateProperty.all(
-                                    Theme.of(context).colorScheme.secondary),
-                                shape: WidgetStateProperty.all<
-                                    RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(5.0),
+                                onPressed: () {},
+                                style: ButtonStyle(
+                                  backgroundColor: WidgetStateProperty.all(
+                                      Theme.of(context).colorScheme.secondary),
+                                  shape: WidgetStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(5.0),
+                                    ),
                                   ),
                                 ),
-                              ),
-                              child: Text(
-                                ' Compartilhar perfil',
-                                style: TextStyle(
-                                    color:
-                                        Theme.of(context).colorScheme.primary,
-                                    fontFamily: 'Instagram'),
-                              ),
-                            ),
+                                child: widthButton == 185
+                                    ? Text(
+                                        ' Compartilhar\n perfil',
+                                        style: TextStyle(
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .primary,
+                                            fontFamily: 'Instagram'),
+                                      )
+                                    : Text(
+                                        ' Compartilhar perfil',
+                                        style: TextStyle(
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .primary,
+                                            fontFamily: 'Instagram'),
+                                      )),
                           ),
                         ),
                       ),
@@ -396,7 +405,8 @@ class _ProfileState extends State<Profile> {
                                             'assets/images/sushi.jpeg',
                                             widthTela),
                                         buildSquareImage(
-                                            'assets/images/tacos.jpg', widthTela),
+                                            'assets/images/tacos.jpg',
+                                            widthTela),
                                         buildSquareImage(
                                             'assets/images/pizza.jpeg',
                                             widthTela),
@@ -440,7 +450,8 @@ class _ProfileState extends State<Profile> {
                                             'assets/images/sushi.jpeg',
                                             widthTela),
                                         buildRectangularImage(
-                                            'assets/images/tacos.jpg', widthTela),
+                                            'assets/images/tacos.jpg',
+                                            widthTela),
                                         buildRectangularImage(
                                             'assets/images/pizza.jpeg',
                                             widthTela),
@@ -484,7 +495,8 @@ class _ProfileState extends State<Profile> {
                                             'assets/images/sushi.jpeg',
                                             widthTela),
                                         buildSquareImage(
-                                            'assets/images/tacos.jpg', widthTela),
+                                            'assets/images/tacos.jpg',
+                                            widthTela),
                                         buildSquareImage(
                                             'assets/images/pizza.jpeg',
                                             widthTela),

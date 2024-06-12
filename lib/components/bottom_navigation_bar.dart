@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:instagram/components/bottom_navigation_widgets/bar_item.dart';
 
-class Bottomnavigationbar extends StatelessWidget {
+class Bottomnavigationbar  extends StatelessWidget {
   final int pageIndex;
   final Function(int) onTabSelected;
 
-  const Bottomnavigationbar({
-    super.key,
+  const Bottomnavigationbar ({
+    Key? key,
     required this.pageIndex,
     required this.onTabSelected,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,52 +26,31 @@ class Bottomnavigationbar extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Spacer(),
-              IconButton(
-                iconSize: 30,
-                icon: Icon(pageIndex == 0 ? Icons.home_rounded : Icons.home_outlined),
-                color: Theme.of(context).colorScheme.primary,
-                onPressed: () => onTabSelected(0),
-                enableFeedback: false,
+              BarItem(
+                isSelected: pageIndex == 0,
+                icon: pageIndex == 0 ? Icons.home_rounded : Icons.home_outlined,
+                onTap: () => onTabSelected(0),
               ),
-              const Spacer(),
-              IconButton(
-                iconSize: 30,
-                icon: pageIndex == 1
-                    ? const FaIcon(
-                        FontAwesomeIcons.magnifyingGlass,
-                        size: 28,
-                      )
-                    : const Icon(Icons.search),
-                color: Theme.of(context).colorScheme.primary,
-                onPressed: () => onTabSelected(1),
-                enableFeedback: false,
+              BarItem(
+                isSelected: pageIndex == 1,
+                icon: pageIndex == 1 ? Icons.search : Icons.search,
+                onTap: () => onTabSelected(1),
               ),
-              const Spacer(),
-              IconButton(
-                iconSize: 30,
-                icon: Icon(pageIndex == 2 ? Icons.add_box : Icons.add_box_outlined),
-                color: Theme.of(context).colorScheme.primary,
-                onPressed: () => onTabSelected(2),
-                enableFeedback: false,
+              BarItem(
+                isSelected: pageIndex == 2,
+                icon: pageIndex == 2 ? Icons.add_box : Icons.add_box_outlined,
+                onTap: () => onTabSelected(2),
               ),
-              const Spacer(),
-              IconButton(
-                iconSize: 30,
-                icon: Icon(pageIndex == 3 ? Icons.video_library : Icons.video_library_outlined),
-                color: Theme.of(context).colorScheme.primary,
-                onPressed: () => onTabSelected(3),
-                enableFeedback: false,
+              BarItem(
+                isSelected: pageIndex == 3,
+                icon: pageIndex == 3 ? Icons.video_library : Icons.video_library_outlined,
+                onTap: () => onTabSelected(3),
               ),
-              const Spacer(),
-              IconButton(
-                iconSize: 30,
-                icon: Icon(pageIndex == 4 ? Icons.person : Icons.person_outline),
-                color: Theme.of(context).colorScheme.primary,
-                onPressed: () => onTabSelected(4),
-                enableFeedback: false,
+              BarItem(
+                isSelected: pageIndex == 4,
+                icon: pageIndex == 4 ? Icons.person : Icons.person_outline,
+                onTap: () => onTabSelected(4),
               ),
-              const Spacer(),
             ],
           ),
         ),

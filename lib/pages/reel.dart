@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/components/button_reels.dart';
+import 'package:instagram/components/profile_widget.dart';
 
 class ReelPage extends StatefulWidget {
   const ReelPage({super.key});
 
   @override
-  _ReelPageState createState() => _ReelPageState();
+  State<ReelPage> createState() => _ReelPageState();
 }
 
 class _ReelPageState extends State<ReelPage> {
@@ -114,28 +115,7 @@ class _ReelPageState extends State<ReelPage> {
           children: [
             Row(
               children: [
-                const Padding(
-                  padding: EdgeInsets.fromLTRB(12, 18, 12, 12),
-                  child: CircleAvatar(
-                    radius: 17.1,
-                    backgroundColor: Colors.white,
-                    child: CircleAvatar(
-                      radius: 17,
-                      backgroundColor: Colors.black,
-                      child: Icon(
-                        Icons.person,
-                        size: 17,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-                const Text(
-                  'Profile Name',
-                  style: TextStyle(
-                      fontFamily: 'instagram bold',
-                      color: Colors.white),
-                ),
+                const ProfileWidget(profileName: 'Profile Name', paddingLeft: 12, paddingTop: 18, paddingRight: 12, paddingBottom: 12, size: 17,),
                 const SizedBox(width: 10),
                 SizedBox(
                   height: 25,

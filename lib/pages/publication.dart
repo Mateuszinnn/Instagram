@@ -4,7 +4,7 @@ class PublicationPage extends StatefulWidget {
   const PublicationPage({super.key});
 
   @override
-  _PublicationPageState createState() => _PublicationPageState();
+  State<PublicationPage> createState() => _PublicationPageState();
 }
 
 class _PublicationPageState extends State<PublicationPage> {

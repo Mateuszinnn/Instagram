@@ -67,7 +67,7 @@ class _InstaHomePage extends State<InstaHomePage> {
           Profile(),
         ],
       ),
-      bottomNavigationBar: Bottomnavigationbar(
+      bottomNavigationBar: Bottomnavigationbar (
         pageIndex: _pageIndex,
         onTabSelected: _onTabSelected,
       ),

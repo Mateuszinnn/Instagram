@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/components/post_widgets/post_bottomsheet.dart';
+import 'package:instagram/components/post_widgets/post_more_bottomsheet.dart';
+import 'package:instagram/components/profile_widget.dart';
 
 class PostProfileHeader extends StatelessWidget {
   final double height;
@@ -15,26 +16,7 @@ class PostProfileHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(12, 18, 12, 12),
-          child: CircleAvatar(
-            radius: 17.1,
-            backgroundColor: Theme.of(context).colorScheme.primary,
-            child: CircleAvatar(
-              radius: 17,
-              backgroundColor: Theme.of(context).colorScheme.surface,
-              child: Icon(
-                Icons.person,
-                size: 17,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-            ),
-          ),
-        ),
-        const Text(
-          'Profile Name',
-          style: TextStyle(fontFamily: 'instagram bold'),
-        ),
+        const ProfileWidget(profileName: 'Profile Name', paddingLeft: 12, paddingTop: 18, paddingRight: 12, paddingBottom: 12, size: 17,),
         const Spacer(),
         IconButton(
           icon: const Icon(Icons.more_horiz),
@@ -55,7 +37,7 @@ class PostProfileHeader extends StatelessWidget {
                             Padding(
                               padding:
                                   const EdgeInsets.fromLTRB(10, 10, 5, 0),
-                              child: PostBottomSheetButton(
+                              child: PostMoreBottomSheetButton(
                                 icon: Icons.bookmark_border,
                                 label: 'Salvar',
                                 width: widthButton,
@@ -73,7 +55,7 @@ class PostProfileHeader extends StatelessWidget {
                             Padding(
                               padding:
                                   const EdgeInsets.fromLTRB(5, 10, 10, 0),
-                              child: PostBottomSheetButton(
+                              child: PostMoreBottomSheetButton(
                                 icon: Icons.add_box_outlined,
                                 label: 'Remixar',
                                 width: widthButton,
@@ -92,7 +74,7 @@ class PostProfileHeader extends StatelessWidget {
                         ),
                         Padding(
                           padding: const EdgeInsets.all(10),
-                          child: PostBottomSheetButton(
+                          child: PostMoreBottomSheetButton(
                             icon: Icons.cut,
                             label: 'Crie uma figurinha de recorte',
                             width: (widthButton * 2) + 15,
@@ -106,7 +88,7 @@ class PostProfileHeader extends StatelessWidget {
                             isColumn: false,
                           ),
                         ),
-                        PostBottomSheetButton(
+                        PostMoreBottomSheetButton(
                           icon: Icons.star_border,
                           label: 'Adicionar favoritos',
                           width: (widthButton * 2) + 15,
@@ -125,7 +107,7 @@ class PostProfileHeader extends StatelessWidget {
                             color: Theme.of(context).colorScheme.primary,
                           ),
                         ),
-                        PostBottomSheetButton(
+                        PostMoreBottomSheetButton(
                           icon: Icons.person_remove_outlined,
                           label: 'Deixar de seguir',
                           width: (widthButton * 2) + 15,
@@ -138,7 +120,7 @@ class PostProfileHeader extends StatelessWidget {
                           isColumn: false,
                         ),
                         const SizedBox(height: 10),
-                        PostBottomSheetButton(
+                        PostMoreBottomSheetButton(
                           icon: Icons.person_pin_rounded,
                           label: 'Sobre essa conta',
                           width: (widthButton * 2) + 15,
@@ -157,7 +139,7 @@ class PostProfileHeader extends StatelessWidget {
                             color: Theme.of(context).colorScheme.primary,
                           ),
                         ),
-                        PostBottomSheetButton(
+                        PostMoreBottomSheetButton(
                           icon: Icons.qr_code_scanner_rounded,
                           label: 'QR code',
                           width: (widthButton * 2) + 15,
@@ -175,9 +157,9 @@ class PostProfileHeader extends StatelessWidget {
                             color: Theme.of(context).colorScheme.primary,
                           ),
                         ),
-                        PostBottomSheetButton(
+                        PostMoreBottomSheetButton(
                           icon: Icons.info_outline,
-                          label: 'Por que você está vendo essa publicação',
+                          label: 'Por que está vendo essa publicação',
                           width: (widthButton * 2) + 15,
                           backgroundColor:
                               Theme.of(context).colorScheme.tertiary,
@@ -193,7 +175,7 @@ class PostProfileHeader extends StatelessWidget {
                             color: Theme.of(context).colorScheme.primary,
                           ),
                         ),
-                        PostBottomSheetButton(
+                        PostMoreBottomSheetButton(
                           icon: Icons.visibility_off_outlined,
                           label: 'Ocultar',
                           width: (widthButton * 2) + 15,
@@ -211,7 +193,7 @@ class PostProfileHeader extends StatelessWidget {
                             color: Theme.of(context).colorScheme.primary,
                           ),
                         ),
-                        PostBottomSheetButton(
+                        PostMoreBottomSheetButton(
                           icon: Icons.report_gmailerrorred,
                           label: 'Denunciar',
                           width: (widthButton * 2) + 15,

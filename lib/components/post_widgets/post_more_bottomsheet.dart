@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class PostBottomSheetButton extends StatelessWidget {
+class PostMoreBottomSheetButton extends StatelessWidget {
   final IconData icon;
   final String label;
   final double width;
@@ -14,7 +14,7 @@ class PostBottomSheetButton extends StatelessWidget {
   final Color backgroundColor;
   final Color borderColor;
 
-  const PostBottomSheetButton({
+  const PostMoreBottomSheetButton({
     super.key,
     required this.icon,
     required this.label,
