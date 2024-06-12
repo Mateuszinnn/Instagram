@@ -16,6 +16,8 @@ class PostInteractionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double widthTotal = MediaQuery.of(context).size.width;
+
     return Row(
       children: [
         IconButton(
@@ -46,40 +48,21 @@ class PostInteractionButton extends StatelessWidget {
                           maxChildSize: 1.0,
                           expand: true,
                           builder: (context, scrollController) {
-                            return Container(
-                              color: Theme.of(context)
-                                  .colorScheme
-                                  .onPrimaryContainer,
-                              child: SingleChildScrollView(
-                                controller: scrollController,
-                                child: Column(
-                                  children: <Widget>[
-                                    const SizedBox(height: 10),
-                                    Container(
-                                      width: 50,
-                                      height: 5,
-                                      decoration: BoxDecoration(
-                                        color: Colors.grey,
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    const Text(
-                                      'Comentários',
-                                      style: TextStyle(
-                                          fontFamily: 'Instagram',
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    const Divider(height: 0.1,),
-                                    const SizedBox(height: 10),
-                                    Column(
+                            return Stack(
+                              children: [
+                                Container(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onPrimaryContainer,
+                                  child: SingleChildScrollView(
+                                    controller: scrollController,
+                                    padding: const EdgeInsets.only(top: 80),
+                                    child: Column(
                                       children: List.generate(
                                         10,
                                         (index) => Padding(
                                           padding: const EdgeInsets.fromLTRB(
-                                              12, 18, 12, 12),
+                                              12, 22, 12, 12),
                                           child: Row(
                                             children: [
                                               CircleAvatar(
@@ -103,41 +86,309 @@ class PostInteractionButton extends StatelessWidget {
                                                   ),
                                                 ),
                                               ),
-                                              const SizedBox(width: 10,),
-                                              const Column(
+                                              const SizedBox(width: 10),
+                                              Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
                                                 children: [
-                                                   SizedBox(
+                                                  const SizedBox(
                                                     child: Column(
-                                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                                      mainAxisAlignment: MainAxisAlignment.center,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
                                                       children: [
-                                                        Text(
-                                                          'Profile Name',
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'instagram bold'),
+                                                        Row(
+                                                          children: [
+                                                            Text(
+                                                              'Profile Name',
+                                                              style: TextStyle(
+                                                                fontFamily:
+                                                                    'instagram bold',
+                                                              ),
+                                                            ),
+                                                            SizedBox(width: 10),
+                                                            Text(
+                                                              'X dias',
+                                                              style: TextStyle(
+                                                                  fontFamily:
+                                                                      'instagram bold',
+                                                                  color: Colors
+                                                                      .grey),
+                                                            ),
+                                                          ],
                                                         ),
                                                         Text(
                                                           'Lorem ipsum dolor sit amet',
                                                           style: TextStyle(
-                                                            fontFamily: 'instagram',
+                                                            fontFamily:
+                                                                'instagram',
                                                           ),
                                                         ),
                                                       ],
                                                     ),
                                                   ),
+                                                  const Row(
+                                                    children: [
+                                                      Text(
+                                                        'Responder',
+                                                        style: TextStyle(
+                                                            fontFamily:
+                                                                'instagram bold',
+                                                            color: Colors.grey,
+                                                            fontSize: 13),
+                                                      ),
+                                                      SizedBox(width: 10),
+                                                      Text(
+                                                        'Ver tradução',
+                                                        style: TextStyle(
+                                                            fontFamily:
+                                                                'instagram bold',
+                                                            color: Colors.grey,
+                                                            fontSize: 13),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      Container(
+                                                        height: 0.5,
+                                                        width: 10,
+                                                        color: Colors.grey,
+                                                      ),
+                                                      const SizedBox(width: 5),
+                                                      const Text(
+                                                        'Ver mais x comentários',
+                                                        style: TextStyle(
+                                                          fontFamily:
+                                                              'instagram bold',
+                                                          color: Colors.grey,
+                                                          fontSize: 13,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  )
                                                 ],
                                               ),
                                               const Spacer(),
-                                              Icon(Icons.favorite_border, color: Theme.of(context).colorScheme.tertiary,),
+                                              Column(
+                                                children: [
+                                                  IconButton(
+                                                    icon: const Icon(
+                                                        Icons.favorite_border,
+                                                        color: Colors.grey),
+                                                    onPressed: () {},
+                                                  ),
+                                                  const Text(
+                                                    '10',
+                                                    style: TextStyle(
+                                                        fontFamily:
+                                                            'instagram bold',
+                                                        color: Colors.grey),
+                                                  ),
+                                                ],
+                                              ),
                                             ],
                                           ),
                                         ),
                                       ),
                                     ),
-                                  ],
+                                  ),
                                 ),
-                              ),
+                                Positioned(
+                                  top: 0,
+                                  left: 0,
+                                  right: 0,
+                                  child: Container(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onPrimaryContainer,
+                                    child: Column(
+                                      children: [
+                                        const SizedBox(height: 30),
+                                        Container(
+                                          width: 50,
+                                          height: 5,
+                                          decoration: BoxDecoration(
+                                            color: Colors.grey,
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                        ),
+                                        const SizedBox(height: 10),
+                                        const Text(
+                                          'Comentários',
+                                          style: TextStyle(
+                                              fontFamily: 'Instagram',
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 20),
+                                        ),
+                                        const SizedBox(height: 10),
+                                        const Divider(
+                                          height: 0.5,
+                                          thickness: 0.1,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Positioned(
+                                  bottom: 0,
+                                  child: Container(
+                                    width: widthTotal,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onPrimaryContainer,
+                                    child: Column(
+                                      children: [
+                                        const Divider(
+                                          height: 0.5,
+                                          thickness: 0.1,
+                                        ),
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                        const Row(
+                                          children: [
+                                            Spacer(),
+                                            Text(
+                                              '❤️',
+                                              style: TextStyle(
+                                                fontSize: 22,
+                                              ),
+                                            ),
+                                            Spacer(),
+                                            Text(
+                                              '🙌',
+                                              style: TextStyle(
+                                                fontSize: 22,
+                                              ),
+                                            ),
+                                            Spacer(),
+                                            Text(
+                                              '🔥',
+                                              style: TextStyle(
+                                                fontSize: 22,
+                                              ),
+                                            ),
+                                            Spacer(),
+                                            Text(
+                                              '👏',
+                                              style: TextStyle(
+                                                fontSize: 22,
+                                              ),
+                                            ),
+                                            Spacer(),
+                                            Text(
+                                              '😭',
+                                              style: TextStyle(
+                                                fontSize: 22,
+                                              ),
+                                            ),
+                                            Spacer(),
+                                            Text(
+                                              '😍',
+                                              style: TextStyle(
+                                                fontSize: 22,
+                                              ),
+                                            ),
+                                            Spacer(),
+                                            Text(
+                                              '😮',
+                                              style: TextStyle(
+                                                fontSize: 22,
+                                              ),
+                                            ),
+                                            Spacer(),
+                                            Text(
+                                              '😂',
+                                              style: TextStyle(
+                                                fontSize: 22,
+                                              ),
+                                            ),
+                                            Spacer(),
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                        Row(
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                              child: CircleAvatar(
+                                                radius: 24.1,
+                                                backgroundColor: Theme.of(context)
+                                                    .colorScheme
+                                                    .primary,
+                                                child: CircleAvatar(
+                                                  radius: 24,
+                                                  backgroundColor:
+                                                      Theme.of(context)
+                                                          .colorScheme
+                                                          .surface,
+                                                  child: Icon(
+                                                    Icons.person,
+                                                    size: 24,
+                                                    color: Theme.of(context)
+                                                        .colorScheme
+                                                        .primary,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: Padding(
+                                                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                                child: SizedBox(
+                                                  height: 50,
+                                                  width: 50,
+                                                  child: TextField(
+                                                    style: const TextStyle(
+                                                      fontFamily: 'Instagram',
+                                                      color: Colors.white,
+                                                    ),
+                                                    decoration: InputDecoration(
+                                                      suffixIcon: Icon(
+                                                        Icons.gif_box_outlined,
+                                                        color: Theme.of(context).colorScheme.primary,
+                                                      ),
+                                                      hintText:
+                                                          'Adicione um comentário para compartilhar',
+                                                      hintStyle: const TextStyle(
+                                                        color: Color(0xFFA8A8A8),
+                                                      ),
+                                                      filled: true,
+                                                      fillColor: Theme.of(context)
+                                                          .colorScheme
+                                                          .secondary,
+                                                      border:
+                                                          const OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                          Radius.circular(15),
+                                                        ),
+                                                        
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                )
+                              ],
                             );
                           },
                         ),
