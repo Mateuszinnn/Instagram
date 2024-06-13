@@ -75,6 +75,7 @@ class CommentInput extends StatelessWidget {
                   paddingRight: 0.1,
                   paddingBottom: 0.1,
                   size: 24,
+                  isColumn: false,
                 ),
               ),
               Expanded(
@@ -98,8 +99,7 @@ class CommentInput extends StatelessWidget {
                           color: Color(0xFFA8A8A8),
                         ),
                         filled: true,
-                        fillColor:
-                            Theme.of(context).colorScheme.secondary,
+                        fillColor: Theme.of(context).colorScheme.secondary,
                         border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(
                             Radius.circular(15),

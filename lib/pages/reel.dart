@@ -115,24 +115,29 @@ class _ReelPageState extends State<ReelPage> {
           children: [
             Row(
               children: [
-                const ProfileWidget(profileName: 'Profile Name', paddingLeft: 12, paddingTop: 18, paddingRight: 12, paddingBottom: 12, size: 17,),
+                const ProfileWidget(
+                  profileName: 'Profile Name',
+                  paddingLeft: 12,
+                  paddingTop: 18,
+                  paddingRight: 12,
+                  paddingBottom: 12,
+                  size: 17,
+                  isColumn: false,
+                ),
                 const SizedBox(width: 10),
                 SizedBox(
                   height: 25,
                   child: OutlinedButton(
                     style: ButtonStyle(
                       side: WidgetStateProperty.all(
-                        const BorderSide(
-                            color: Colors.white),
+                        const BorderSide(color: Colors.white),
                       ),
                     ),
                     onPressed: () {},
                     child: const Text(
                       'Seguir',
                       style: TextStyle(
-                        fontFamily: 'Instagram',
-                        color: Colors.white
-                      ),
+                          fontFamily: 'Instagram', color: Colors.white),
                     ),
                   ),
                 ),

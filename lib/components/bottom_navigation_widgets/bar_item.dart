@@ -8,11 +8,11 @@ class BarItem extends StatelessWidget {
   final VoidCallback onTap;
 
   const BarItem({
-    Key? key,
+    super.key,
     required this.icon,
     required this.isSelected,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

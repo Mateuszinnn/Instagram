@@ -16,14 +16,23 @@ class PostProfileHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const ProfileWidget(profileName: 'Profile Name', paddingLeft: 12, paddingTop: 18, paddingRight: 12, paddingBottom: 12, size: 17,),
+        const ProfileWidget(
+          profileName: 'Profile Name',
+          paddingLeft: 12,
+          paddingTop: 18,
+          paddingRight: 12,
+          paddingBottom: 12,
+          size: 17,
+          isColumn: false,
+        ),
         const Spacer(),
         IconButton(
           icon: const Icon(Icons.more_horiz),
           onPressed: () {
             showModalBottomSheet(
               showDragHandle: true,
-              backgroundColor: Theme.of(context).colorScheme.onSecondaryContainer,
+              backgroundColor:
+                  Theme.of(context).colorScheme.onSecondaryContainer,
               context: context,
               builder: (BuildContext context) {
                 return SingleChildScrollView(
@@ -35,8 +44,7 @@ class PostProfileHeader extends StatelessWidget {
                         Row(
                           children: [
                             Padding(
-                              padding:
-                                  const EdgeInsets.fromLTRB(10, 10, 5, 0),
+                              padding: const EdgeInsets.fromLTRB(10, 10, 5, 0),
                               child: PostMoreBottomSheetButton(
                                 icon: Icons.bookmark_border,
                                 label: 'Salvar',
@@ -53,8 +61,7 @@ class PostProfileHeader extends StatelessWidget {
                               ),
                             ),
                             Padding(
-                              padding:
-                                  const EdgeInsets.fromLTRB(5, 10, 10, 0),
+                              padding: const EdgeInsets.fromLTRB(5, 10, 10, 0),
                               child: PostMoreBottomSheetButton(
                                 icon: Icons.add_box_outlined,
                                 label: 'Remixar',

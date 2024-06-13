@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/components/button_reels.dart';
 import 'package:instagram/components/storieswidget.dart';
-import 'package:instagram/components/info.dart';
+import 'package:instagram/components/info_profile.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -24,8 +23,10 @@ class _ProfileState extends State<Profile> {
         child: Column(
           children: [
             AppBar(
+              backgroundColor: Theme.of(context).colorScheme.surface,
+              elevation: 0,
+              shadowColor: Colors.black,
               title: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     'Profile name',
@@ -34,56 +35,42 @@ class _ProfileState extends State<Profile> {
                         fontFamily: 'Instagram',
                         fontSize: widhtTotal <= 390 ? 17 : null),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
-                    child: ButtonReels(
-                      onPressed: () {},
-                      text: '',
-                      icon: Icon(
-                        Icons.keyboard_arrow_down_rounded,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
-                    ),
-                  ),
-                  const Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
-                    child: ButtonReels(
-                      onPressed: () {},
-                      text: '',
-                      icon: Icon(
-                        Icons.adobe,
-                        size: 30,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
-                    child: ButtonReels(
-                      onPressed: () {},
-                      text: '',
-                      icon: Icon(
-                        Icons.add_box_outlined,
-                        size: 30,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
-                    child: ButtonReels(
-                      onPressed: () {},
-                      text: '',
-                      icon: Icon(
-                        Icons.menu,
-                        size: 35,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.keyboard_arrow_down_rounded,
+                      color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
                 ],
               ),
+              actions: [
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.adobe,
+                    size: 30,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.add_box_outlined,
+                    size: 30,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.menu,
+                    size: 35,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                ),
+                const SizedBox(width: 7,)
+              ],
             ),
             Container(
               color: Theme.of(context).colorScheme.surface,
