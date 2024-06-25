@@ -43,9 +43,9 @@ class ProfileWidget extends StatelessWidget {
               ),
               Text(
                 profileName,
-                style: const TextStyle(
+                style: TextStyle(
                   fontFamily: 'instagram bold',
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               ),
             ],
@@ -71,9 +71,9 @@ class ProfileWidget extends StatelessWidget {
               ),
               Text(
                 profileName,
-                style: const TextStyle(
+                style: TextStyle(
                   fontFamily: 'instagram bold',
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               ),
             ],

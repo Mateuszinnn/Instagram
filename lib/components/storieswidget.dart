@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class Storieswidget extends StatelessWidget {
   final int index;
   final String profileName;
+  final TextStyle textStyle;
 
   const Storieswidget({
     super.key,
     required this.index,
     required this.profileName,
+    required this.textStyle,
   });
 
   @override
@@ -35,7 +37,7 @@ class Storieswidget extends StatelessWidget {
                     const SizedBox(height: 10),
                     Text(
                       profileName,
-                      style: const TextStyle(fontFamily: 'instagram'),
+                      style: textStyle,
                     ),
                   ],
                 ),

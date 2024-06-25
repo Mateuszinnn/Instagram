@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:instagram/components/storieswidget.dart';
 import 'package:instagram/components/info_profile.dart';
 
-class Profile extends StatefulWidget {
-  const Profile({super.key});
+class OtherProfile extends StatefulWidget {
+  const OtherProfile({super.key});
 
   @override
-  State<Profile> createState() => _ProfileState();
+  State<OtherProfile> createState() => _ProfileState();
 }
 
-class _ProfileState extends State<Profile> {
+class _ProfileState extends State<OtherProfile> {
   @override
   Widget build(BuildContext context) {
     double widthTela = MediaQuery.of(context).size.width / 3.059;
@@ -35,20 +35,13 @@ class _ProfileState extends State<Profile> {
                         fontFamily: 'Instagram',
                         fontSize: widhtTotal <= 390 ? 17 : null),
                   ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.keyboard_arrow_down_rounded,
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
-                  ),
                 ],
               ),
               actions: [
                 IconButton(
                   onPressed: () {},
                   icon: Icon(
-                    Icons.adobe,
+                    Icons.notifications_none_rounded,
                     size: 30,
                     color: Theme.of(context).colorScheme.primary,
                   ),
@@ -56,20 +49,14 @@ class _ProfileState extends State<Profile> {
                 IconButton(
                   onPressed: () {},
                   icon: Icon(
-                    Icons.add_box_outlined,
+                    Icons.more_horiz,
                     size: 30,
                     color: Theme.of(context).colorScheme.primary,
                   ),
                 ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.menu,
-                    size: 35,
-                    color: Theme.of(context).colorScheme.primary,
-                  ),
-                ),
-                const SizedBox(width: 7,)
+                const SizedBox(
+                  width: 7,
+                )
               ],
             ),
             Container(
@@ -78,10 +65,11 @@ class _ProfileState extends State<Profile> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const Padding(
                         padding: EdgeInsets.only(left: 10),
-                        child: Storieswidget(index: 0, profileName: ''),
+                        child: Storieswidget(index: 1, profileName: 'Profile Name', textStyle: TextStyle(fontFamily: 'instagram', fontWeight: FontWeight.bold),),
                       ),
                       const Spacer(),
                       Info(
@@ -112,16 +100,8 @@ class _ProfileState extends State<Profile> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'Profile name',
-                          style: TextStyle(
-                            color: Theme.of(context).colorScheme.primary,
-                            fontFamily: 'Instagram',
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
                         Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                          padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
                           child: SizedBox(
                             height: 30,
                             child: IntrinsicWidth(
@@ -168,51 +148,10 @@ class _ProfileState extends State<Profile> {
                       ],
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: FilledButton(
-                        onPressed: () {},
-                        style: ButtonStyle(
-                          backgroundColor: WidgetStateProperty.all(
-                              Theme.of(context).colorScheme.secondary),
-                          shape:
-                              WidgetStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                          ),
-                        ),
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Painel profissional',
-                                style: TextStyle(
-                                  color: Theme.of(context).colorScheme.primary,
-                                  fontFamily: 'Instagram',
-                                ),
-                              ),
-                              Text(
-                                'X contas alcançadas nos últimos 30 dias',
-                                style: TextStyle(
-                                  color: Theme.of(context).colorScheme.primary,
-                                  fontFamily: 'Instagram',
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
                   Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(10, 0, 5, 10),
+                        padding: const EdgeInsets.fromLTRB(10, 10, 5, 10),
                         child: SizedBox(
                           height: height,
                           width: widthButton == 185 ? 181 : widthButton,
@@ -230,7 +169,7 @@ class _ProfileState extends State<Profile> {
                                 ),
                               ),
                               child: Text(
-                                'Editar perfil',
+                                'Seguindo',
                                 style: TextStyle(
                                     color:
                                         Theme.of(context).colorScheme.primary,
@@ -241,7 +180,7 @@ class _ProfileState extends State<Profile> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(5, 0, 10, 10),
+                        padding: const EdgeInsets.fromLTRB(5, 10, 10, 10),
                         child: SizedBox(
                           height: height,
                           width: widthButton == 185 ? 181 : widthButton,
@@ -258,23 +197,13 @@ class _ProfileState extends State<Profile> {
                                     ),
                                   ),
                                 ),
-                                child: widthButton == 185
-                                    ? Text(
-                                        ' Compartilhar\n perfil',
-                                        style: TextStyle(
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .primary,
-                                            fontFamily: 'Instagram'),
-                                      )
-                                    : Text(
-                                        ' Compartilhar perfil',
-                                        style: TextStyle(
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .primary,
-                                            fontFamily: 'Instagram'),
-                                      )),
+                                child: Text(
+                                  'Mensagem',
+                                  style: TextStyle(
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
+                                      fontFamily: 'Instagram'),
+                                )),
                           ),
                         ),
                       ),
@@ -284,66 +213,34 @@ class _ProfileState extends State<Profile> {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: List.generate(6, (index) {
-                        final itemNumber = index + 1;
-                        if (itemNumber == 6) {
-                          return Padding(
-                            padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                            child: Column(
-                              children: [
-                                CircleAvatar(
-                                  radius: 35,
+                        return Padding(
+                          padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                          child: Column(
+                            children: [
+                              CircleAvatar(
+                                radius: 35,
+                                backgroundColor:
+                                    Theme.of(context).colorScheme.secondary,
+                                child: CircleAvatar(
+                                  radius: 32,
                                   backgroundColor:
-                                      Theme.of(context).colorScheme.secondary,
-                                  child: CircleAvatar(
-                                    radius: 32,
-                                    backgroundColor:
-                                        Theme.of(context).colorScheme.surface,
-                                    child: Icon(
-                                      Icons.add,
-                                      size: 32,
-                                      color:
-                                          Theme.of(context).colorScheme.primary,
-                                    ),
+                                      Theme.of(context).colorScheme.surface,
+                                  child: Icon(
+                                    Icons.person,
+                                    size: 32,
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
                                   ),
                                 ),
-                                const SizedBox(height: 10),
-                                const Text(
-                                  'Novo',
-                                  style: TextStyle(fontFamily: 'instagram'),
-                                ),
-                              ],
-                            ),
-                          );
-                        } else {
-                          return Padding(
-                            padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                            child: Column(
-                              children: [
-                                CircleAvatar(
-                                  radius: 35,
-                                  backgroundColor:
-                                      Theme.of(context).colorScheme.secondary,
-                                  child: CircleAvatar(
-                                    radius: 32,
-                                    backgroundColor:
-                                        Theme.of(context).colorScheme.surface,
-                                    child: Icon(
-                                      Icons.person,
-                                      size: 32,
-                                      color:
-                                          Theme.of(context).colorScheme.primary,
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(height: 10),
-                                const Text(
-                                  'Destaque',
-                                  style: TextStyle(fontFamily: 'instagram'),
-                                ),
-                              ],
-                            ),
-                          );
-                        }
+                              ),
+                              const SizedBox(height: 10),
+                              const Text(
+                                'Destaque',
+                                style: TextStyle(fontFamily: 'instagram'),
+                              ),
+                            ],
+                          ),
+                        );
                       }),
                     ),
                   ),

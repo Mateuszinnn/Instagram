@@ -30,35 +30,41 @@ class _ReelPageState extends State<ReelPage> {
                   height: 35,
                 ),
                 ButtonReels(
-                    onPressed: () {},
-                    text: '',
-                    icon: const Icon(Icons.camera_alt_outlined)),
+                  onPressed: () {},
+                  text: '',
+                  icon: Icons.camera_alt_outlined,
+                  isFilled: false,
+                  textColor: Colors.white,
+                ),
                 const Spacer(),
                 ButtonReels(
                   onPressed: () {},
                   text: 'Curtidas',
-                  icon: const Icon(
-                    Icons.favorite_border_outlined,
-                  ),
+                  icon: Icons.favorite_border_outlined,
+                  isFilled: false,
+                  textColor: Colors.white,
                 ),
                 ButtonReels(
-                    onPressed: () {},
-                    text: 'Comentários',
-                    icon: const Icon(
-                      Icons.chat_bubble_outline,
-                    )),
+                  onPressed: () {},
+                  text: 'Comentários',
+                  icon: Icons.chat_bubble_outline,
+                  isFilled: false,
+                  textColor: Colors.white,
+                ),
                 ButtonReels(
-                    onPressed: () {},
-                    text: 'Compartilhar',
-                    icon: const Icon(
-                      Icons.send_outlined,
-                    )),
+                  onPressed: () {},
+                  text: 'Compartilhar',
+                  icon: Icons.send_outlined,
+                  isFilled: false,
+                  textColor: Colors.white,
+                ),
                 ButtonReels(
-                    onPressed: () {},
-                    text: '',
-                    icon: const Icon(
-                      Icons.more_horiz,
-                    )),
+                  onPressed: () {},
+                  text: '',
+                  icon: Icons.more_horiz,
+                  isFilled: false,
+                  textColor: Colors.white,
+                ),
                 Padding(
                   padding: const EdgeInsets.only(left: 10),
                   child: SizedBox(

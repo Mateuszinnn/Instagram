@@ -107,7 +107,7 @@ class _HomePage extends State<HomePage> {
                         30,
                         (index) => Storieswidget(
                           index: index,
-                          profileName: 'Profile Name',
+                          profileName: 'Profile Name', textStyle: const TextStyle(fontFamily: 'instagram'),
                         ),
                       ),
                     ),
