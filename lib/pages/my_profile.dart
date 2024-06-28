@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:instagram/components/storieswidget.dart';
-import 'package:instagram/components/info_profile.dart';
+import 'package:instagram/components/profile_widgets/info_profile.dart';
 
 class MyProfile extends StatefulWidget {
   const MyProfile({super.key});
@@ -50,7 +51,7 @@ class _ProfileState extends State<MyProfile> {
                 IconButton(
                   onPressed: () {},
                   icon: Icon(
-                    Icons.adobe,
+                    FontAwesomeIcons.threads,
                     size: 30,
                     color: Theme.of(context).colorScheme.primary,
                   ),
@@ -218,26 +219,24 @@ class _ProfileState extends State<MyProfile> {
                         child: SizedBox(
                           height: height,
                           width: widthButton == 185 ? 181 : widthButton,
-                          child: IntrinsicWidth(
-                            child: FilledButton(
-                              onPressed: () {},
-                              style: ButtonStyle(
-                                backgroundColor: WidgetStateProperty.all(
-                                    Theme.of(context).colorScheme.secondary),
-                                shape: WidgetStateProperty.all<
-                                    RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(5.0),
-                                  ),
+                          child: FilledButton(
+                            onPressed: () {},
+                            style: ButtonStyle(
+                              backgroundColor: WidgetStateProperty.all(
+                                  Theme.of(context).colorScheme.secondary),
+                              shape: WidgetStateProperty.all<
+                                  RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
                                 ),
                               ),
-                              child: Text(
-                                'Editar perfil',
-                                style: TextStyle(
-                                    color:
-                                        Theme.of(context).colorScheme.primary,
-                                    fontFamily: 'Instagram'),
-                              ),
+                            ),
+                            child: Text(
+                              'Editar perfil',
+                              style: TextStyle(
+                                  color:
+                                      Theme.of(context).colorScheme.primary,
+                                  fontFamily: 'Instagram'),
                             ),
                           ),
                         ),

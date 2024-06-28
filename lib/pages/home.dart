@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/components/notification_widgets/notification_section.dart';
 import 'package:instagram/components/postwidget.dart';
 import 'package:instagram/components/storieswidget.dart';
 
@@ -84,7 +85,9 @@ class _HomePage extends State<HomePage> {
                 IconButton(
                   icon: const Icon(Icons.favorite_border),
                   color: Theme.of(context).colorScheme.primary,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const NotificationSection() ));
+                  },
                   enableFeedback: false,
                 ),
                 IconButton(

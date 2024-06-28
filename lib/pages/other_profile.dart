@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/components/storieswidget.dart';
-import 'package:instagram/components/info_profile.dart';
+import 'package:instagram/components/profile_widgets/info_profile.dart';
 
 class OtherProfile extends StatefulWidget {
   const OtherProfile({super.key});

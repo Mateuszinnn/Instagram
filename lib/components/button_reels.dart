@@ -6,7 +6,7 @@ class ButtonReels extends StatelessWidget {
   final Color iconColor;
   final Color textColor;
   final String fontFamily;
-  final IconData icon; // Changed to IconData
+  final IconData icon;
   final bool isFilled;
 
   const ButtonReels({
