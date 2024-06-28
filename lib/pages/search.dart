@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/components/image_grid.dart';
+import 'package:instagram/components/search_widgets/search_section.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -70,33 +71,7 @@ class _SearchPageState extends State<SearchPage> {
         ),
       ),
       body: isExpanded
-          ? SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      const Text(
-                        'Recentes',
-                        style: TextStyle(
-                            fontFamily: 'Instagram',
-                            fontWeight: FontWeight.bold),
-                      ),
-                      const Spacer(),
-                      TextButton(
-                          onPressed: () {},
-                          child: const Text(
-                            'Ver tudo',
-                            style: TextStyle(
-                                fontFamily: 'Instagram',
-                                fontWeight: FontWeight.bold,
-                                color: Colors.blue),
-                          ))
-                    ],
-                  )
-                ],
-              ),
-            )
+          ? const SearchSection()
           : ListView.builder(
               itemCount: 10,
               itemBuilder: (context, index) {
