@@ -22,6 +22,8 @@ class CommentList extends StatelessWidget {
                 paddingBottom: 12,
                 size: 17,
                 isColumn: false,
+                hasDescription: false,
+                  description: ''
               ),
               const SizedBox(width: 10),
               Column(

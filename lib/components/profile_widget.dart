@@ -8,6 +8,8 @@ class ProfileWidget extends StatelessWidget {
   final double paddingBottom;
   final double size;
   final bool isColumn;
+  final bool hasDescription;
+  final String description;
 
   const ProfileWidget(
       {super.key,
@@ -17,7 +19,9 @@ class ProfileWidget extends StatelessWidget {
       required this.paddingRight,
       required this.paddingBottom,
       required this.size,
-      required this.isColumn});
+      required this.isColumn,
+      required this.hasDescription,
+      required this.description});
 
   @override
   Widget build(BuildContext context) {
@@ -69,13 +73,35 @@ class ProfileWidget extends StatelessWidget {
                   ),
                 ),
               ),
+              hasDescription == true ? 
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    profileName,
+                    style: TextStyle(
+                      fontFamily: 'instagram bold',
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                  ),
+                  Text(
+                    description,
+                    style: const TextStyle(
+                      fontFamily: 'instagram bold',
+                      color: Color(0xFFA8A8A8),
+                      fontSize: 13,
+                    ),
+                  ),
+                ],
+              ) :
               Text(
-                profileName,
-                style: TextStyle(
-                  fontFamily: 'instagram bold',
-                  color: Theme.of(context).colorScheme.primary,
-                ),
-              ),
+                    profileName,
+                    style: TextStyle(
+                      fontFamily: 'instagram bold',
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                  ),
             ],
           );
   }

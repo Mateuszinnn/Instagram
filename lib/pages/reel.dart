@@ -176,14 +176,15 @@ class _ReelPageState extends State<ReelPage> {
                 Stack(
                   children: [
                     const ProfileWidget(
-                      profileName: 'Profile Name',
-                      paddingLeft: 12,
-                      paddingTop: 18,
-                      paddingRight: 12,
-                      paddingBottom: 12,
-                      size: 17,
-                      isColumn: false,
-                    ),
+                        profileName: 'Profile Name',
+                        paddingLeft: 12,
+                        paddingTop: 18,
+                        paddingRight: 12,
+                        paddingBottom: 12,
+                        size: 17,
+                        isColumn: false,
+                        hasDescription: false,
+                        description: ''),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextButton(

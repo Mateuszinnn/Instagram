@@ -76,6 +76,8 @@ class CommentInput extends StatelessWidget {
                   paddingBottom: 0.1,
                   size: 24,
                   isColumn: false,
+                  hasDescription: false,
+                  description: '',
                 ),
               ),
               Expanded(

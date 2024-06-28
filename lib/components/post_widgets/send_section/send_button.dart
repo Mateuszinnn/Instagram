@@ -83,6 +83,8 @@ class SendButton extends StatelessWidget {
                                     paddingBottom: 10,
                                     size: 35,
                                     isColumn: true,
+                                    hasDescription: false,
+                  description: ''
                                   ),
                                 )
                               ],

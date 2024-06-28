@@ -27,6 +27,8 @@ class PostProfileHeader extends StatelessWidget {
               paddingBottom: 12,
               size: 17,
               isColumn: false,
+              hasDescription: false,
+                  description: ''
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(11.0, 11.0, 11.0, 0.0),
