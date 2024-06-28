@@ -1,22 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/components/button_reels.dart';
+import 'package:instagram/components/post_widgets/comment_section/comment_chat.dart';
+import 'package:instagram/components/post_widgets/more_section/more_button.dart';
+import 'package:instagram/components/post_widgets/send_section/send_button.dart';
 import 'package:instagram/components/profile_widget.dart';
+import 'package:instagram/pages/other_profile.dart';
 
 class ReelPage extends StatefulWidget {
-  const ReelPage({super.key});
+  const ReelPage({
+    super.key,
+  });
 
   @override
   State<ReelPage> createState() => _ReelPageState();
 }
 
 class _ReelPageState extends State<ReelPage> {
+  bool isLiked = false;
+  bool isFollowing = false;
+
+  void toggleFavorite() {
+    setState(() {
+      isLiked = !isLiked;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    double widthTotal = MediaQuery.of(context).size.width;
+    double widthButtonBottomsheet = (widthTotal / 2) - 15;
+    double height = 70;
+
     return Scaffold(
       body: Stack(children: [
         Positioned.fill(
           child: Image.asset(
-            'assets/images/tomato.jpg',
+            'assets/images/pizza.jpeg',
             fit: BoxFit.cover,
           ),
         ),
@@ -38,28 +57,61 @@ class _ReelPageState extends State<ReelPage> {
                 ),
                 const Spacer(),
                 ButtonReels(
-                  onPressed: () {},
+                  onPressed: toggleFavorite,
                   text: 'Curtidas',
-                  icon: Icons.favorite_border_outlined,
+                  icon: isLiked == false
+                      ? Icons.favorite_border_outlined
+                      : Icons.favorite,
                   isFilled: false,
                   textColor: Colors.white,
                 ),
                 ButtonReels(
-                  onPressed: () {},
+                  onPressed: () {
+                    showModalBottomSheet(
+                      context: context,
+                      isScrollControlled: true,
+                      backgroundColor: Colors.transparent,
+                      isDismissible: true,
+                      builder: (BuildContext context) {
+                        return CommentChat(widthTotal: widthTotal);
+                      },
+                    );
+                  },
                   text: 'Comentários',
                   icon: Icons.chat_bubble_outline,
                   isFilled: false,
                   textColor: Colors.white,
                 ),
                 ButtonReels(
-                  onPressed: () {},
+                  onPressed: () {
+                    showModalBottomSheet(
+                      context: context,
+                      isScrollControlled: true,
+                      builder: (BuildContext context) {
+                        return SendButton(widthTotal: widthTotal);
+                      },
+                    );
+                  },
                   text: 'Compartilhar',
                   icon: Icons.send_outlined,
                   isFilled: false,
                   textColor: Colors.white,
                 ),
                 ButtonReels(
-                  onPressed: () {},
+                  onPressed: () {
+                    showModalBottomSheet(
+                      showDragHandle: true,
+                      backgroundColor:
+                          Theme.of(context).colorScheme.onSecondaryContainer,
+                      context: context,
+                      builder: (BuildContext context) {
+                        return MoreButton(
+                          height: height,
+                          widthButton: widthButtonBottomsheet,
+                        );
+                      },
+                    );
+                  },
                   text: '',
                   icon: Icons.more_horiz,
                   isFilled: false,
@@ -121,16 +173,32 @@ class _ReelPageState extends State<ReelPage> {
           children: [
             Row(
               children: [
-                const ProfileWidget(
-                  profileName: 'Profile Name',
-                  paddingLeft: 12,
-                  paddingTop: 18,
-                  paddingRight: 12,
-                  paddingBottom: 12,
-                  size: 17,
-                  isColumn: false,
+                Stack(
+                  children: [
+                    const ProfileWidget(
+                      profileName: 'Profile Name',
+                      paddingLeft: 12,
+                      paddingTop: 18,
+                      paddingRight: 12,
+                      paddingBottom: 12,
+                      size: 17,
+                      isColumn: false,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const OtherProfile()),
+                          );
+                        },
+                        child: const Text('                                '),
+                      ),
+                    ),
+                  ],
                 ),
-                const SizedBox(width: 10),
                 SizedBox(
                   height: 25,
                   child: OutlinedButton(
@@ -139,12 +207,22 @@ class _ReelPageState extends State<ReelPage> {
                         const BorderSide(color: Colors.white),
                       ),
                     ),
-                    onPressed: () {},
-                    child: const Text(
-                      'Seguir',
-                      style: TextStyle(
-                          fontFamily: 'Instagram', color: Colors.white),
-                    ),
+                    onPressed: () {
+                      setState(() {
+                        isFollowing = !isFollowing;
+                      });
+                    },
+                    child: isFollowing == true
+                        ? const Text(
+                            'Seguindo',
+                            style: TextStyle(
+                                fontFamily: 'Instagram', color: Colors.white),
+                          )
+                        : const Text(
+                            'Seguir',
+                            style: TextStyle(
+                                fontFamily: 'Instagram', color: Colors.white),
+                          ),
                   ),
                 ),
               ],

@@ -10,6 +10,8 @@ class MyProfile extends StatefulWidget {
 }
 
 class _ProfileState extends State<MyProfile> {
+  int selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     double widthTela = MediaQuery.of(context).size.width / 3.059;
@@ -69,7 +71,9 @@ class _ProfileState extends State<MyProfile> {
                     color: Theme.of(context).colorScheme.primary,
                   ),
                 ),
-                const SizedBox(width: 7,)
+                const SizedBox(
+                  width: 7,
+                )
               ],
             ),
             Container(
@@ -81,7 +85,13 @@ class _ProfileState extends State<MyProfile> {
                     children: [
                       const Padding(
                         padding: EdgeInsets.only(left: 10),
-                        child: Storieswidget(index: 0, profileName: 'Profile Name', textStyle: TextStyle(fontFamily: 'instagram', fontWeight: FontWeight.bold),),
+                        child: Storieswidget(
+                          index: 0,
+                          profileName: 'Profile Name',
+                          textStyle: TextStyle(
+                              fontFamily: 'instagram',
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                       const Spacer(),
                       Info(
@@ -343,18 +353,29 @@ class _ProfileState extends State<MyProfile> {
                     length: 3,
                     child: Column(
                       children: [
-                        const TabBar(
+                        TabBar(
                           dividerColor: Colors.transparent,
                           indicatorSize: TabBarIndicatorSize.tab,
+                          onTap: (index) {
+                            setState(() {
+                              selectedIndex = index;
+                            });
+                          },
                           tabs: [
                             Tab(
-                              icon: Icon(Icons.grid_on),
+                              icon: selectedIndex == 0
+                                  ? const Icon(Icons.grid_view_rounded)
+                                  : const Icon(Icons.grid_view_outlined),
                             ),
                             Tab(
-                              icon: Icon(Icons.video_library),
+                              icon: selectedIndex == 1
+                                  ? const Icon(Icons.video_library)
+                                  : const Icon(Icons.video_library_outlined),
                             ),
                             Tab(
-                              icon: Icon(Icons.person_pin_outlined),
+                              icon: selectedIndex == 2
+                                  ? const Icon(Icons.person_pin_rounded)
+                                  : const Icon(Icons.person_pin_outlined),
                             ),
                           ],
                         ),
