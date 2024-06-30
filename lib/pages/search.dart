@@ -13,6 +13,11 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   bool isExpanded = false;
 
+  Future<void> _refresh() async {
+    await Future.delayed(const Duration(seconds: 2));
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,62 +76,67 @@ class _SearchPageState extends State<SearchPage> {
           ],
         ),
       ),
-      body: isExpanded
-          ? SingleChildScrollView(
-              child: Container(
-                color: Theme.of(context).colorScheme.surface,
-                child: Column(
-                  children: [
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    const Divider(
-                      height: 0.1,
-                      thickness: 0.1,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(15, 5, 5, 5),
-                      child: Row(
-                        children: [
-                          const Text(
-                            'Recentes',
-                            style: TextStyle(
-                                fontFamily: 'Instagram',
-                                fontWeight: FontWeight.bold,
-                                fontSize: 17),
-                          ),
-                          const Spacer(),
-                          TextButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const SearchRecent()),
-                                );
-                              },
-                              child: const Text(
-                                'Ver tudo',
-                                style: TextStyle(
-                                    fontFamily: 'Instagram',
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.blue,
-                                    fontSize: 15),
-                              )),
-                        ],
+      body: RefreshIndicator(
+        onRefresh: _refresh,
+        child: isExpanded
+            ? SingleChildScrollView(
+                child: Container(
+                  color: Theme.of(context).colorScheme.surface,
+                  child: Column(
+                    children: [
+                      const SizedBox(
+                        height: 5,
                       ),
-                    ),
-                    const SearchSection(followButton: false,),
-                  ],
+                      const Divider(
+                        height: 0.1,
+                        thickness: 0.1,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(15, 5, 5, 5),
+                        child: Row(
+                          children: [
+                            const Text(
+                              'Recentes',
+                              style: TextStyle(
+                                  fontFamily: 'Instagram',
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 17),
+                            ),
+                            const Spacer(),
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const SearchRecent()),
+                                  );
+                                },
+                                child: const Text(
+                                  'Ver tudo',
+                                  style: TextStyle(
+                                      fontFamily: 'Instagram',
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.blue,
+                                      fontSize: 15),
+                                )),
+                          ],
+                        ),
+                      ),
+                      const SearchSection(
+                        followButton: false,
+                      ),
+                    ],
+                  ),
                 ),
+              )
+            : ListView.builder(
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return ImageGrid(index: index);
+                },
               ),
-            )
-          : ListView.builder(
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                return ImageGrid(index: index);
-              },
-            ),
+      ),
     );
   }
 }

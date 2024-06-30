@@ -9,6 +9,7 @@ class SendButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return DraggableScrollableSheet(
       initialChildSize: 0.6,
       minChildSize: 0.40,
@@ -69,12 +70,13 @@ class SendButton extends StatelessWidget {
                       children: List.generate(
                         3,
                         (index) => const Expanded(
-                          child: Padding(
-                            padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                          child: Align(
+                            alignment: Alignment.topCenter,
                             child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.only(bottom: 10),
+                                  padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
                                   child: ProfileWidget(
                                     profileName: 'Profile Name',
                                     paddingLeft: 0,

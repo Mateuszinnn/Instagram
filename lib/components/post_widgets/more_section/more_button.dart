@@ -67,7 +67,7 @@ class MoreButton extends StatelessWidget {
             PostMoreBottomSheetButton(
               icon: Icons.star_border,
               label: 'Adicionar favoritos',
-              width: (widthButton * 2) + 15,
+              width: (widthButton * 2) + 10,
               isTopRounded: true,
               backgroundColor: Theme.of(context).colorScheme.tertiary,
               textColor: Theme.of(context).colorScheme.primary,
@@ -75,7 +75,7 @@ class MoreButton extends StatelessWidget {
               isColumn: false,
             ),
             SizedBox(
-              width: (widthButton * 2) + 15,
+              width: (widthButton * 2) + 10,
               child: Divider(
                 height: 0.1,
                 thickness: 0.1,
@@ -85,7 +85,7 @@ class MoreButton extends StatelessWidget {
             PostMoreBottomSheetButton(
               icon: Icons.person_remove_outlined,
               label: 'Deixar de seguir',
-              width: (widthButton * 2) + 15,
+              width: (widthButton * 2) + 10,
               isBottomRounded: true,
               isIconFlipped: true,
               backgroundColor: Theme.of(context).colorScheme.tertiary,
@@ -97,7 +97,7 @@ class MoreButton extends StatelessWidget {
             PostMoreBottomSheetButton(
               icon: Icons.person_pin_rounded,
               label: 'Sobre essa conta',
-              width: (widthButton * 2) + 15,
+              width: (widthButton * 2) + 10,
               isTopRounded: true,
               backgroundColor: Theme.of(context).colorScheme.tertiary,
               textColor: Theme.of(context).colorScheme.primary,
@@ -105,7 +105,7 @@ class MoreButton extends StatelessWidget {
               isColumn: false,
             ),
             SizedBox(
-              width: (widthButton * 2) + 15,
+              width: (widthButton * 2) + 10,
               child: Divider(
                 height: 0.1,
                 thickness: 0.1,
@@ -115,14 +115,14 @@ class MoreButton extends StatelessWidget {
             PostMoreBottomSheetButton(
               icon: Icons.qr_code_scanner_rounded,
               label: 'QR code',
-              width: (widthButton * 2) + 15,
+              width: (widthButton * 2) + 10,
               backgroundColor: Theme.of(context).colorScheme.tertiary,
               textColor: Theme.of(context).colorScheme.primary,
               iconColor: Theme.of(context).colorScheme.primary,
               isColumn: false,
             ),
             SizedBox(
-              width: (widthButton * 2) + 15,
+              width: (widthButton * 2) + 10,
               child: Divider(
                 height: 0.1,
                 thickness: 0.1,
@@ -132,14 +132,14 @@ class MoreButton extends StatelessWidget {
             PostMoreBottomSheetButton(
               icon: Icons.info_outline,
               label: 'Por que está vendo essa publicação',
-              width: (widthButton * 2) + 15,
+              width: (widthButton * 2) + 10,
               backgroundColor: Theme.of(context).colorScheme.tertiary,
               textColor: Theme.of(context).colorScheme.primary,
               iconColor: Theme.of(context).colorScheme.primary,
               isColumn: false,
             ),
             SizedBox(
-              width: (widthButton * 2) + 15,
+              width: (widthButton * 2) + 10,
               child: Divider(
                 height: 0.1,
                 thickness: 0.1,
@@ -149,14 +149,14 @@ class MoreButton extends StatelessWidget {
             PostMoreBottomSheetButton(
               icon: Icons.visibility_off_outlined,
               label: 'Ocultar',
-              width: (widthButton * 2) + 15,
+              width: (widthButton * 2) + 10,
               backgroundColor: Theme.of(context).colorScheme.tertiary,
               textColor: Theme.of(context).colorScheme.primary,
               iconColor: Theme.of(context).colorScheme.primary,
               isColumn: false,
             ),
             SizedBox(
-              width: (widthButton * 2) + 15,
+              width: (widthButton * 2) + 10,
               child: Divider(
                 height: 0.1,
                 thickness: 0.1,
@@ -166,7 +166,7 @@ class MoreButton extends StatelessWidget {
             PostMoreBottomSheetButton(
               icon: Icons.report_gmailerrorred,
               label: 'Denunciar',
-              width: (widthButton * 2) + 15,
+              width: (widthButton * 2) + 10,
               isBottomRounded: true,
               backgroundColor: Theme.of(context).colorScheme.tertiary,
               textColor: Colors.red,

@@ -17,6 +17,7 @@ class NotificationSection extends StatelessWidget {
           style: TextStyle(
             fontFamily: 'Instagram',
             color: Theme.of(context).colorScheme.primary,
+            fontWeight: FontWeight.bold,
           ),
         ),
       ),
