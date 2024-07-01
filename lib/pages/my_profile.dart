@@ -62,9 +62,7 @@ class _ProfileState extends State<MyProfile> {
                             onPressed: () {
                               showModalBottomSheet(
                                 showDragHandle: true,
-                                backgroundColor: Theme.of(context)
-                                    .colorScheme
-                                    .onSecondaryContainer,
+                                backgroundColor: const Color.fromARGB(255, 37, 54, 65),
                                 context: context,
                                 builder: (BuildContext context) {
                                   return ContasButton(
