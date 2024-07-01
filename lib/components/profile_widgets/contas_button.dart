@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/components/post_widgets/more_section/post_more_bottomsheet.dart';
 import 'package:instagram/components/profile_widget.dart';
+import 'package:instagram/components/profile_widgets/contas_widgets/acounts.dart';
 import 'package:instagram/components/profile_widgets/contas_widgets/add_acount.dart';
 import 'package:instagram/components/profile_widgets/contas_widgets/more_contas_button.dart';
 
@@ -102,7 +103,9 @@ class ContasButton extends StatelessWidget {
                     backgroundColor: Colors.transparent,
                     shadowColor: Colors.transparent,
                   ),
-                  child: SizedBox(width: (widthButton * 2) -40,)),
+                  child: SizedBox(
+                    width: (widthButton * 2) - 40,
+                  )),
               const Padding(
                   padding: EdgeInsets.fromLTRB(5, 5, 0, 0),
                   child: Icon(
@@ -158,7 +161,6 @@ class ContasButton extends StatelessWidget {
                   width: (widthButton * 2) + 15,
                   isTopRounded: true,
                   isBottomRounded: true,
-                  isIconRotated: false,
                   backgroundColor: Colors.transparent,
                   textColor: Theme.of(context).colorScheme.primary,
                   iconColor: Colors.transparent,
@@ -198,7 +200,17 @@ class ContasButton extends StatelessWidget {
                   const BorderSide(color: Colors.white),
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  isScrollControlled: true,
+                  backgroundColor: Colors.transparent,
+                  isDismissible: true,
+                  builder: (BuildContext context) {
+                    return Acounts(widthButton: widthButton,);
+                  },
+                );
+              },
               child: const Text(
                 'Ir para central de contas',
                 style: TextStyle(fontFamily: 'Instagram', color: Colors.white),
