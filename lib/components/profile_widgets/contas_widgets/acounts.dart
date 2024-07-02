@@ -15,7 +15,7 @@ class _AcountsState extends State<Acounts> {
   @override
   Widget build(BuildContext context) {
     double widthTotal = MediaQuery.of(context).size.width;
-    double widthButtonBottomsheet = widthTotal - 15;
+    double widthButtonBottomsheet = widthTotal - 25;
 
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
@@ -33,7 +33,7 @@ class _AcountsState extends State<Acounts> {
                 return Stack(
                   children: [
                     Container(
-                      color: Theme.of(context).colorScheme.onPrimaryContainer,
+                      color: Theme.of(context).colorScheme.secondary,
                       child: SingleChildScrollView(
                         controller: scrollController,
                         padding: const EdgeInsets.only(top: 80),
@@ -73,6 +73,20 @@ class _AcountsState extends State<Acounts> {
                                 ],
                               ),
                             ),
+                            SizedBox(height: 10,),
+                            AcountButton(
+                              widhtButton: widthButtonBottomsheet,
+                              icon: Icons.switch_account_rounded,
+                              text: '  Perfis',
+                              hasDescription: true,
+                              description: '  Profile Name',
+                              isTopRounded: true,
+                              hasIcon: true,
+                              color: Theme.of(context).colorScheme.primary,
+                              backgroundColor: Theme.of(context)
+                                  .colorScheme
+                                  .onTertiaryContainer,
+                            ),
                             const Align(
                               alignment: Alignment.centerLeft,
                               child: Padding(
@@ -95,6 +109,9 @@ class _AcountsState extends State<Acounts> {
                               isTopRounded: true,
                               hasIcon: true,
                               color: Theme.of(context).colorScheme.primary,
+                              backgroundColor: Theme.of(context)
+                                  .colorScheme
+                                  .onTertiaryContainer,
                             ),
                             AcountButton(
                               widhtButton: widthButtonBottomsheet,
@@ -104,6 +121,9 @@ class _AcountsState extends State<Acounts> {
                               description: '',
                               hasIcon: true,
                               color: Theme.of(context).colorScheme.primary,
+                              backgroundColor: Theme.of(context)
+                                  .colorScheme
+                                  .onTertiaryContainer,
                             ),
                             AcountButton(
                               widhtButton: widthButtonBottomsheet,
@@ -114,6 +134,9 @@ class _AcountsState extends State<Acounts> {
                               isBottomRounded: true,
                               hasIcon: false,
                               color: Colors.blue,
+                              backgroundColor: Theme.of(context)
+                                  .colorScheme
+                                  .onTertiaryContainer,
                             ),
                             const Align(
                               alignment: Alignment.centerLeft,
@@ -137,6 +160,9 @@ class _AcountsState extends State<Acounts> {
                               isTopRounded: true,
                               hasIcon: true,
                               color: Theme.of(context).colorScheme.primary,
+                              backgroundColor: Theme.of(context)
+                                  .colorScheme
+                                  .onTertiaryContainer,
                             ),
                             AcountButton(
                               widhtButton: widthButtonBottomsheet,
@@ -146,34 +172,89 @@ class _AcountsState extends State<Acounts> {
                               description: '',
                               hasIcon: true,
                               color: Theme.of(context).colorScheme.primary,
+                              backgroundColor: Theme.of(context)
+                                  .colorScheme
+                                  .onTertiaryContainer,
                             ),
                             AcountButton(
                               widhtButton: widthButtonBottomsheet,
-                              icon: FontAwesomeIcons.addressCard,
-                              text: '  Dados pessoais',
-                              hasDescription: false,
-                              description: '',
-                              hasIcon: true,
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
-                            AcountButton(
-                              widhtButton: widthButtonBottomsheet,
-                              icon: FontAwesomeIcons.addressCard,
+                              icon: Icons.perm_device_info_rounded,
                               text: '  Suas informações e permissões',
                               hasDescription: false,
                               description: '',
                               hasIcon: true,
                               color: Theme.of(context).colorScheme.primary,
+                              backgroundColor: Theme.of(context)
+                                  .colorScheme
+                                  .onTertiaryContainer,
                             ),
                             AcountButton(
                               widhtButton: widthButtonBottomsheet,
-                              icon: FontAwesomeIcons.addressCard,
+                              icon: FontAwesomeIcons.bullhorn,
                               text: '  Preferências de anúncios',
                               hasDescription: false,
                               description: '',
                               hasIcon: true,
                               color: Theme.of(context).colorScheme.primary,
+                              backgroundColor: Theme.of(context)
+                                  .colorScheme
+                                  .onTertiaryContainer,
                             ),
+                            AcountButton(
+                              widhtButton: widthButtonBottomsheet,
+                              icon: Icons.credit_card_rounded,
+                              text: '  Meta Play',
+                              hasDescription: false,
+                              description: '',
+                              hasIcon: true,
+                              color: Theme.of(context).colorScheme.primary,
+                              backgroundColor: Theme.of(context)
+                                  .colorScheme
+                                  .onTertiaryContainer,
+                            ),
+                            AcountButton(
+                              widhtButton: widthButtonBottomsheet,
+                              icon: Icons.verified_outlined,
+                              text: '  Meta Verified',
+                              hasDescription: false,
+                              description: '',
+                              hasIcon: true,
+                              isBottomRounded: true,
+                              color: Theme.of(context).colorScheme.primary,
+                              backgroundColor: Theme.of(context)
+                                  .colorScheme
+                                  .onTertiaryContainer,
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            AcountButton(
+                              widhtButton: widthButtonBottomsheet,
+                              icon: Icons.account_circle,
+                              text: '  Contas',
+                              hasDescription: true,
+                              description: '  Analise as contas que você tem nesta Central de Contas',
+                              isTopRounded: true,
+                              hasIcon: true,
+                              color: Theme.of(context).colorScheme.primary,
+                              backgroundColor: Theme.of(context)
+                                  .colorScheme
+                                  .onTertiaryContainer,
+                            ),
+                            AcountButton(
+                              widhtButton: widthButtonBottomsheet,
+                              icon: Icons.login_rounded,
+                              text: '  Adicionar mais contas',
+                              hasDescription: false,
+                              description: '',
+                              isBottomRounded: true,
+                              hasIcon: false,
+                              color: Colors.blue,
+                              backgroundColor: Theme.of(context)
+                                  .colorScheme
+                                  .onTertiaryContainer,
+                            ),
+                            const SizedBox(height: 20,)
                           ],
                         ),
                       ),
@@ -183,7 +264,7 @@ class _AcountsState extends State<Acounts> {
                       left: 0,
                       right: 0,
                       child: Container(
-                        color: Theme.of(context).colorScheme.onPrimaryContainer,
+                        color: Theme.of(context).colorScheme.secondary,
                         child: Column(
                           children: [
                             const SizedBox(height: 30),

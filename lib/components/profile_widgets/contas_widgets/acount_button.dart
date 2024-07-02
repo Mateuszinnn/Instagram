@@ -23,7 +23,7 @@ class AcountButton extends StatelessWidget {
     required this.color,
     this.isTopRounded = false,
     this.isBottomRounded = false,
-    this.backgroundColor = Colors.red,
+    required this.backgroundColor,
   });
 
   @override
@@ -55,21 +55,26 @@ class AcountButton extends StatelessWidget {
                 width: 5,
               ),
               hasDescription
-                  ? Column(
-                      children: [
-                        Text(
-                          text,
-                          style: TextStyle(
-                              fontFamily: 'Instagram',
-                              color: color),
-                        ),
-                        Text(
-                          description,
-                          style: const TextStyle(
-                              fontFamily: 'Instagram', color: Colors.grey),
-                        ),
-                      ],
-                    )
+                  ? Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            text,
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                                fontFamily: 'Instagram',
+                                color: color),
+                          ),
+                          Text(
+                            description,
+                            textAlign: TextAlign.start,
+                            style: const TextStyle(
+                                fontFamily: 'Instagram', color: Colors.grey),
+                          ),
+                        ],
+                      ),
+                  )
                   : Text(
                       text,
                       style: TextStyle(
@@ -77,7 +82,7 @@ class AcountButton extends StatelessWidget {
                           color: color),
                     ),
               const Spacer(),
-              const Icon(Icons.arrow_forward_ios_rounded)
+              Icon(Icons.arrow_forward_ios_rounded, color: Theme.of(context).colorScheme.primary, size: 17,)
             ],
           ),
         ),
