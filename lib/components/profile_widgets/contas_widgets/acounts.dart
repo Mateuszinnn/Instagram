@@ -67,13 +67,13 @@ class _AcountsState extends State<Acounts> {
                                     text: 'Saiba mais',
                                     style: TextStyle(
                                       color: Colors
-                                          .blue, // Blue color for "Saiba mais"
+                                          .blue,
                                     ),
                                   ),
                                 ],
                               ),
                             ),
-                            SizedBox(height: 10,),
+                            const SizedBox(height: 10,),
                             AcountButton(
                               widhtButton: widthButtonBottomsheet,
                               icon: Icons.switch_account_rounded,

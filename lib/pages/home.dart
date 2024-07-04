@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:instagram/components/chat_section.dart';
 import 'package:instagram/components/notification_widgets/notification_section.dart';
 import 'package:instagram/components/postwidget.dart';
 import 'package:instagram/components/storieswidget.dart';
@@ -103,7 +104,9 @@ class _HomePage extends State<HomePage> {
                   IconButton(
                     icon: const Icon(FontAwesomeIcons.comment,),
                     color: Theme.of(context).colorScheme.primary,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> const ChatSection() ));
+                    },
                     enableFeedback: false,
                   ),
                   const SizedBox(width: 7,)
