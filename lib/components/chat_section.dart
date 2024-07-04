@@ -113,29 +113,31 @@ class _ChatSectionState extends State<ChatSection> {
             children: [
               Row(
                 children: [
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Flexible(
+                  const SizedBox(width: 10),
+                  Expanded(
                     child: CustomSearchBar(
-                        isExpanded: isExpanded,
-                        onExpand: _expandSearchBar,
-                        onCollapse: _collapseSearchBar),
+                      isExpanded: isExpanded,
+                      onExpand: _expandSearchBar,
+                      onCollapse: _collapseSearchBar,
+                    ),
                   ),
-                  TextButton(
+                  if (!isExpanded)
+                    TextButton(
                       onPressed: () {},
                       child: const Text(
                         'Filtrar',
                         style: TextStyle(
-                            fontFamily: 'Instagram', color: Colors.blue),
-                      ))
+                          fontFamily: 'Instagram',
+                          color: Colors.blue,
+                        ),
+                      ),
+                    ),
                 ],
               ),
               isExpanded
                   ? const Column(
                       children: [
-                        ResultSearch(
-                            textButton: 'Editar', title: 'Recentes'),
+                        ResultSearch(textButton: 'Editar', title: 'Recentes'),
                         ResultSearch(
                             textButton: 'Ver tudo', title: 'Canais Sugeridos ⓘ')
                       ],
