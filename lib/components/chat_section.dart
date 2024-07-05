@@ -16,6 +16,7 @@ class ChatSection extends StatefulWidget {
 
 class _ChatSectionState extends State<ChatSection> {
   bool isExpanded = false;
+
   void _expandSearchBar() {
     setState(() {
       isExpanded = true;
@@ -33,6 +34,7 @@ class _ChatSectionState extends State<ChatSection> {
     double widhtTotal = MediaQuery.of(context).size.width;
     double widthButton = (widhtTotal / 2) - 15;
     double height = widthButton <= 170 ? 60 : 30;
+
     return Scaffold(
       appBar: isExpanded
           ? null
@@ -47,7 +49,7 @@ class _ChatSectionState extends State<ChatSection> {
                       style: TextStyle(
                         color: Theme.of(context).colorScheme.primary,
                         fontFamily: 'Instagram',
-                        fontSize: 17,
+                        
                       ),
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
@@ -121,28 +123,32 @@ class _ChatSectionState extends State<ChatSection> {
           color: Theme.of(context).colorScheme.surface,
           child: Column(
             children: [
-              Row(
+              Column(
                 children: [
-                  isExpanded ? const SizedBox(height: 130) : Container(),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: CustomSearchBar(
-                      isExpanded: isExpanded,
-                      onExpand: _expandSearchBar,
-                      onCollapse: _collapseSearchBar,
-                    ),
-                  ),
-                  if (!isExpanded)
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'Filtrar',
-                        style: TextStyle(
-                          fontFamily: 'Instagram',
-                          color: Colors.blue,
+                  if (isExpanded) const SizedBox(height: 30),
+                  Row(
+                    children: [
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: CustomSearchBar(
+                          isExpanded: isExpanded,
+                          onExpand: _expandSearchBar,
+                          onCollapse: _collapseSearchBar,
                         ),
                       ),
-                    ),
+                      if (!isExpanded)
+                        TextButton(
+                          onPressed: () {},
+                          child: const Text(
+                            'Filtrar',
+                            style: TextStyle(
+                              fontFamily: 'Instagram',
+                              color: Colors.blue,
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
                 ],
               ),
               isExpanded
@@ -151,7 +157,6 @@ class _ChatSectionState extends State<ChatSection> {
                         SizedBox(
                           width: double.infinity,
                           child: Column(
-                            mainAxisSize: MainAxisSize.min,
                             children: [
                               Padding(
                                 padding:
@@ -236,19 +241,170 @@ class _ChatSectionState extends State<ChatSection> {
                           title: 'Mais Sugestões',
                           closeIcon: true,
                           numberOfResults: 15,
+                          icon: Icons.close,
+                          hasTexts: true,
                         ),
                         const ResultSearch(
                           textButton: 'Ver tudo',
                           title: 'Canais Sugeridos ⓘ',
                           closeIcon: true,
                           numberOfResults: 4,
+                          icon: Icons.close,
+                          hasTexts: true,
                         ),
                       ],
                     )
-                  : const Storieswidget(
-                      index: 10,
-                      profileName: 'Profile Name',
-                      textStyle: TextStyle(fontFamily: 'instagram'))
+                  : Column(
+                      children: [
+                        const SizedBox(height: 10),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: List.generate(
+                              10,
+                              (index) => Stack(
+                                children: [
+                                  const Storieswidget(
+                                    index: 1,
+                                    profileName: 'Profile Name',
+                                    textStyle:
+                                        TextStyle(fontFamily: 'instagram'),
+                                  ),
+                                  Container(
+                                    height: 30,
+                                    width: 60,
+                                    decoration: BoxDecoration(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onPrimaryContainer,
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                    child: const Center(
+                                      child: Text(
+                                        'Nota...',
+                                        style: TextStyle(
+                                            fontFamily: 'Instagram',
+                                            color: Colors.grey),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Flexible(
+                                child: SizedBox(
+                                  width: widthButton,
+                                  child: FilledButton(
+                                    onPressed: () {},
+                                    style: ButtonStyle(
+                                      backgroundColor: WidgetStateProperty.all(
+                                          Theme.of(context)
+                                              .colorScheme
+                                              .secondary),
+                                      shape: WidgetStateProperty.all<
+                                          RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                        ),
+                                      ),
+                                    ),
+                                    child: Text(
+                                      'Principal',
+                                      style: TextStyle(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .primary,
+                                          fontFamily: 'Instagram'),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Flexible(
+                                child: SizedBox(
+                                  width: widthButton,
+                                  child: FilledButton(
+                                    onPressed: () {},
+                                    style: ButtonStyle(
+                                      backgroundColor: WidgetStateProperty.all(
+                                          Theme.of(context)
+                                              .colorScheme
+                                              .secondary),
+                                      shape: WidgetStateProperty.all<
+                                          RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                        ),
+                                      ),
+                                    ),
+                                    child: Text(
+                                      'Geral',
+                                      style: TextStyle(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .primary,
+                                          fontFamily: 'Instagram'),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Flexible(
+                                child: SizedBox(
+                                  width: widthButton,
+                                  child: FilledButton(
+                                    onPressed: () {},
+                                    style: ButtonStyle(
+                                      backgroundColor: WidgetStateProperty.all(
+                                          Theme.of(context)
+                                              .colorScheme
+                                              .secondary),
+                                      shape: WidgetStateProperty.all<
+                                          RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                        ),
+                                      ),
+                                    ),
+                                    child: Text(
+                                      'Solicitações',
+                                      style: TextStyle(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .primary,
+                                          fontFamily: 'Instagram'),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const ResultSearch(
+                          textButton: '',
+                          title: '',
+                          closeIcon: false,
+                          numberOfResults: 20,
+                          icon: Icons.camera_alt_outlined,
+                          hasTexts: false,
+                        )
+                      ],
+                    ),
             ],
           ),
         ),

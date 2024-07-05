@@ -5,9 +5,10 @@ class SearchSection extends StatefulWidget {
   final bool followButton;
   final bool closeIcon;
   final int numberOfResults;
+  final IconData icon;
 
   const SearchSection(
-      {Key? key, required this.followButton, required this.closeIcon, required this.numberOfResults})
+      {Key? key, required this.followButton, required this.closeIcon, required this.numberOfResults, required this.icon})
       : super(key: key);
 
   @override
@@ -26,7 +27,7 @@ class _SearchSectionState extends State<SearchSection> {
           widget.numberOfResults,
           (index) => SearchResult(
             followButton: widget.followButton,
-            closeIcon: widget.closeIcon,
+            closeIcon: widget.closeIcon, icon: widget.icon,
           ),
         ),
       ),

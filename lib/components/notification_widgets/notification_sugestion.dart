@@ -17,7 +17,7 @@ class NotificationSugestion extends StatelessWidget {
           ),
         ),
       ),
-      body: const SingleChildScrollView(child: SearchSection(followButton: true, closeIcon: false, numberOfResults: 20,)),
+      body: const SingleChildScrollView(child: SearchSection(followButton: true, closeIcon: false, numberOfResults: 20, icon: Icons.close,)),
     );
   }
 }

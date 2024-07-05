@@ -48,7 +48,14 @@ class _SearchPageState extends State<SearchPage> {
       body: RefreshIndicator(
         onRefresh: _refresh,
         child: isExpanded
-            ? const ResultSearch(textButton: 'Ver Tudo', title: 'Recentes', closeIcon: false, numberOfResults: 20,)
+            ? const ResultSearch(
+                textButton: 'Ver Tudo',
+                title: 'Recentes',
+                closeIcon: false,
+                numberOfResults: 20,
+                icon: Icons.close,
+                hasTexts: true,
+              )
             : ListView.builder(
                 itemCount: 10,
                 itemBuilder: (context, index) {

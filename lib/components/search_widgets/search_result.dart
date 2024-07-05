@@ -5,8 +5,9 @@ import 'package:instagram/pages/other_profile.dart';
 class SearchResult extends StatefulWidget {
   final bool followButton;
   final bool closeIcon;
+  final IconData icon;
 
-  const SearchResult({super.key, required this.followButton, required this.closeIcon});
+  const SearchResult({super.key, required this.followButton, required this.closeIcon, required this.icon});
 
   @override
   State<SearchResult> createState() => _SearchResultState();
@@ -99,9 +100,9 @@ class _SearchResultState extends State<SearchResult> {
               )
             : IconButton(
                 onPressed: () {},
-                icon: const Icon(
-                  Icons.close,
-                  color: Color(0xFFA8A8A8),
+                icon: Icon(
+                  widget.icon,
+                  color: const Color(0xFFA8A8A8),
                   size: 18,
                 )),
         const SizedBox(

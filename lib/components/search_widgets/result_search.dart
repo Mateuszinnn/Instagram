@@ -7,8 +7,17 @@ class ResultSearch extends StatefulWidget {
   final String textButton;
   final bool closeIcon;
   final int numberOfResults;
+  final IconData icon;
+  final bool hasTexts;
+
   const ResultSearch(
-      {super.key, required this.textButton, required this.title, required this.closeIcon, required this.numberOfResults});
+      {super.key,
+      required this.textButton,
+      required this.title,
+      required this.closeIcon,
+      required this.numberOfResults,
+      required this.icon,
+      required this.hasTexts});
 
   @override
   State<ResultSearch> createState() => _ResultSearchState();
@@ -29,40 +38,44 @@ class _ResultSearchState extends State<ResultSearch> {
               height: 0.1,
               thickness: 0.1,
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(15, 5, 5, 5),
-              child: Row(
-                children: [
-                  Text(
-                    widget.title,
-                    style: const TextStyle(
-                        fontFamily: 'Instagram',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 17),
-                  ),
-                  const Spacer(),
-                  TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const SearchRecent()),
-                        );
-                      },
-                      child: Text(
-                        widget.textButton,
-                        style: const TextStyle(
-                            fontFamily: 'Instagram',
-                            fontWeight: FontWeight.bold,
-                            color: Colors.blue,
-                            fontSize: 15),
-                      )),
-                ],
-              ),
-            ),
+            widget.hasTexts
+                ? Padding(
+                    padding: const EdgeInsets.fromLTRB(15, 5, 5, 5),
+                    child: Row(
+                      children: [
+                        Text(
+                          widget.title,
+                          style: const TextStyle(
+                              fontFamily: 'Instagram',
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17),
+                        ),
+                        const Spacer(),
+                        TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const SearchRecent()),
+                              );
+                            },
+                            child: Text(
+                              widget.textButton,
+                              style: const TextStyle(
+                                  fontFamily: 'Instagram',
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.blue,
+                                  fontSize: 15),
+                            )),
+                      ],
+                    ),
+                  )
+                : Container(),
             SearchSection(
-              followButton: false, closeIcon: widget.closeIcon, numberOfResults: widget.numberOfResults,
-              
+              followButton: false,
+              closeIcon: widget.closeIcon,
+              numberOfResults: widget.numberOfResults,
+              icon: widget.icon,
             ),
           ],
         ),
