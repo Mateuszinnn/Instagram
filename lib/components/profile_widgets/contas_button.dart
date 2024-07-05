@@ -19,11 +19,12 @@ class ContasButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 280,
-      color: const Color.fromARGB(255, 37, 54, 65),
+      color: Theme.of(context).colorScheme.onSecondaryContainer,
       child: Column(
         children: <Widget>[
-          SizedBox(
+          Container(
             width: MediaQuery.of(context).size.width,
+            color: Theme.of(context).colorScheme.onSecondaryContainer,
           ),
           Stack(
             children: [
@@ -34,7 +35,7 @@ class ContasButton extends StatelessWidget {
                   label: '  Profile Name',
                   width: (widthButton * 2) + 10,
                   isTopRounded: true,
-                  backgroundColor: const Color(0xFF344854),
+                  backgroundColor: Theme.of(context).colorScheme.onPrimary,
                   textColor: Theme.of(context).colorScheme.primary,
                   iconColor: Theme.of(context).colorScheme.primary,
                   isColumn: false,
@@ -81,7 +82,7 @@ class ContasButton extends StatelessWidget {
                 label: '  Adicionar conta do Instagram',
                 width: (widthButton * 2) + 10,
                 isBottomRounded: true,
-                backgroundColor: const Color(0xFF344854),
+                backgroundColor: Theme.of(context).colorScheme.onPrimary,
                 textColor: Theme.of(context).colorScheme.primary,
                 iconColor: Theme.of(context).colorScheme.primary,
                 isColumn: false,
@@ -90,7 +91,7 @@ class ContasButton extends StatelessWidget {
                   onPressed: () {
                     showModalBottomSheet(
                       showDragHandle: true,
-                      backgroundColor: const Color.fromARGB(255, 37, 54, 65),
+                      backgroundColor: Theme.of(context).colorScheme.onSecondaryContainer,
                       context: context,
                       builder: (BuildContext context) {
                         return AddAcount(
@@ -136,9 +137,9 @@ class ContasButton extends StatelessWidget {
             child: Stack(
               children: [
                 Container(
-                  decoration: const BoxDecoration(
-                    color: Color(0xFF344854),
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.onPrimary,
+                    borderRadius: const BorderRadius.all(Radius.circular(5)),
                   ),
                   child: const Padding(
                     padding: EdgeInsets.fromLTRB(3.5, 5, 8, 8),
@@ -176,7 +177,7 @@ class ContasButton extends StatelessWidget {
                         showModalBottomSheet(
                           showDragHandle: true,
                           backgroundColor:
-                              const Color.fromARGB(255, 37, 54, 65),
+                              Theme.of(context).colorScheme.onSecondaryContainer,
                           context: context,
                           builder: (BuildContext context) {
                             return MoreContasButton(
@@ -197,7 +198,7 @@ class ContasButton extends StatelessWidget {
             child: OutlinedButton(
               style: ButtonStyle(
                 side: WidgetStateProperty.all(
-                  const BorderSide(color: Colors.white),
+                  BorderSide(color: Theme.of(context).colorScheme.primary,),
                 ),
               ),
               onPressed: () {
@@ -211,9 +212,9 @@ class ContasButton extends StatelessWidget {
                   },
                 );
               },
-              child: const Text(
+              child: Text(
                 'Ir para central de contas',
-                style: TextStyle(fontFamily: 'Instagram', color: Colors.white),
+                style: TextStyle(fontFamily: 'Instagram', color: Theme.of(context).colorScheme.primary,),
               ),
             ),
           ),

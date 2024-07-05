@@ -2,12 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:instagram/components/search_widgets/search_recent.dart';
 import 'package:instagram/components/search_widgets/search_section.dart';
 
-class ResultSearch extends StatelessWidget {
+class ResultSearch extends StatefulWidget {
   final String title;
   final String textButton;
+  final bool closeIcon;
+  final int numberOfResults;
   const ResultSearch(
-      {super.key, required this.textButton, required this.title});
+      {super.key, required this.textButton, required this.title, required this.closeIcon, required this.numberOfResults});
 
+  @override
+  State<ResultSearch> createState() => _ResultSearchState();
+}
+
+class _ResultSearchState extends State<ResultSearch> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -27,7 +34,7 @@ class ResultSearch extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    title,
+                    widget.title,
                     style: const TextStyle(
                         fontFamily: 'Instagram',
                         fontWeight: FontWeight.bold,
@@ -43,7 +50,7 @@ class ResultSearch extends StatelessWidget {
                         );
                       },
                       child: Text(
-                        textButton,
+                        widget.textButton,
                         style: const TextStyle(
                             fontFamily: 'Instagram',
                             fontWeight: FontWeight.bold,
@@ -53,8 +60,9 @@ class ResultSearch extends StatelessWidget {
                 ],
               ),
             ),
-            const SearchSection(
-              followButton: false,
+            SearchSection(
+              followButton: false, closeIcon: widget.closeIcon, numberOfResults: widget.numberOfResults,
+              
             ),
           ],
         ),

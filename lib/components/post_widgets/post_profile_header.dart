@@ -53,7 +53,7 @@ class PostProfileHeader extends StatelessWidget {
             showModalBottomSheet(
               showDragHandle: true,
               backgroundColor:
-                  Theme.of(context).colorScheme.onSecondaryContainer,
+                  Theme.of(context).colorScheme.onPrimaryContainer,
               context: context,
               builder: (BuildContext context) {
                 return MoreButton(

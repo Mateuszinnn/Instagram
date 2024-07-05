@@ -8,13 +8,13 @@ class AddAcount extends StatelessWidget{
   Widget build(BuildContext context) {
     return Container(
       height: 160,
-      color: const Color.fromARGB(255, 37, 54, 65),
+      color: Theme.of(context).colorScheme.onSecondaryContainer,
       child: Column(
         children: <Widget>[
           SizedBox(
             width: MediaQuery.of(context).size.width,
           ),
-          const Text('Adicionar conta', style: TextStyle(fontFamily: 'Instagram', fontWeight: FontWeight.bold, fontSize: 17),),
+          Text('Adicionar conta', style: TextStyle(fontFamily: 'Instagram', fontWeight: FontWeight.bold, fontSize: 17, color: Theme.of(context).colorScheme.primary,),),
           const SizedBox(height: 10,),
           SizedBox(
             width: (widthButton * 2) + 15,
@@ -37,13 +37,13 @@ class AddAcount extends StatelessWidget{
             child: OutlinedButton(
               style: ButtonStyle(
                 side: WidgetStateProperty.all(
-                  const BorderSide(color: Colors.white),
+                  BorderSide(color: Theme.of(context).colorScheme.primary,),
                 ),
               ),
               onPressed: () {},
-              child: const Text(
+              child: Text(
                 'Criar nova conta',
-                style: TextStyle(fontFamily: 'Instagram', color: Colors.white),
+                style: TextStyle(fontFamily: 'Instagram', color: Theme.of(context).colorScheme.primary,),
               ),
             ),
           ),

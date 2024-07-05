@@ -34,50 +34,74 @@ class NotificationDate extends StatelessWidget {
               padding: const EdgeInsets.all(10),
               child: Column(
                 children: List.generate(
-                  4,
-                  (index) => Row(
-                    children: [
-                      const ProfileWidget(
-                        profileName: 'Profile Name',
-                        paddingLeft: 5,
-                        paddingTop: 0,
-                        paddingRight: 10,
-                        paddingBottom: 5,
-                        size: 25,
-                        isColumn: false,
-                        hasDescription: false,
-                        description: '',
-                      ),
-                      Text(
-                        ' curtiu seu story.',
-                        style: TextStyle(
-                          fontFamily: 'Instagram',
-                          color: Theme.of(context).colorScheme.primary,
-                        ),
-                      ),
-                      const Text(
-                        ' x dias',
-                        style: TextStyle(
-                          fontFamily: 'Instagram',
-                          color: Color(0xFFA8A8A8),
-                        ),
-                      ),
-                      const Spacer(),
-                      SizedBox(
-                        height: 50,
-                        width: 50,
-                        child: ClipRRect(
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(5.0)),
-                          child: Image.asset(
-                            image,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                    4,
+                    (index) => Row(
+                          children: [
+                            const ProfileWidget(
+                              profileName: '',
+                              paddingLeft: 5,
+                              paddingTop: 0,
+                              paddingRight: 10,
+                              paddingBottom: 5,
+                              size: 25,
+                              isColumn: false,
+                              hasDescription: false,
+                              description: '',
+                            ),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                RichText(
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: 'Profile Name ',
+                                        style: TextStyle(
+                                          fontFamily: 'Instagram',
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .primary,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: 'curtiu seu story.',
+                                        style: TextStyle(
+                                          fontFamily: 'Instagram',
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .primary,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                const Text(
+                                  ' x dias',
+                                  style: TextStyle(
+                                    fontFamily: 'Instagram',
+                                    color: Color(0xFFA8A8A8),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const Spacer(),
+                            SizedBox(
+                              height: 50,
+                              width: 50,
+                              child: ClipRRect(
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(5.0)),
+                                child: Image.asset(
+                                  image,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ],
+                        )),
               ),
             ),
           ),

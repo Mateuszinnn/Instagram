@@ -54,7 +54,7 @@ class NotificationSection extends StatelessWidget {
               ),
             ),
           ),
-          const SearchSection(followButton: true,),
+          const SearchSection(followButton: true, closeIcon: false, numberOfResults: 20,),
           Container(
             color: Theme.of(context).colorScheme.surface,
             child: SizedBox(

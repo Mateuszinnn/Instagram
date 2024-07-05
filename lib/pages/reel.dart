@@ -124,7 +124,7 @@ class _ReelPageState extends State<ReelPage> {
                                 showDragHandle: true,
                                 backgroundColor: Theme.of(context)
                                     .colorScheme
-                                    .onSecondaryContainer,
+                                    .onPrimaryContainer,
                                 context: context,
                                 builder: (BuildContext context) {
                                   return MoreButton(

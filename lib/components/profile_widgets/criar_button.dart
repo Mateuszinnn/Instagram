@@ -16,7 +16,7 @@ class CriarButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 525,
-      color: Theme.of(context).colorScheme.onSecondaryContainer,
+      color: Theme.of(context).colorScheme.onPrimaryContainer,
       child: Column(
         children: <Widget>[
           SizedBox(
@@ -47,7 +47,7 @@ class CriarButton extends StatelessWidget {
             label: 'Reel',
             width: MediaQuery.of(context).size.width,
             backgroundColor:
-                Theme.of(context).colorScheme.onSecondaryContainer,
+                Theme.of(context).colorScheme.onPrimaryContainer,
             textColor: Theme.of(context).colorScheme.primary,
             iconColor: Theme.of(context).colorScheme.primary,
             isColumn: false,
@@ -65,7 +65,7 @@ class CriarButton extends StatelessWidget {
             label: 'Publicação',
             width: MediaQuery.of(context).size.width,
             backgroundColor:
-                Theme.of(context).colorScheme.onSecondaryContainer,
+                Theme.of(context).colorScheme.onPrimaryContainer,
             textColor: Theme.of(context).colorScheme.primary,
             iconColor: Theme.of(context).colorScheme.primary,
             isColumn: false,
@@ -83,7 +83,7 @@ class CriarButton extends StatelessWidget {
             label: 'Story',
             width: MediaQuery.of(context).size.width,
             backgroundColor:
-                Theme.of(context).colorScheme.onSecondaryContainer,
+                Theme.of(context).colorScheme.onPrimaryContainer,
             textColor: Theme.of(context).colorScheme.primary,
             iconColor: Theme.of(context).colorScheme.primary,
             isColumn: false,
@@ -101,7 +101,7 @@ class CriarButton extends StatelessWidget {
             label: 'Destaques dos stories',
             width: MediaQuery.of(context).size.width,
             backgroundColor:
-                Theme.of(context).colorScheme.onSecondaryContainer,
+                Theme.of(context).colorScheme.onPrimaryContainer,
             textColor: Theme.of(context).colorScheme.primary,
             iconColor: Theme.of(context).colorScheme.primary,
             isColumn: false,
@@ -119,7 +119,7 @@ class CriarButton extends StatelessWidget {
             label: 'Transmissão ao vivo',
             width: MediaQuery.of(context).size.width,
             backgroundColor:
-                Theme.of(context).colorScheme.onSecondaryContainer,
+                Theme.of(context).colorScheme.onPrimaryContainer,
             textColor: Theme.of(context).colorScheme.primary,
             iconColor: Theme.of(context).colorScheme.primary,
             isColumn: false,
@@ -137,7 +137,7 @@ class CriarButton extends StatelessWidget {
             label: 'Feito para você',
             width: MediaQuery.of(context).size.width,
             backgroundColor:
-                Theme.of(context).colorScheme.onSecondaryContainer,
+                Theme.of(context).colorScheme.onPrimaryContainer,
             textColor: Theme.of(context).colorScheme.primary,
             iconColor: Theme.of(context).colorScheme.primary,
             isColumn: false,

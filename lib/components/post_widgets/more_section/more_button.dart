@@ -14,7 +14,7 @@ class MoreButton extends StatelessWidget {
     return SingleChildScrollView(
       child: Container(
         height: 525,
-        color: Theme.of(context).colorScheme.onSecondaryContainer,
+        color: Theme.of(context).colorScheme.onPrimaryContainer,
         child: Column(
           children: <Widget>[
             Row(

@@ -10,7 +10,7 @@ class MoreContasButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 100,
-      color: const Color.fromARGB(255, 37, 54, 65),
+      color: Theme.of(context).colorScheme.onSecondaryContainer,
       child: Column(
         children: <Widget>[
           SizedBox(
@@ -26,7 +26,7 @@ class MoreContasButton extends StatelessWidget {
             width: (widthButton * 2) + 10,
             isTopRounded: true,
             isBottomRounded: true,
-            backgroundColor: const Color(0xFF344854),
+            backgroundColor: Theme.of(context).colorScheme.onPrimary,
             textColor: Theme.of(context).colorScheme.primary,
             iconColor: Theme.of(context).colorScheme.primary,
             isColumn: false,

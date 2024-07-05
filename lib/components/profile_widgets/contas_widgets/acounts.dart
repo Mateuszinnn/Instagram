@@ -25,237 +25,302 @@ class _AcountsState extends State<Acounts> {
           GestureDetector(
             onTap: () {},
             child: DraggableScrollableSheet(
-              initialChildSize: 1.0,
+              initialChildSize: 0.95,
               minChildSize: 0.25,
-              maxChildSize: 1.0,
+              maxChildSize: 0.95,
               expand: true,
               builder: (context, scrollController) {
                 return Stack(
                   children: [
-                    Container(
-                      color: Theme.of(context).colorScheme.secondary,
-                      child: SingleChildScrollView(
-                        controller: scrollController,
-                        padding: const EdgeInsets.only(top: 80),
-                        child: Column(
-                          children: [
-                            const Text(
-                              'Central de contas',
-                              style: TextStyle(
-                                fontFamily: 'Instagram',
-                                fontWeight: FontWeight.bold,
-                                fontSize: 30,
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            RichText(
-                              textAlign: TextAlign.center,
-                              text: TextSpan(
+                    ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
+                      ),
+                      child: Container(
+                        color:
+                            Theme.of(context).colorScheme.onSecondaryContainer,
+                        child: SingleChildScrollView(
+                          controller: scrollController,
+                          padding: const EdgeInsets.only(top: 80),
+                          child: Column(
+                            children: [
+                              const Text(
+                                'Central de contas',
                                 style: TextStyle(
                                   fontFamily: 'Instagram',
-                                  color: Theme.of(context).colorScheme.primary,
-                                  fontSize: 17,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 30,
                                 ),
-                                children: const [
-                                  TextSpan(
-                                    text:
-                                        'Gerencie suas experiências conectadas e configurações de contas nas tecnologias Meta, como Facebook, Instagram e Meta Horizon. ',
+                              ),
+                              const SizedBox(
+                                height: 5,
+                              ),
+                              RichText(
+                                textAlign: TextAlign.center,
+                                text: TextSpan(
+                                  style: TextStyle(
+                                    fontFamily: 'Instagram',
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
+                                    fontSize: 17,
                                   ),
-                                  TextSpan(
-                                    text: 'Saiba mais',
-                                    style: TextStyle(
-                                      color: Colors
-                                          .blue,
+                                  children: const [
+                                    TextSpan(
+                                      text:
+                                          'Gerencie suas experiências conectadas e configurações de contas nas tecnologias Meta, como Facebook, Instagram e Meta Horizon. ',
                                     ),
+                                    TextSpan(
+                                      text: 'Saiba mais',
+                                      style: TextStyle(
+                                        color: Colors.blue,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              AcountButton(
+                                widhtButton: widthButtonBottomsheet,
+                                icon: Icons.switch_account_rounded,
+                                text: '  Perfis',
+                                hasDescription: true,
+                                description: '  Profile Name',
+                                isTopRounded: true,
+                                isBottomRounded: true,
+                                hasIcon: true,
+                                color: Theme.of(context).colorScheme.primary,
+                                backgroundColor: Theme.of(context)
+                                    .colorScheme
+                                    .onTertiaryContainer,
+                              ),
+                              const Align(
+                                alignment: Alignment.centerLeft,
+                                child: Padding(
+                                  padding: EdgeInsets.all(10),
+                                  child: Text(
+                                    'Experiências conectadas',
+                                    style: TextStyle(
+                                        fontFamily: 'Instagram',
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18),
                                   ),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(height: 10,),
-                            AcountButton(
-                              widhtButton: widthButtonBottomsheet,
-                              icon: Icons.switch_account_rounded,
-                              text: '  Perfis',
-                              hasDescription: true,
-                              description: '  Profile Name',
-                              isTopRounded: true,
-                              hasIcon: true,
-                              color: Theme.of(context).colorScheme.primary,
-                              backgroundColor: Theme.of(context)
-                                  .colorScheme
-                                  .onTertiaryContainer,
-                            ),
-                            const Align(
-                              alignment: Alignment.centerLeft,
-                              child: Padding(
-                                padding: EdgeInsets.all(10),
-                                child: Text(
-                                  'Experiências conectadas',
-                                  style: TextStyle(
-                                      fontFamily: 'Instagram',
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18),
                                 ),
                               ),
-                            ),
-                            AcountButton(
-                              widhtButton: widthButtonBottomsheet,
-                              icon: Icons.switch_account_rounded,
-                              text: '  Compartilhamento entre perfis',
-                              hasDescription: false,
-                              description: '',
-                              isTopRounded: true,
-                              hasIcon: true,
-                              color: Theme.of(context).colorScheme.primary,
-                              backgroundColor: Theme.of(context)
-                                  .colorScheme
-                                  .onTertiaryContainer,
-                            ),
-                            AcountButton(
-                              widhtButton: widthButtonBottomsheet,
-                              icon: Icons.login_rounded,
-                              text: '  Logins com contas',
-                              hasDescription: false,
-                              description: '',
-                              hasIcon: true,
-                              color: Theme.of(context).colorScheme.primary,
-                              backgroundColor: Theme.of(context)
-                                  .colorScheme
-                                  .onTertiaryContainer,
-                            ),
-                            AcountButton(
-                              widhtButton: widthButtonBottomsheet,
-                              icon: Icons.login_rounded,
-                              text: '  Ver Tudo',
-                              hasDescription: false,
-                              description: '',
-                              isBottomRounded: true,
-                              hasIcon: false,
-                              color: Colors.blue,
-                              backgroundColor: Theme.of(context)
-                                  .colorScheme
-                                  .onTertiaryContainer,
-                            ),
-                            const Align(
-                              alignment: Alignment.centerLeft,
-                              child: Padding(
-                                padding: EdgeInsets.all(10),
-                                child: Text(
-                                  '  Configurações da Conta',
-                                  style: TextStyle(
-                                      fontFamily: 'Instagram',
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18),
+                              AcountButton(
+                                widhtButton: widthButtonBottomsheet,
+                                icon: Icons.switch_account_rounded,
+                                text: '  Compartilhamento entre perfis',
+                                hasDescription: false,
+                                description: '',
+                                isTopRounded: true,
+                                hasIcon: true,
+                                color: Theme.of(context).colorScheme.primary,
+                                backgroundColor: Theme.of(context)
+                                    .colorScheme
+                                    .onTertiaryContainer,
+                              ),
+                              SizedBox(
+                                width: widthButtonBottomsheet,
+                                child: const Divider(
+                                  thickness: 0.1,
+                                  height: 0.1,
                                 ),
                               ),
-                            ),
-                            AcountButton(
-                              widhtButton: widthButtonBottomsheet,
-                              icon: Icons.shield_outlined,
-                              text: '  Senha e segurança',
-                              hasDescription: false,
-                              description: '',
-                              isTopRounded: true,
-                              hasIcon: true,
-                              color: Theme.of(context).colorScheme.primary,
-                              backgroundColor: Theme.of(context)
-                                  .colorScheme
-                                  .onTertiaryContainer,
-                            ),
-                            AcountButton(
-                              widhtButton: widthButtonBottomsheet,
-                              icon: FontAwesomeIcons.addressCard,
-                              text: '  Dados pessoais',
-                              hasDescription: false,
-                              description: '',
-                              hasIcon: true,
-                              color: Theme.of(context).colorScheme.primary,
-                              backgroundColor: Theme.of(context)
-                                  .colorScheme
-                                  .onTertiaryContainer,
-                            ),
-                            AcountButton(
-                              widhtButton: widthButtonBottomsheet,
-                              icon: Icons.perm_device_info_rounded,
-                              text: '  Suas informações e permissões',
-                              hasDescription: false,
-                              description: '',
-                              hasIcon: true,
-                              color: Theme.of(context).colorScheme.primary,
-                              backgroundColor: Theme.of(context)
-                                  .colorScheme
-                                  .onTertiaryContainer,
-                            ),
-                            AcountButton(
-                              widhtButton: widthButtonBottomsheet,
-                              icon: FontAwesomeIcons.bullhorn,
-                              text: '  Preferências de anúncios',
-                              hasDescription: false,
-                              description: '',
-                              hasIcon: true,
-                              color: Theme.of(context).colorScheme.primary,
-                              backgroundColor: Theme.of(context)
-                                  .colorScheme
-                                  .onTertiaryContainer,
-                            ),
-                            AcountButton(
-                              widhtButton: widthButtonBottomsheet,
-                              icon: Icons.credit_card_rounded,
-                              text: '  Meta Play',
-                              hasDescription: false,
-                              description: '',
-                              hasIcon: true,
-                              color: Theme.of(context).colorScheme.primary,
-                              backgroundColor: Theme.of(context)
-                                  .colorScheme
-                                  .onTertiaryContainer,
-                            ),
-                            AcountButton(
-                              widhtButton: widthButtonBottomsheet,
-                              icon: Icons.verified_outlined,
-                              text: '  Meta Verified',
-                              hasDescription: false,
-                              description: '',
-                              hasIcon: true,
-                              isBottomRounded: true,
-                              color: Theme.of(context).colorScheme.primary,
-                              backgroundColor: Theme.of(context)
-                                  .colorScheme
-                                  .onTertiaryContainer,
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            AcountButton(
-                              widhtButton: widthButtonBottomsheet,
-                              icon: Icons.account_circle,
-                              text: '  Contas',
-                              hasDescription: true,
-                              description: '  Analise as contas que você tem nesta Central de Contas',
-                              isTopRounded: true,
-                              hasIcon: true,
-                              color: Theme.of(context).colorScheme.primary,
-                              backgroundColor: Theme.of(context)
-                                  .colorScheme
-                                  .onTertiaryContainer,
-                            ),
-                            AcountButton(
-                              widhtButton: widthButtonBottomsheet,
-                              icon: Icons.login_rounded,
-                              text: '  Adicionar mais contas',
-                              hasDescription: false,
-                              description: '',
-                              isBottomRounded: true,
-                              hasIcon: false,
-                              color: Colors.blue,
-                              backgroundColor: Theme.of(context)
-                                  .colorScheme
-                                  .onTertiaryContainer,
-                            ),
-                            const SizedBox(height: 20,)
-                          ],
+                              AcountButton(
+                                widhtButton: widthButtonBottomsheet,
+                                icon: Icons.login_rounded,
+                                text: '  Logins com contas',
+                                hasDescription: false,
+                                description: '',
+                                hasIcon: true,
+                                color: Theme.of(context).colorScheme.primary,
+                                backgroundColor: Theme.of(context)
+                                    .colorScheme
+                                    .onTertiaryContainer,
+                              ),
+                              SizedBox(
+                                width: widthButtonBottomsheet,
+                                child: const Divider(
+                                  thickness: 0.1,
+                                  height: 0.1,
+                                ),
+                              ),
+                              AcountButton(
+                                widhtButton: widthButtonBottomsheet,
+                                icon: Icons.login_rounded,
+                                text: '  Ver Tudo',
+                                hasDescription: false,
+                                description: '',
+                                isBottomRounded: true,
+                                hasIcon: false,
+                                color: Colors.blue,
+                                backgroundColor: Theme.of(context)
+                                    .colorScheme
+                                    .onTertiaryContainer,
+                              ),
+                              const Align(
+                                alignment: Alignment.centerLeft,
+                                child: Padding(
+                                  padding: EdgeInsets.all(10),
+                                  child: Text(
+                                    '  Configurações da Conta',
+                                    style: TextStyle(
+                                        fontFamily: 'Instagram',
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18),
+                                  ),
+                                ),
+                              ),
+                              AcountButton(
+                                widhtButton: widthButtonBottomsheet,
+                                icon: Icons.shield_outlined,
+                                text: '  Senha e segurança',
+                                hasDescription: false,
+                                description: '',
+                                isTopRounded: true,
+                                hasIcon: true,
+                                color: Theme.of(context).colorScheme.primary,
+                                backgroundColor: Theme.of(context)
+                                    .colorScheme
+                                    .onTertiaryContainer,
+                              ),
+                              SizedBox(
+                                width: widthButtonBottomsheet,
+                                child: const Divider(
+                                  thickness: 0.1,
+                                  height: 0.1,
+                                ),
+                              ),
+                              AcountButton(
+                                widhtButton: widthButtonBottomsheet,
+                                icon: FontAwesomeIcons.addressCard,
+                                text: '  Dados pessoais',
+                                hasDescription: false,
+                                description: '',
+                                hasIcon: true,
+                                color: Theme.of(context).colorScheme.primary,
+                                backgroundColor: Theme.of(context)
+                                    .colorScheme
+                                    .onTertiaryContainer,
+                              ),
+                              SizedBox(
+                                width: widthButtonBottomsheet,
+                                child: const Divider(
+                                  thickness: 0.1,
+                                  height: 0.1,
+                                ),
+                              ),
+                              AcountButton(
+                                widhtButton: widthButtonBottomsheet,
+                                icon: Icons.perm_device_info_rounded,
+                                text: '  Suas informações e permissões',
+                                hasDescription: false,
+                                description: '',
+                                hasIcon: true,
+                                color: Theme.of(context).colorScheme.primary,
+                                backgroundColor: Theme.of(context)
+                                    .colorScheme
+                                    .onTertiaryContainer,
+                              ),
+                              SizedBox(
+                                width: widthButtonBottomsheet,
+                                child: const Divider(
+                                  thickness: 0.1,
+                                  height: 0.1,
+                                ),
+                              ),
+                              AcountButton(
+                                widhtButton: widthButtonBottomsheet,
+                                icon: FontAwesomeIcons.bullhorn,
+                                text: '  Preferências de anúncios',
+                                hasDescription: false,
+                                description: '',
+                                hasIcon: true,
+                                color: Theme.of(context).colorScheme.primary,
+                                backgroundColor: Theme.of(context)
+                                    .colorScheme
+                                    .onTertiaryContainer,
+                              ),
+                              SizedBox(
+                                width: widthButtonBottomsheet,
+                                child: const Divider(
+                                  thickness: 0.1,
+                                  height: 0.1,
+                                ),
+                              ),
+                              AcountButton(
+                                widhtButton: widthButtonBottomsheet,
+                                icon: Icons.credit_card_rounded,
+                                text: '  Meta Play',
+                                hasDescription: false,
+                                description: '',
+                                hasIcon: true,
+                                color: Theme.of(context).colorScheme.primary,
+                                backgroundColor: Theme.of(context)
+                                    .colorScheme
+                                    .onTertiaryContainer,
+                              ),
+                              SizedBox(
+                                width: widthButtonBottomsheet,
+                                child: const Divider(
+                                  thickness: 0.1,
+                                  height: 0.1,
+                                ),
+                              ),
+                              AcountButton(
+                                widhtButton: widthButtonBottomsheet,
+                                icon: Icons.verified_outlined,
+                                text: '  Meta Verified',
+                                hasDescription: false,
+                                description: '',
+                                hasIcon: true,
+                                isBottomRounded: true,
+                                color: Theme.of(context).colorScheme.primary,
+                                backgroundColor: Theme.of(context)
+                                    .colorScheme
+                                    .onTertiaryContainer,
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              AcountButton(
+                                widhtButton: widthButtonBottomsheet,
+                                icon: Icons.account_circle,
+                                text: '  Contas',
+                                hasDescription: true,
+                                description:
+                                    '  Analise as contas que você tem nesta Central de Contas',
+                                isTopRounded: true,
+                                hasIcon: true,
+                                color: Theme.of(context).colorScheme.primary,
+                                backgroundColor: Theme.of(context)
+                                    .colorScheme
+                                    .onTertiaryContainer,
+                              ),
+                              SizedBox(
+                                width: widthButtonBottomsheet,
+                                child: const Divider(
+                                  thickness: 0.1,
+                                  height: 0.1,
+                                ),
+                              ),
+                              AcountButton(
+                                widhtButton: widthButtonBottomsheet,
+                                icon: Icons.login_rounded,
+                                text: '  Adicionar mais contas',
+                                hasDescription: false,
+                                description: '',
+                                isBottomRounded: true,
+                                hasIcon: false,
+                                color: Colors.blue,
+                                backgroundColor: Theme.of(context)
+                                    .colorScheme
+                                    .onTertiaryContainer,
+                              ),
+                              const SizedBox(height: 20),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -263,40 +328,47 @@ class _AcountsState extends State<Acounts> {
                       top: 0,
                       left: 0,
                       right: 0,
-                      child: Container(
-                        color: Theme.of(context).colorScheme.secondary,
-                        child: Column(
-                          children: [
-                            const SizedBox(height: 30),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                IconButton(
-                                    onPressed: () {},
+                      child: ClipRRect(
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20),
+                        ),
+                        child: Container(
+                          color: Theme.of(context)
+                              .colorScheme
+                              .onSecondaryContainer,
+                          child: Column(
+                            children: [
+                              const SizedBox(height: 30),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  IconButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
                                     icon: const Icon(
                                       Icons.close_rounded,
                                       size: 30,
-                                    )),
-                                const Row(
-                                  children: [
-                                    Icon(FontAwesomeIcons.meta),
-                                    Text(
-                                      '  Meta',
-                                      style: TextStyle(
-                                        fontFamily: 'Instagram',
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20,
-                                      ),
                                     ),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  width: 40,
-                                )
-                              ],
-                            ),
-                            const SizedBox(height: 10),
-                          ],
+                                  ),
+                                  const Row(
+                                    children: [
+                                      Icon(FontAwesomeIcons.meta, size: 17),
+                                      Text(
+                                        '  Meta',
+                                        style: TextStyle(
+                                            fontFamily: 'Instagram',
+                                            fontSize: 17),
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(width: 30),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

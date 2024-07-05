@@ -38,7 +38,7 @@ class SearchRecent extends StatelessWidget {
         children: [
           Expanded(
             child: SingleChildScrollView(
-                child: SearchSection(followButton: false,)),
+                child: SearchSection(followButton: false, closeIcon: false, numberOfResults: 20,)),
           ),
         ],
       ),
