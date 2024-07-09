@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/components/storieswidget.dart';
+import 'package:instagram/components/custom_textbutton.dart';
+import 'package:instagram/components/stories_widget.dart';
 import 'package:instagram/components/profile_widgets/info_profile.dart';
 
 class OtherProfile extends StatefulWidget {
@@ -152,60 +153,25 @@ class _ProfileState extends State<OtherProfile> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.fromLTRB(10, 10, 5, 10),
-                        child: SizedBox(
-                          height: height,
-                          width: widthButton == 185 ? 181 : widthButton,
-                          child: IntrinsicWidth(
-                            child: FilledButton(
-                              onPressed: () {},
-                              style: ButtonStyle(
-                                backgroundColor: WidgetStateProperty.all(
-                                    Theme.of(context).colorScheme.secondary),
-                                shape: WidgetStateProperty.all<
-                                    RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(5.0),
-                                  ),
-                                ),
-                              ),
-                              child: Text(
-                                'Seguindo',
-                                style: TextStyle(
-                                    color:
-                                        Theme.of(context).colorScheme.primary,
-                                    fontFamily: 'Instagram'),
-                              ),
-                            ),
+                        child: CustomTextbutton(
+                            text: 'Seguindo',
+                            width: widthButton == 185 ? 181 : widthButton,
+                            onPressed: () {},
+                            height: height,
+                            description: '',
+                            isColumn: false,
                           ),
-                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(5, 10, 10, 10),
-                        child: SizedBox(
-                          height: height,
-                          width: widthButton == 185 ? 181 : widthButton,
-                          child: IntrinsicWidth(
-                            child: FilledButton(
-                                onPressed: () {},
-                                style: ButtonStyle(
-                                  backgroundColor: WidgetStateProperty.all(
-                                      Theme.of(context).colorScheme.secondary),
-                                  shape: WidgetStateProperty.all<
-                                      RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                    ),
-                                  ),
-                                ),
-                                child: Text(
-                                  'Mensagem',
-                                  style: TextStyle(
-                                      color:
-                                          Theme.of(context).colorScheme.primary,
-                                      fontFamily: 'Instagram'),
-                                )),
+                        child: CustomTextbutton(
+                            text: 'Mensagem',
+                            width: widthButton == 185 ? 181 : widthButton,
+                            onPressed: () {},
+                            height: height,
+                            description: '',
+                            isColumn: false,
                           ),
-                        ),
                       ),
                     ],
                   ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/components/stories_widgets/stories_page.dart';
 
 class Storieswidget extends StatelessWidget {
   final int index;
@@ -21,16 +22,25 @@ class Storieswidget extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                    CircleAvatar(
-                      radius: 35,
-                      backgroundColor: const Color.fromRGBO(203, 73, 101, 1),
+                    GestureDetector(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const StoriesPage(),
+                        ),
+                      ),
                       child: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Theme.of(context).colorScheme.surface,
-                        child: Icon(
-                          Icons.person,
-                          size: 32,
-                          color: Theme.of(context).colorScheme.primary,
+                        radius: 35,
+                        backgroundColor: const Color.fromRGBO(203, 73, 101, 1),
+                        child: CircleAvatar(
+                          radius: 32,
+                          backgroundColor:
+                              Theme.of(context).colorScheme.surface,
+                          child: Icon(
+                            Icons.person,
+                            size: 32,
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
                         ),
                       ),
                     ),
@@ -57,16 +67,19 @@ class Storieswidget extends StatelessWidget {
             )
           : Column(
               children: [
-                CircleAvatar(
-                  radius: 35,
-                  backgroundColor: const Color.fromRGBO(203, 73, 101, 1),
+                GestureDetector(
+                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const StoriesPage(),)),
                   child: CircleAvatar(
-                    radius: 32,
-                    backgroundColor: Theme.of(context).colorScheme.surface,
-                    child: Icon(
-                      Icons.person,
-                      size: 32,
-                      color: Theme.of(context).colorScheme.primary,
+                    radius: 35,
+                    backgroundColor: const Color.fromRGBO(203, 73, 101, 1),
+                    child: CircleAvatar(
+                      radius: 32,
+                      backgroundColor: Theme.of(context).colorScheme.surface,
+                      child: Icon(
+                        Icons.person,
+                        size: 32,
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
                     ),
                   ),
                 ),

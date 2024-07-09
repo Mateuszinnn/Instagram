@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:instagram/components/custom_textbutton.dart';
 import 'package:instagram/components/profile_widgets/contas_button.dart';
 import 'package:instagram/components/profile_widgets/criar_button.dart';
-import 'package:instagram/components/storieswidget.dart';
+import 'package:instagram/components/stories_widget.dart';
 import 'package:instagram/components/profile_widgets/info_profile.dart';
 
 class MyProfile extends StatefulWidget {
@@ -62,7 +63,9 @@ class _ProfileState extends State<MyProfile> {
                             onPressed: () {
                               showModalBottomSheet(
                                 showDragHandle: true,
-                                backgroundColor: Theme.of(context).colorScheme.onSecondaryContainer,
+                                backgroundColor: Theme.of(context)
+                                    .colorScheme
+                                    .onSecondaryContainer,
                                 context: context,
                                 builder: (BuildContext context) {
                                   return ContasButton(
@@ -239,29 +242,13 @@ class _ProfileState extends State<MyProfile> {
                               ),
                             ),
                           ),
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Painel profissional',
-                                  style: TextStyle(
-                                    color:
-                                        Theme.of(context).colorScheme.primary,
-                                    fontFamily: 'Instagram',
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                const Text(
-                                  'X contas alcançadas nos últimos 30 dias',
-                                  style: TextStyle(
-                                    color: Color(0xFFA8A8A8),
-                                    fontFamily: 'Instagram',
-                                  ),
-                                ),
-                              ],
-                            ),
+                          child: CustomTextbutton(
+                            text: 'Painel profissional',
+                            width: widhtTotal,
+                            onPressed: () {},
+                            height: height + 10,
+                            description: 'X contas alcançadas nos ultimos 30 dias',
+                            isColumn: true,
                           ),
                         ),
                       ),
@@ -270,70 +257,24 @@ class _ProfileState extends State<MyProfile> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.fromLTRB(10, 0, 5, 10),
-                          child: SizedBox(
-                            height: height,
+                          child: CustomTextbutton(
+                            text: 'Editar perfil',
                             width: widthButton == 185 ? 181 : widthButton,
-                            child: FilledButton(
-                              onPressed: () {},
-                              style: ButtonStyle(
-                                backgroundColor: WidgetStateProperty.all(
-                                    Theme.of(context).colorScheme.secondary),
-                                shape: WidgetStateProperty.all<
-                                    RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(5.0),
-                                  ),
-                                ),
-                              ),
-                              child: Text(
-                                'Editar perfil',
-                                style: TextStyle(
-                                    color:
-                                        Theme.of(context).colorScheme.primary,
-                                    fontFamily: 'Instagram'),
-                              ),
-                            ),
+                            onPressed: () {},
+                            height: height,
+                            description: '',
+                            isColumn: false,
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.fromLTRB(5, 0, 10, 10),
-                          child: SizedBox(
-                            height: height,
+                          child: CustomTextbutton(
+                            text: 'Compartilhar perfil',
                             width: widthButton == 185 ? 181 : widthButton,
-                            child: IntrinsicWidth(
-                              child: FilledButton(
-                                  onPressed: () {},
-                                  style: ButtonStyle(
-                                    backgroundColor: WidgetStateProperty.all(
-                                        Theme.of(context)
-                                            .colorScheme
-                                            .secondary),
-                                    shape: WidgetStateProperty.all<
-                                        RoundedRectangleBorder>(
-                                      RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
-                                      ),
-                                    ),
-                                  ),
-                                  child: widthButton == 185
-                                      ? Text(
-                                          ' Compartilhar\n perfil',
-                                          style: TextStyle(
-                                              color: Theme.of(context)
-                                                  .colorScheme
-                                                  .primary,
-                                              fontFamily: 'Instagram'),
-                                        )
-                                      : Text(
-                                          ' Compartilhar perfil',
-                                          style: TextStyle(
-                                              color: Theme.of(context)
-                                                  .colorScheme
-                                                  .primary,
-                                              fontFamily: 'Instagram'),
-                                        )),
-                            ),
+                            onPressed: () {},
+                            height: height,
+                            description: '',
+                            isColumn: false,
                           ),
                         ),
                       ],

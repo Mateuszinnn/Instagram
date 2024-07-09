@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/components/custom_textbutton.dart';
 import 'package:instagram/components/search_widgets/result_search.dart';
-import 'package:instagram/components/storieswidget.dart';
+import 'package:instagram/components/stories_widget.dart';
 
 class ChatCollapsedContent extends StatelessWidget {
   const ChatCollapsedContent({super.key});
@@ -10,6 +10,7 @@ class ChatCollapsedContent extends StatelessWidget {
   Widget build(BuildContext context) {
     double widhtTotal = MediaQuery.of(context).size.width;
     double widthButton = (widhtTotal / 2) - 15;
+    double height = widthButton <= 170 ? 60 : 30;
 
     return Column(
       children: [
@@ -59,18 +60,27 @@ class ChatCollapsedContent extends StatelessWidget {
                 text: 'Principal',
                 width: widthButton,
                 onPressed: () {},
+                height: height,
+                isColumn: false,
+                description: '',
               ),
               const SizedBox(width: 5),
               CustomTextbutton(
                 text: 'Geral',
                 width: widthButton - 80,
                 onPressed: () {},
+                height: height,
+                isColumn: false,
+                description: '',
               ),
               const SizedBox(width: 5),
               CustomTextbutton(
                 text: 'Solicitações',
                 width: widthButton,
                 onPressed: () {},
+                height: height,
+                isColumn: false,
+                description: '',
               ),
             ],
           ),

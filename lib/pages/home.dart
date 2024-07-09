@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:instagram/components/chat_section.dart';
 import 'package:instagram/components/notification_widgets/notification_section.dart';
-import 'package:instagram/components/postwidget.dart';
-import 'package:instagram/components/storieswidget.dart';
+import 'package:instagram/components/post_widget.dart';
+import 'package:instagram/components/stories_widget.dart';
 
 enum Menu { seguidores, favoritos }
 
