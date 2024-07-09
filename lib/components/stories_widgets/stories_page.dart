@@ -29,6 +29,7 @@ class StoriesPageState extends State<StoriesPage> {
     "assets/images/pasta.jpeg",
     "assets/images/cachorro-quente.jpg",
     "assets/images/pizza.jpeg",
+    "assets/images/teste.jpeg",
   ];
 
   @override
@@ -116,7 +117,7 @@ class StoriesPageState extends State<StoriesPage> {
             Positioned.fill(
               child: Image.asset(
                 _images[_currentImageIndex],
-                fit: BoxFit.fitWidth,
+                fit: BoxFit.cover,
               ),
             ),
             Column(
@@ -186,123 +187,127 @@ class StoriesPageState extends State<StoriesPage> {
                     ),
                   ),
                 ),
-                Row(
-                  children: [
-                    const SizedBox(width: 5),
-                    IconButton(
-                      onPressed: () {
-                        showModalBottomSheet(
-                          showDragHandle: true,
-                          backgroundColor: const Color(0xFF484848),
-                          context: context,
-                          builder: (BuildContext context) {
-                            return Container(
-                              height: 60,
-                              color: const Color(0xFF484848),
-                              child: const Row(
-                                children: [
-                                  ProfileWidget(
-                                    profileName: '',
-                                    paddingLeft: 10,
-                                    paddingTop: 0,
-                                    paddingRight: 10,
-                                    paddingBottom: 0,
-                                    size: 20,
-                                    isColumn: false,
-                                    hasDescription: false,
-                                    description: '',
-                                  ),
-                                  Expanded(
-                                    child: SizedBox(
-                                      height: 40,
-                                      child: TextField(
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontFamily: 'Instagram',
-                                          color: Colors.white,
-                                        ),
-                                        decoration: InputDecoration(
-                                          hintText: 'Adicione um comentário para Profile Name',
-                                          hintStyle: TextStyle(
+                Container(
+                  color: Colors.black,
+                  child: Row(
+                    children: [
+                      const SizedBox(width: 5),
+                      IconButton(
+                        onPressed: () {
+                          showModalBottomSheet(
+                            showDragHandle: true,
+                            backgroundColor: const Color(0xFF484848),
+                            context: context,
+                            builder: (BuildContext context) {
+                              return Container(
+                                height: 60,
+                                color: const Color(0xFF484848),
+                                child: const Row(
+                                  children: [
+                                    ProfileWidget(
+                                      profileName: '',
+                                      paddingLeft: 10,
+                                      paddingTop: 0,
+                                      paddingRight: 10,
+                                      paddingBottom: 0,
+                                      size: 20,
+                                      isColumn: false,
+                                      hasDescription: false,
+                                      description: '',
+                                    ),
+                                    Expanded(
+                                      child: SizedBox(
+                                        height: 40,
+                                        child: TextField(
+                                          textAlign: TextAlign.start,
+                                          style: TextStyle(
+                                            fontFamily: 'Instagram',
                                             color: Colors.white,
-                                            fontSize: 13,
                                           ),
-                                          filled: true,
-                                          fillColor: Color(0xFF363636),
-                                          border: OutlineInputBorder(
-                                            borderRadius: BorderRadius.all(Radius.circular(25)),
-                                            borderSide: BorderSide.none,
+                                          decoration: InputDecoration(
+                                            hintText: 'Adicione um comentário para Profile Name',
+                                            hintStyle: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 13,
+                                            ),
+                                            filled: true,
+                                            fillColor: Color(0xFF363636),
+                                            border: OutlineInputBorder(
+                                              borderRadius: BorderRadius.all(Radius.circular(25)),
+                                              borderSide: BorderSide.none,
+                                            ),
                                           ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                  SizedBox(width: 10),
-                                ],
-                              ),
-                            );
-                          },
-                        );
-                      },
-                      icon: const Icon(
-                        FontAwesomeIcons.comment,
-                        color: Colors.white,
+                                    SizedBox(width: 10),
+                                  ],
+                                ),
+                              );
+                            },
+                          );
+                        },
+                        icon: const Icon(
+                          FontAwesomeIcons.comment,
+                          color: Colors.white,
+                        ),
                       ),
-                    ),
-                    const Expanded(
-                      child: SizedBox(
-                        height: 40,
-                        child: TextField(
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                            fontFamily: 'Instagram',
-                            color: Colors.white,
-                          ),
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
-                            hintText: 'Enviar Mensagem',
-                            hintStyle: TextStyle(
+                      const Expanded(
+                        child: SizedBox(
+                          height: 40,
+                          child: TextField(
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                              fontFamily: 'Instagram',
                               color: Colors.white,
                             ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(25)),
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(25)),
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(25)),
-                              borderSide: BorderSide(color: Colors.white),
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
+                              hintText: 'Enviar Mensagem',
+                              hintStyle: TextStyle(
+                                color: Colors.white,
+                              ),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(25)),
+                                borderSide: BorderSide(color: Colors.white),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(25)),
+                                borderSide: BorderSide(color: Colors.white),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(25)),
+                                borderSide: BorderSide(color: Colors.white),
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                    IconButton(
-                      onPressed: _toggleFavorite,
-                      icon: Icon(
-                        _isFavorite ? Icons.favorite : Icons.favorite_border,
-                        color: _isFavorite ? Colors.red : Colors.white,
+                      IconButton(
+                        onPressed: _toggleFavorite,
+                        icon: Icon(
+                          _isFavorite ? Icons.favorite : Icons.favorite_border,
+                          color: _isFavorite ? Colors.red : Colors.white,
+                        ),
                       ),
-                    ),
-                    IconButton(
-                      onPressed: () => showModalBottomSheet(
-                        context: context,
-                        isScrollControlled: true,
-                        builder: (BuildContext context) {
-                          return SendButton(widthTotal: widthTotal);
-                        },
+                      IconButton(
+                        onPressed: () => showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          builder: (BuildContext context) {
+                            return SendButton(widthTotal: widthTotal);
+                          },
+                        ),
+                        icon: const Icon(
+                          Icons.send_outlined,
+                          color: Colors.white,
+                        ),
                       ),
-                      icon: const Icon(
-                        Icons.send_outlined,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
+                      const SizedBox(height: 60),
+                    ],
+                  ),
                 ),
-                const SizedBox(height: 10)
+                
               ],
             ),
           ],
