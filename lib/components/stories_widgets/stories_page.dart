@@ -15,12 +15,11 @@ class StoriesPage extends StatefulWidget {
 }
 
 class StoriesPageState extends State<StoriesPage> {
+  late PageController _pageController;
   double _progressValue = 0.0;
   late Timer _timer;
   int _progressMilliseconds = 0;
   bool _isFavorite = false;
-  int _currentImageIndex = 0;
-  bool _isNavigating = false;
   final List<String> _images = [
     "assets/images/mineira.jpg",
     "assets/images/images.jpeg",
@@ -35,6 +34,7 @@ class StoriesPageState extends State<StoriesPage> {
   @override
   void initState() {
     super.initState();
+    _pageController = PageController();
     _startTimer();
   }
 
@@ -55,47 +55,51 @@ class StoriesPageState extends State<StoriesPage> {
   }
 
   void _nextImage() {
-    setState(() {
-      _currentImageIndex = (_currentImageIndex + 1) % _images.length;
-      _progressValue = 0.0;
-      _progressMilliseconds = 0;
-    });
+    if (_pageController.page! < _images.length - 1) {
+      _pageController.nextPage(
+        duration: const Duration(milliseconds: 200),
+        curve: Curves.easeInOut,
+      );
+    } else {
+      _pageController.jumpToPage(0);
+    }
+    _resetProgress();
   }
 
   void _previousImage() {
+    if (_pageController.page! > 0) {
+      _pageController.previousPage(
+        duration: const Duration(milliseconds: 200),
+        curve: Curves.easeInOut,
+      );
+    } else {
+      _pageController.jumpToPage(_images.length - 1);
+    }
+    _resetProgress();
+  }
+
+  void _resetProgress() {
     setState(() {
-      _currentImageIndex =
-          (_currentImageIndex - 1 + _images.length) % _images.length;
       _progressValue = 0.0;
       _progressMilliseconds = 0;
     });
   }
 
   void _onTap(TapUpDetails details) {
-    if (!_isNavigating) {
-      final width = MediaQuery.of(context).size.width;
-      final isLeftSide = details.localPosition.dx < width / 2;
+    final width = MediaQuery.of(context).size.width;
+    final isLeftSide = details.localPosition.dx < width / 2;
 
-      setState(() {
-        _isNavigating = true;
-        if (isLeftSide) {
-          _previousImage();
-        } else {
-          _nextImage();
-        }
-
-        Future.delayed(const Duration(milliseconds: 300), () {
-          setState(() {
-            _isNavigating = false;
-          });
-        });
-      });
+    if (isLeftSide) {
+      _previousImage();
+    } else {
+      _nextImage();
     }
   }
 
   @override
   void dispose() {
     _timer.cancel();
+    _pageController.dispose();
     super.dispose();
   }
 
@@ -110,208 +114,210 @@ class StoriesPageState extends State<StoriesPage> {
     double widthTotal = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: Container(
-        color: const Color.fromARGB(255, 49, 49, 49),
-        child: Stack(
-          children: [
-            Positioned.fill(
-              child: Image.asset(
-                _images[_currentImageIndex],
-                fit: BoxFit.cover,
+      body: PageView.builder(
+        controller: _pageController,
+        itemCount: _images.length,
+        itemBuilder: (context, index) {
+          return Stack(
+            children: [
+              Positioned.fill(
+                child: Image.asset(
+                  _images[index],
+                  fit: BoxFit.fitWidth,
+                ),
               ),
-            ),
-            Column(
-              children: [
-                const SizedBox(height: 40),
-                SizedBox(
-                  width: (MediaQuery.of(context).size.width - 20),
-                  height: 2,
-                  child: LinearProgressIndicator(
-                    value: _progressValue,
-                    backgroundColor: Colors.grey[600],
-                    valueColor: const AlwaysStoppedAnimation<Color>(Colors.white),
-                  ),
-                ),
-                Row(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const OtherProfile(),
-                          ),
-                        );
-                      },
-                      child: const ProfileWidget(
-                        profileName: "Profile Name",
-                        paddingLeft: 10,
-                        paddingTop: 10,
-                        paddingRight: 5,
-                        paddingBottom: 0,
-                        size: 20,
-                        isColumn: false,
-                        hasDescription: false,
-                        description: '',
-                      ),
-                    ),
-                    const SizedBox(width: 5),
-                    const Text(
-                      'x h',
-                      style: TextStyle(fontFamily: 'Instagram', color: Colors.grey),
-                    ),
-                    const Spacer(),
-                    IconButton(
-                      onPressed: () {
-                        Navigator.pop(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const HomePage(),
-                          ),
-                        );
-                      },
-                      icon: const Icon(
-                        Icons.close,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-                Expanded(
-                  child: GestureDetector(
-                    onTapUp: _onTap,
-                    child: Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height,
-                      color: Colors.transparent,
+              Column(
+                children: [
+                  const SizedBox(height: 40),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width - 20,
+                    height: 2,
+                    child: LinearProgressIndicator(
+                      value: _progressValue,
+                      backgroundColor: Colors.grey[600],
+                      valueColor: const AlwaysStoppedAnimation<Color>(Colors.white),
                     ),
                   ),
-                ),
-                Container(
-                  color: Colors.black,
-                  child: Row(
+                  Row(
                     children: [
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const OtherProfile(),
+                            ),
+                          );
+                        },
+                        child: const ProfileWidget(
+                          profileName: "Profile Name",
+                          paddingLeft: 10,
+                          paddingTop: 10,
+                          paddingRight: 5,
+                          paddingBottom: 0,
+                          size: 20,
+                          isColumn: false,
+                          hasDescription: false,
+                          description: '',
+                        ),
+                      ),
                       const SizedBox(width: 5),
+                      const Text(
+                        'x h',
+                        style: TextStyle(fontFamily: 'Instagram', color: Colors.grey),
+                      ),
+                      const Spacer(),
                       IconButton(
                         onPressed: () {
-                          showModalBottomSheet(
-                            showDragHandle: true,
-                            backgroundColor: const Color(0xFF484848),
-                            context: context,
-                            builder: (BuildContext context) {
-                              return Container(
-                                height: 60,
-                                color: const Color(0xFF484848),
-                                child: const Row(
-                                  children: [
-                                    ProfileWidget(
-                                      profileName: '',
-                                      paddingLeft: 10,
-                                      paddingTop: 0,
-                                      paddingRight: 10,
-                                      paddingBottom: 0,
-                                      size: 20,
-                                      isColumn: false,
-                                      hasDescription: false,
-                                      description: '',
-                                    ),
-                                    Expanded(
-                                      child: SizedBox(
-                                        height: 40,
-                                        child: TextField(
-                                          textAlign: TextAlign.start,
-                                          style: TextStyle(
-                                            fontFamily: 'Instagram',
-                                            color: Colors.white,
-                                          ),
-                                          decoration: InputDecoration(
-                                            hintText: 'Adicione um comentário para Profile Name',
-                                            hintStyle: TextStyle(
+                          Navigator.pop(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const HomePage(),
+                            ),
+                          );
+                        },
+                        icon: const Icon(
+                          Icons.close,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Expanded(
+                    child: GestureDetector(
+                      onTapUp: _onTap,
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height,
+                        color: Colors.transparent,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    color: Colors.black,
+                    child: Row(
+                      children: [
+                        const SizedBox(width: 5),
+                        IconButton(
+                          onPressed: () {
+                            showModalBottomSheet(
+                              showDragHandle: true,
+                              backgroundColor: const Color(0xFF484848),
+                              context: context,
+                              builder: (BuildContext context) {
+                                return Container(
+                                  height: 60,
+                                  color: const Color(0xFF484848),
+                                  child: const Row(
+                                    children: [
+                                      ProfileWidget(
+                                        profileName: '',
+                                        paddingLeft: 10,
+                                        paddingTop: 0,
+                                        paddingRight: 10,
+                                        paddingBottom: 0,
+                                        size: 20,
+                                        isColumn: false,
+                                        hasDescription: false,
+                                        description: '',
+                                      ),
+                                      Expanded(
+                                        child: SizedBox(
+                                          height: 40,
+                                          child: TextField(
+                                            textAlign: TextAlign.start,
+                                            style: TextStyle(
+                                              fontFamily: 'Instagram',
                                               color: Colors.white,
-                                              fontSize: 13,
                                             ),
-                                            filled: true,
-                                            fillColor: Color(0xFF363636),
-                                            border: OutlineInputBorder(
-                                              borderRadius: BorderRadius.all(Radius.circular(25)),
-                                              borderSide: BorderSide.none,
+                                            decoration: InputDecoration(
+                                              hintText: 'Adicione um comentário para Profile Name',
+                                              hintStyle: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 13,
+                                              ),
+                                              filled: true,
+                                              fillColor: Color(0xFF363636),
+                                              border: OutlineInputBorder(
+                                                borderRadius: BorderRadius.all(Radius.circular(25)),
+                                                borderSide: BorderSide.none,
+                                              ),
                                             ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                    SizedBox(width: 10),
-                                  ],
-                                ),
-                              );
-                            },
-                          );
-                        },
-                        icon: const Icon(
-                          FontAwesomeIcons.comment,
-                          color: Colors.white,
+                                      SizedBox(width: 10),
+                                    ],
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                          icon: const Icon(
+                            FontAwesomeIcons.comment,
+                            color: Colors.white,
+                          ),
                         ),
-                      ),
-                      const Expanded(
-                        child: SizedBox(
-                          height: 40,
-                          child: TextField(
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                              fontFamily: 'Instagram',
-                              color: Colors.white,
-                            ),
-                            decoration: InputDecoration(
-                              contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
-                              hintText: 'Enviar Mensagem',
-                              hintStyle: TextStyle(
+                        const Expanded(
+                          child: SizedBox(
+                            height: 40,
+                            child: TextField(
+                              textAlign: TextAlign.start,
+                              style: TextStyle(
+                                fontFamily: 'Instagram',
                                 color: Colors.white,
                               ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(25)),
-                                borderSide: BorderSide(color: Colors.white),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(25)),
-                                borderSide: BorderSide(color: Colors.white),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(25)),
-                                borderSide: BorderSide(color: Colors.white),
+                              decoration: InputDecoration(
+                                contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
+                                hintText: 'Enviar Mensagem',
+                                hintStyle: TextStyle(
+                                  color: Colors.white,
+                                ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(25)),
+                                  borderSide: BorderSide(color: Colors.white),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(25)),
+                                  borderSide: BorderSide(color: Colors.white),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(25)),
+                                  borderSide: BorderSide(color: Colors.white),
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                      IconButton(
-                        onPressed: _toggleFavorite,
-                        icon: Icon(
-                          _isFavorite ? Icons.favorite : Icons.favorite_border,
-                          color: _isFavorite ? Colors.red : Colors.white,
+                        IconButton(
+                          onPressed: _toggleFavorite,
+                          icon: Icon(
+                            _isFavorite ? Icons.favorite : Icons.favorite_border,
+                            color: _isFavorite ? Colors.red : Colors.white,
+                          ),
                         ),
-                      ),
-                      IconButton(
-                        onPressed: () => showModalBottomSheet(
-                          context: context,
-                          isScrollControlled: true,
-                          builder: (BuildContext context) {
-                            return SendButton(widthTotal: widthTotal);
-                          },
+                        IconButton(
+                          onPressed: () => showModalBottomSheet(
+                            context: context,
+                            isScrollControlled: true,
+                            builder: (BuildContext context) {
+                              return SendButton(widthTotal: widthTotal);
+                            },
+                          ),
+                          icon: const Icon(
+                            Icons.send_outlined,
+                            color: Colors.white,
+                          ),
                         ),
-                        icon: const Icon(
-                          Icons.send_outlined,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const SizedBox(height: 60),
-                    ],
+                        const SizedBox(height: 60),
+                      ],
+                    ),
                   ),
-                ),
-                
-              ],
-            ),
-          ],
-        ),
+                ],
+              ),
+            ],
+          );
+        },
       ),
     );
   }

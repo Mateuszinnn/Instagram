@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/components/custom_textbutton.dart';
+import 'package:instagram/components/profile_widgets/bottom_tab_controller.dart';
+import 'package:instagram/components/profile_widgets/interaction_buttons.dart';
+import 'package:instagram/components/profile_widgets/profile_description.dart';
 import 'package:instagram/components/stories_widget.dart';
 import 'package:instagram/components/profile_widgets/info_profile.dart';
+import 'package:instagram/components/stories_widgets/stories_page.dart';
 
 class OtherProfile extends StatefulWidget {
   const OtherProfile({super.key});
@@ -13,11 +16,7 @@ class OtherProfile extends StatefulWidget {
 class _ProfileState extends State<OtherProfile> {
   @override
   Widget build(BuildContext context) {
-    double widthTela = MediaQuery.of(context).size.width / 3.059;
     double widhtTotal = MediaQuery.of(context).size.width;
-    double widthButton = (widhtTotal / 2) - 15;
-    double height = widthButton <= 170 ? 60 : 30;
-    double imageHeight = widthTela;
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -70,7 +69,13 @@ class _ProfileState extends State<OtherProfile> {
                     children: [
                       const Padding(
                         padding: EdgeInsets.only(left: 10),
-                        child: Storieswidget(index: 1, profileName: 'Profile Name', textStyle: TextStyle(fontFamily: 'instagram', fontWeight: FontWeight.bold),),
+                        child: Storieswidget(
+                          index: 1,
+                          profileName: 'Profile Name',
+                          textStyle: TextStyle(
+                              fontFamily: 'instagram',
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                       const Spacer(),
                       Info(
@@ -96,85 +101,8 @@ class _ProfileState extends State<OtherProfile> {
                       const Spacer(),
                     ],
                   ),
-                  Container(
-                    padding: const EdgeInsets.only(left: 15.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-                          child: SizedBox(
-                            height: 30,
-                            child: IntrinsicWidth(
-                              child: FilledButton(
-                                onPressed: () {},
-                                style: ButtonStyle(
-                                  backgroundColor: WidgetStateProperty.all(
-                                      Theme.of(context).colorScheme.secondary),
-                                ),
-                                child: Row(
-                                  children: [
-                                    Icon(
-                                      Icons.adobe,
-                                      color:
-                                          Theme.of(context).colorScheme.primary,
-                                    ),
-                                    Text(
-                                      'Profile name',
-                                      style: TextStyle(
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .primary,
-                                          fontFamily: 'Instagram'),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text(
-                          'Descrição',
-                          style: TextStyle(
-                              color: Theme.of(context).colorScheme.primary,
-                              fontFamily: 'Instagram'),
-                        ),
-                        Text(
-                          'Ver Tradução',
-                          style: TextStyle(
-                              color: Theme.of(context).colorScheme.primary,
-                              fontFamily: 'Instagram',
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(10, 10, 5, 10),
-                        child: CustomTextbutton(
-                            text: 'Seguindo',
-                            width: widthButton == 185 ? 181 : widthButton,
-                            onPressed: () {},
-                            height: height,
-                            description: '',
-                            isColumn: false,
-                          ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(5, 10, 10, 10),
-                        child: CustomTextbutton(
-                            text: 'Mensagem',
-                            width: widthButton == 185 ? 181 : widthButton,
-                            onPressed: () {},
-                            height: height,
-                            description: '',
-                            isColumn: false,
-                          ),
-                      ),
-                    ],
-                  ),
+                  const ProfileDescription(),
+                  const InteractionButtons(isMyprofile: false),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
@@ -183,19 +111,29 @@ class _ProfileState extends State<OtherProfile> {
                           padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
                           child: Column(
                             children: [
-                              CircleAvatar(
-                                radius: 35,
-                                backgroundColor:
-                                    Theme.of(context).colorScheme.secondary,
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const StoriesPage(),
+                                    ),
+                                  );
+                                },
                                 child: CircleAvatar(
-                                  radius: 32,
+                                  radius: 35,
                                   backgroundColor:
-                                      Theme.of(context).colorScheme.surface,
-                                  child: Icon(
-                                    Icons.person,
-                                    size: 32,
-                                    color:
-                                        Theme.of(context).colorScheme.primary,
+                                      Theme.of(context).colorScheme.secondary,
+                                  child: CircleAvatar(
+                                    radius: 32,
+                                    backgroundColor:
+                                        Theme.of(context).colorScheme.surface,
+                                    child: Icon(
+                                      Icons.person,
+                                      size: 32,
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -210,170 +148,7 @@ class _ProfileState extends State<OtherProfile> {
                       }),
                     ),
                   ),
-                  DefaultTabController(
-                    length: 3,
-                    child: Column(
-                      children: [
-                        const TabBar(
-                          dividerColor: Colors.transparent,
-                          indicatorSize: TabBarIndicatorSize.tab,
-                          tabs: [
-                            Tab(
-                              icon: Icon(Icons.grid_on),
-                            ),
-                            Tab(
-                              icon: Icon(Icons.video_library),
-                            ),
-                            Tab(
-                              icon: Icon(Icons.person_pin_outlined),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: imageHeight * 3.04 + 2,
-                          child: TabBarView(
-                            children: [
-                              SingleChildScrollView(
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      children: [
-                                        buildSquareImage(
-                                            'assets/images/mineira.jpg',
-                                            widthTela),
-                                        buildSquareImage(
-                                            'assets/images/images.jpeg',
-                                            widthTela),
-                                        buildSquareImage(
-                                            'assets/images/pasta.jpeg',
-                                            widthTela),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        buildSquareImage(
-                                            'assets/images/sushi.jpeg',
-                                            widthTela),
-                                        buildSquareImage(
-                                            'assets/images/tacos.jpg',
-                                            widthTela),
-                                        buildSquareImage(
-                                            'assets/images/pizza.jpeg',
-                                            widthTela),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        buildSquareImage(
-                                            'assets/images/cachorro-quente.jpg',
-                                            widthTela),
-                                        buildSquareImage(
-                                            'assets/images/tomato.jpg',
-                                            widthTela),
-                                        buildSquareImage(
-                                            'assets/images/images.jpeg',
-                                            widthTela),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SingleChildScrollView(
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      children: [
-                                        buildRectangularImage(
-                                            'assets/images/mineira.jpg',
-                                            widthTela),
-                                        buildRectangularImage(
-                                            'assets/images/images.jpeg',
-                                            widthTela),
-                                        buildRectangularImage(
-                                            'assets/images/pasta.jpeg',
-                                            widthTela),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        buildRectangularImage(
-                                            'assets/images/sushi.jpeg',
-                                            widthTela),
-                                        buildRectangularImage(
-                                            'assets/images/tacos.jpg',
-                                            widthTela),
-                                        buildRectangularImage(
-                                            'assets/images/pizza.jpeg',
-                                            widthTela),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        buildRectangularImage(
-                                            'assets/images/cachorro-quente.jpg',
-                                            widthTela),
-                                        buildRectangularImage(
-                                            'assets/images/tomato.jpg',
-                                            widthTela),
-                                        buildRectangularImage(
-                                            'assets/images/images.jpeg',
-                                            widthTela),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SingleChildScrollView(
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      children: [
-                                        buildSquareImage(
-                                            'assets/images/mineira.jpg',
-                                            widthTela),
-                                        buildSquareImage(
-                                            'assets/images/images.jpeg',
-                                            widthTela),
-                                        buildSquareImage(
-                                            'assets/images/pasta.jpeg',
-                                            widthTela),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        buildSquareImage(
-                                            'assets/images/sushi.jpeg',
-                                            widthTela),
-                                        buildSquareImage(
-                                            'assets/images/tacos.jpg',
-                                            widthTela),
-                                        buildSquareImage(
-                                            'assets/images/pizza.jpeg',
-                                            widthTela),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        buildSquareImage(
-                                            'assets/images/cachorro-quente.jpg',
-                                            widthTela),
-                                        buildSquareImage(
-                                            'assets/images/tomato.jpg',
-                                            widthTela),
-                                        buildSquareImage(
-                                            'assets/images/images.jpeg',
-                                            widthTela),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  const BottomTabController(),
                 ],
               ),
             ),
@@ -382,32 +157,4 @@ class _ProfileState extends State<OtherProfile> {
       ),
     );
   }
-}
-
-Widget buildSquareImage(String imagePath, double size) {
-  return Container(
-    margin: const EdgeInsets.all(1),
-    width: size,
-    height: size,
-    decoration: BoxDecoration(
-      image: DecorationImage(
-        image: AssetImage(imagePath),
-        fit: BoxFit.cover,
-      ),
-    ),
-  );
-}
-
-Widget buildRectangularImage(String imagePath, double size) {
-  return Container(
-    margin: const EdgeInsets.all(1),
-    width: size,
-    height: 2 * size,
-    decoration: BoxDecoration(
-      image: DecorationImage(
-        image: AssetImage(imagePath),
-        fit: BoxFit.cover,
-      ),
-    ),
-  );
 }
