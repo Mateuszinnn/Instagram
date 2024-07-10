@@ -4,7 +4,6 @@ import 'package:instagram/components/profile_widgets/interaction_buttons.dart';
 import 'package:instagram/components/profile_widgets/profile_description.dart';
 import 'package:instagram/components/stories_widget.dart';
 import 'package:instagram/components/profile_widgets/info_profile.dart';
-import 'package:instagram/components/stories_widgets/stories_page.dart';
 
 class OtherProfile extends StatefulWidget {
   const OtherProfile({super.key});
@@ -102,7 +101,7 @@ class _ProfileState extends State<OtherProfile> {
                     ],
                   ),
                   const ProfileDescription(),
-                  const InteractionButtons(isMyprofile: false),
+                  //const InteractionButtons(isMyprofile: false),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
@@ -111,29 +110,19 @@ class _ProfileState extends State<OtherProfile> {
                           padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
                           child: Column(
                             children: [
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => const StoriesPage(),
-                                    ),
-                                  );
-                                },
+                              CircleAvatar(
+                                radius: 35,
+                                backgroundColor:
+                                    Theme.of(context).colorScheme.secondary,
                                 child: CircleAvatar(
-                                  radius: 35,
+                                  radius: 32,
                                   backgroundColor:
-                                      Theme.of(context).colorScheme.secondary,
-                                  child: CircleAvatar(
-                                    radius: 32,
-                                    backgroundColor:
-                                        Theme.of(context).colorScheme.surface,
-                                    child: Icon(
-                                      Icons.person,
-                                      size: 32,
-                                      color:
-                                          Theme.of(context).colorScheme.primary,
-                                    ),
+                                      Theme.of(context).colorScheme.surface,
+                                  child: Icon(
+                                    Icons.person,
+                                    size: 32,
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
                                   ),
                                 ),
                               ),
