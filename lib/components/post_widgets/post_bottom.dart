@@ -19,26 +19,21 @@ class PostBottom extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 5),
                 child: SizedBox(
                   height: 20,
-                  child: Stack(
-                    children: [
-                      const Text(
-                        'Profile Name',
-                        style: TextStyle(
-                          fontFamily: 'instagram',
-                          fontWeight: FontWeight.bold,
-                        ),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const OtherProfile()),
+                      );
+                    },
+                    child: const Text(
+                      'Profile Name',
+                      style: TextStyle(
+                        fontFamily: 'instagram',
+                        fontWeight: FontWeight.bold,
                       ),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const OtherProfile()),
-                          );
-                        },
-                        child: const Text('                 '),
-                      ),
-                    ],
+                    ),
                   ),
                 ),
               ),
@@ -58,34 +53,29 @@ class PostBottom extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(left: 12),
                 child: SizedBox(
-                    height: 20,
-                    child: Stack(
-                      children: [
-                        const Text(
-                          'Ver todos os comentários',
-                          style: TextStyle(
-                            fontFamily: 'instagram',
-                            fontWeight: FontWeight.normal,
-                            color: Colors.grey,
-                          ),
-                        ),
-                        TextButton(
-                          onPressed: () {
-                            showModalBottomSheet(
-                              context: context,
-                              isScrollControlled: true,
-                              backgroundColor: Colors.transparent,
-                              isDismissible: true,
-                              builder: (BuildContext context) {
-                                return CommentChat(widthTotal: widthTotal);
-                              },
-                            );
-                          },
-                          child: const Text(
-                              '                                        '),
-                        ),
-                      ],
-                    )),
+                  height: 20,
+                  child: GestureDetector(
+                    onTap: () {
+                      showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        backgroundColor: Colors.transparent,
+                        isDismissible: true,
+                        builder: (BuildContext context) {
+                          return CommentChat(widthTotal: widthTotal);
+                        },
+                      );
+                    },
+                    child: const Text(
+                      'Ver todos os comentários',
+                      style: TextStyle(
+                        fontFamily: 'instagram',
+                        fontWeight: FontWeight.normal,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
             const Padding(
