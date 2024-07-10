@@ -5,7 +5,6 @@ import 'dart:async';
 
 import 'package:instagram/components/profile_widget.dart';
 import 'package:instagram/pages/home.dart';
-import 'package:instagram/pages/other_profile.dart';
 
 class StoriesPage extends StatefulWidget {
   const StoriesPage({super.key});
@@ -120,6 +119,11 @@ class StoriesPageState extends State<StoriesPage> {
         itemBuilder: (context, index) {
           return Stack(
             children: [
+              Container(
+                color: const Color.fromARGB(255, 39, 39, 39),
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+              ),
               Positioned.fill(
                 child: Image.asset(
                   _images[index],
@@ -140,16 +144,7 @@ class StoriesPageState extends State<StoriesPage> {
                   ),
                   Row(
                     children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const OtherProfile(),
-                            ),
-                          );
-                        },
-                        child: const ProfileWidget(
+                      const ProfileWidget(
                           profileName: "Profile Name",
                           paddingLeft: 10,
                           paddingTop: 10,
@@ -160,7 +155,7 @@ class StoriesPageState extends State<StoriesPage> {
                           hasDescription: false,
                           description: '',
                         ),
-                      ),
+                      
                       const SizedBox(width: 5),
                       const Text(
                         'x h',
