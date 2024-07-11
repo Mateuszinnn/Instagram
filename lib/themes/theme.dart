@@ -7,10 +7,12 @@ ThemeData lightmode = ThemeData(
     primary: Colors.black,
     secondary: Color(0xFFEFEFEF),
     tertiary: Color(0xFFEFEFEF),
-    onPrimaryContainer: Colors.white,
     onPrimary: Colors.white,
+    onPrimaryContainer: Colors.white,
+    onSecondary: Colors.grey,
     onSecondaryContainer: Color.fromARGB(255, 221, 221, 221),
     onTertiaryContainer: Colors.white,
+
   ),
 );
 
@@ -23,6 +25,7 @@ ThemeData darkmode = ThemeData(
     tertiary: Color(0xFF484848),
     onPrimary: Color(0xFF344854),
     onPrimaryContainer: Color(0xFF363636),
+    onSecondary: Color(0xFF484848),
     onSecondaryContainer: Color.fromARGB(255, 37, 54, 65),
     onTertiaryContainer: Color(0xFF344854),
   ),

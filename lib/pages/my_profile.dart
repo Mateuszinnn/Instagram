@@ -7,6 +7,7 @@ import 'package:instagram/components/profile_widgets/interaction_buttons.dart';
 import 'package:instagram/components/profile_widgets/profile_description.dart';
 import 'package:instagram/components/stories_widget.dart';
 import 'package:instagram/components/profile_widgets/info_profile.dart';
+import 'package:instagram/components/stories_widgets/stories_page.dart';
 
 class MyProfile extends StatefulWidget {
   const MyProfile({super.key});
@@ -209,20 +210,33 @@ class _ProfileState extends State<MyProfile> {
                               padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
                               child: Column(
                                 children: [
-                                  CircleAvatar(
-                                    radius: 35,
-                                    backgroundColor:
-                                        Theme.of(context).colorScheme.secondary,
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              const StoriesPage(),
+                                        ),
+                                      );
+                                    },
                                     child: CircleAvatar(
-                                      radius: 32,
-                                      backgroundColor:
-                                          Theme.of(context).colorScheme.surface,
-                                      child: Icon(
-                                        Icons.person,
-                                        size: 32,
-                                        color: Theme.of(context)
+                                      radius: 35,
+                                      backgroundColor: Theme.of(context)
+                                          .colorScheme
+                                          .secondary,
+                                      child: CircleAvatar(
+                                        radius: 32,
+                                        backgroundColor: Theme.of(context)
                                             .colorScheme
-                                            .primary,
+                                            .surface,
+                                        child: Icon(
+                                          Icons.person,
+                                          size: 32,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .primary,
+                                        ),
                                       ),
                                     ),
                                   ),
