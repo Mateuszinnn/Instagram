@@ -5,6 +5,7 @@ import 'dart:async';
 
 import 'package:instagram/components/profile_widget.dart';
 import 'package:instagram/pages/home.dart';
+import 'package:instagram/pages/other_profile.dart';
 
 class StoriesPage extends StatefulWidget {
   const StoriesPage({super.key});
@@ -139,12 +140,22 @@ class StoriesPageState extends State<StoriesPage> {
                     child: LinearProgressIndicator(
                       value: _progressValue,
                       backgroundColor: Colors.grey[600],
-                      valueColor: const AlwaysStoppedAnimation<Color>(Colors.white),
+                      valueColor:
+                          const AlwaysStoppedAnimation<Color>(Colors.white),
                     ),
                   ),
                   Row(
                     children: [
-                      const ProfileWidget(
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const OtherProfile(),
+                            ),
+                          );
+                        },
+                        child: const ProfileWidget(
                           profileName: "Profile Name",
                           paddingLeft: 10,
                           paddingTop: 10,
@@ -155,11 +166,12 @@ class StoriesPageState extends State<StoriesPage> {
                           hasDescription: false,
                           description: '',
                         ),
-                      
+                      ),
                       const SizedBox(width: 5),
                       const Text(
                         'x h',
-                        style: TextStyle(fontFamily: 'Instagram', color: Colors.grey),
+                        style: TextStyle(
+                            fontFamily: 'Instagram', color: Colors.grey),
                       ),
                       const Spacer(),
                       IconButton(
@@ -226,7 +238,8 @@ class StoriesPageState extends State<StoriesPage> {
                                               color: Colors.white,
                                             ),
                                             decoration: InputDecoration(
-                                              hintText: 'Adicione um comentário para Profile Name',
+                                              hintText:
+                                                  'Adicione um comentário para Profile Name',
                                               hintStyle: TextStyle(
                                                 color: Colors.white,
                                                 fontSize: 13,
@@ -234,7 +247,8 @@ class StoriesPageState extends State<StoriesPage> {
                                               filled: true,
                                               fillColor: Color(0xFF363636),
                                               border: OutlineInputBorder(
-                                                borderRadius: BorderRadius.all(Radius.circular(25)),
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(25)),
                                                 borderSide: BorderSide.none,
                                               ),
                                             ),
@@ -263,21 +277,25 @@ class StoriesPageState extends State<StoriesPage> {
                                 color: Colors.white,
                               ),
                               decoration: InputDecoration(
-                                contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
+                                contentPadding: EdgeInsets.symmetric(
+                                    vertical: 10.0, horizontal: 15.0),
                                 hintText: 'Enviar Mensagem',
                                 hintStyle: TextStyle(
                                   color: Colors.white,
                                 ),
                                 border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(25)),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(25)),
                                   borderSide: BorderSide(color: Colors.white),
                                 ),
                                 enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(25)),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(25)),
                                   borderSide: BorderSide(color: Colors.white),
                                 ),
                                 focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(25)),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(25)),
                                   borderSide: BorderSide(color: Colors.white),
                                 ),
                               ),
@@ -287,7 +305,9 @@ class StoriesPageState extends State<StoriesPage> {
                         IconButton(
                           onPressed: _toggleFavorite,
                           icon: Icon(
-                            _isFavorite ? Icons.favorite : Icons.favorite_border,
+                            _isFavorite
+                                ? Icons.favorite
+                                : Icons.favorite_border,
                             color: _isFavorite ? Colors.red : Colors.white,
                           ),
                         ),

@@ -62,6 +62,7 @@ class _ProfileState extends State<OtherProfile> {
                   onPressed: () {
                     showModalBottomSheet(
                       context: context,
+                      isScrollControlled: true,
                       builder: (BuildContext context) {
                         return const OptionsOtherProfile();
                       },
@@ -121,7 +122,7 @@ class _ProfileState extends State<OtherProfile> {
                     ],
                   ),
                   const ProfileDescription(),
-                  //const InteractionButtons(isMyprofile: false),
+                  const InteractionButtons(isMyprofile: false),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(

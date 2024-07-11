@@ -7,12 +7,15 @@ class OptionsOtherProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
       expand: false,
-      initialChildSize: 1.0,
-      minChildSize: 0.9, 
-      maxChildSize: 1.0, 
+      initialChildSize: 0.7,
+      minChildSize: 0.5,
+      maxChildSize: 0.7,
       builder: (BuildContext context, ScrollController scrollController) {
         return Container(
-          color: Theme.of(context).colorScheme.onPrimaryContainer,
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.onPrimaryContainer,
+            borderRadius: BorderRadius.circular(15),
+          ),
           padding: const EdgeInsets.all(10),
           width: (MediaQuery.of(context).size.width - 30),
           child: ListView(
@@ -20,28 +23,32 @@ class OptionsOtherProfile extends StatelessWidget {
             children: [
               TextButton(
                 onPressed: () {},
-                child: const Text('Restringir',
+                child: const Text(
+                  'Restringir',
                   style: TextStyle(fontFamily: 'Instagram', color: Colors.red),
                 ),
               ),
               const Divider(thickness: 0.1, height: 0.1),
               TextButton(
                 onPressed: () {},
-                child: const Text('Bloquear',
+                child: const Text(
+                  'Bloquear',
                   style: TextStyle(fontFamily: 'Instagram', color: Colors.red),
                 ),
               ),
               const Divider(thickness: 0.1, height: 0.1),
               TextButton(
                 onPressed: () {},
-                child: const Text('Denunciar',
+                child: const Text(
+                  'Denunciar',
                   style: TextStyle(fontFamily: 'Instagram', color: Colors.red),
                 ),
               ),
               const Divider(thickness: 0.1, height: 0.1),
               TextButton(
                 onPressed: () {},
-                child: Text('Sobre essa conta',
+                child: Text(
+                  'Sobre essa conta',
                   style: TextStyle(
                     fontFamily: 'Instagram',
                     color: Theme.of(context).colorScheme.primary,
@@ -51,7 +58,8 @@ class OptionsOtherProfile extends StatelessWidget {
               const Divider(thickness: 0.1, height: 0.1),
               TextButton(
                 onPressed: () {},
-                child: Text('Ver atividade compartilhada',
+                child: Text(
+                  'Ver atividade compartilhada',
                   style: TextStyle(
                     fontFamily: 'Instagram',
                     color: Theme.of(context).colorScheme.primary,
@@ -61,7 +69,8 @@ class OptionsOtherProfile extends StatelessWidget {
               const Divider(thickness: 0.1, height: 0.1),
               TextButton(
                 onPressed: () {},
-                child: Text('Ocultar seu story',
+                child: Text(
+                  'Ocultar seu story',
                   style: TextStyle(
                     fontFamily: 'Instagram',
                     color: Theme.of(context).colorScheme.primary,
@@ -71,7 +80,8 @@ class OptionsOtherProfile extends StatelessWidget {
               const Divider(thickness: 0.1, height: 0.1),
               TextButton(
                 onPressed: () {},
-                child: Text('Remover seguidor',
+                child: Text(
+                  'Remover seguidor',
                   style: TextStyle(
                     fontFamily: 'Instagram',
                     color: Theme.of(context).colorScheme.primary,
@@ -81,7 +91,8 @@ class OptionsOtherProfile extends StatelessWidget {
               const Divider(thickness: 0.1, height: 0.1),
               TextButton(
                 onPressed: () {},
-                child: Text('Copiar URL do perfil',
+                child: Text(
+                  'Copiar URL do perfil',
                   style: TextStyle(
                     fontFamily: 'Instagram',
                     color: Theme.of(context).colorScheme.primary,
@@ -91,7 +102,8 @@ class OptionsOtherProfile extends StatelessWidget {
               const Divider(thickness: 0.1, height: 0.1),
               TextButton(
                 onPressed: () {},
-                child: Text('Compartilhar esse perfil',
+                child: Text(
+                  'Compartilhar esse perfil',
                   style: TextStyle(
                     fontFamily: 'Instagram',
                     color: Theme.of(context).colorScheme.primary,
@@ -101,7 +113,8 @@ class OptionsOtherProfile extends StatelessWidget {
               const Divider(thickness: 0.1, height: 0.1),
               TextButton(
                 onPressed: () {},
-                child: Text('QR code',
+                child: Text(
+                  'QR code',
                   style: TextStyle(
                     fontFamily: 'Instagram',
                     color: Theme.of(context).colorScheme.primary,
@@ -111,7 +124,8 @@ class OptionsOtherProfile extends StatelessWidget {
               const Divider(thickness: 0.1, height: 0.1),
               TextButton(
                 onPressed: () {},
-                child: Text('Cancelar',
+                child: Text(
+                  'Cancelar',
                   style: TextStyle(
                     fontFamily: 'Instagram',
                     color: Theme.of(context).colorScheme.primary,

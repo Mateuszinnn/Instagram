@@ -21,71 +21,67 @@ class CustomTextbutton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return isColumn
-        ? Flexible(
-            child: SizedBox(
-              height: height,
-              width: width,
-              child: FilledButton(
-                onPressed: onPressed,
-                style: ButtonStyle(
-                  backgroundColor: WidgetStateProperty.all(
-                    Theme.of(context).colorScheme.secondary,
-                  ),
-                  shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5.0),
-                    ),
-                  ),
-                ),
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          text,
-                          style: TextStyle(
-                            color: Theme.of(context).colorScheme.primary,
-                            fontFamily: 'Instagram',
-                          ),
-                        ),
-                        Text(
-                          description,
-                          style: const TextStyle(
-                            color: Color(0xFFA8A8A8),
-                            fontFamily: 'Instagram',
-                          ),
-                        ),
-                      ]),
+        ? SizedBox(
+          height: height,
+          width: width,
+          child: FilledButton(
+            onPressed: onPressed,
+            style: ButtonStyle(
+              backgroundColor: WidgetStateProperty.all(
+                Theme.of(context).colorScheme.secondary,
+              ),
+              shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5.0),
                 ),
               ),
             ),
-          )
-        : Flexible(
-            child: SizedBox(
-              height: height,
-              width: width,
-              child: FilledButton(
-                onPressed: onPressed,
-                style: ButtonStyle(
-                  backgroundColor: WidgetStateProperty.all(
-                    Theme.of(context).colorScheme.secondary,
-                  ),
-                  shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5.0),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      text,
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.primary,
+                        fontFamily: 'Instagram',
+                      ),
                     ),
-                  ),
-                ),
-                child: Text(
-                  text,
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.primary,
-                    fontFamily: 'Instagram',
-                  ),
+                    Text(
+                      description,
+                      style: const TextStyle(
+                        color: Color(0xFFA8A8A8),
+                        fontFamily: 'Instagram',
+                      ),
+                    ),
+                  ]),
+            ),
+          ),
+        )
+        : SizedBox(
+          height: height,
+          width: width,
+          child: FilledButton(
+            onPressed: onPressed,
+            style: ButtonStyle(
+              backgroundColor: WidgetStateProperty.all(
+                Theme.of(context).colorScheme.secondary,
+              ),
+              shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5.0),
                 ),
               ),
             ),
-          );
+            child: Text(
+              text,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.primary,
+                fontFamily: 'Instagram',
+              ),
+            ),
+          ),
+        );
   }
 }

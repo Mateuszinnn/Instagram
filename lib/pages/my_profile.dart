@@ -169,7 +169,7 @@ class _ProfileState extends State<MyProfile> {
                       ],
                     ),
                     const ProfileDescription(),
-                    //const InteractionButtons(isMyprofile: true,),
+                    const InteractionButtons(isMyprofile: true,),
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(

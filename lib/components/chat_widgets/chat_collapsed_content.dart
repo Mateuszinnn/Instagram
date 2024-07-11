@@ -9,8 +9,8 @@ class ChatCollapsedContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double widhtTotal = MediaQuery.of(context).size.width;
-    double widthButton = (widhtTotal / 2) - 15;
-    double height = widthButton <= 170 ? 60 : 30;
+    double widthButton = (widhtTotal / 3) - 15;
+    double height = 30;
 
     return Column(
       children: [
@@ -58,7 +58,7 @@ class ChatCollapsedContent extends StatelessWidget {
             children: [
               CustomTextbutton(
                 text: 'Principal',
-                width: widthButton,
+                width: widthButton + 10,
                 onPressed: () {},
                 height: height,
                 isColumn: false,
@@ -67,7 +67,7 @@ class ChatCollapsedContent extends StatelessWidget {
               const SizedBox(width: 5),
               CustomTextbutton(
                 text: 'Geral',
-                width: widthButton - 80,
+                width: widthButton - 20,
                 onPressed: () {},
                 height: height,
                 isColumn: false,
@@ -76,7 +76,7 @@ class ChatCollapsedContent extends StatelessWidget {
               const SizedBox(width: 5),
               CustomTextbutton(
                 text: 'Solicitações',
-                width: widthButton,
+                width: widthButton + 10,
                 onPressed: () {},
                 height: height,
                 isColumn: false,
