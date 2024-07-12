@@ -56,15 +56,16 @@ class AcountButton extends StatelessWidget {
               ),
               hasDescription
                   ? Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             text,
                             textAlign: TextAlign.start,
+                            maxLines: null,
+                            overflow: TextOverflow.visible,
                             style: TextStyle(
-                                fontFamily: 'Instagram',
-                                color: color),
+                                fontFamily: 'Instagram', color: color),
                           ),
                           Text(
                             description,
@@ -74,15 +75,21 @@ class AcountButton extends StatelessWidget {
                           ),
                         ],
                       ),
-                  )
-                  : Text(
-                      text,
-                      style: TextStyle(
-                          fontFamily: 'Instagram',
-                          color: color),
-                    ),
-              const Spacer(),
-              Icon(Icons.arrow_forward_ios_rounded, color: Theme.of(context).colorScheme.primary, size: 17,)
+                    )
+                  : Expanded(
+                    child: Text(
+                        text,
+                        maxLines: null,
+                        overflow: TextOverflow.visible,
+                        style: TextStyle(fontFamily: 'Instagram', color: color),
+                      ),
+                  ),
+              const SizedBox(width: 5,),
+              Icon(
+                Icons.arrow_forward_ios_rounded,
+                color: Theme.of(context).colorScheme.primary,
+                size: 17,
+              )
             ],
           ),
         ),

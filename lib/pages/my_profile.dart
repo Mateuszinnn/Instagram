@@ -4,6 +4,7 @@ import 'package:instagram/components/profile_widgets/bottom_tab_controller.dart'
 import 'package:instagram/components/profile_widgets/contas_button.dart';
 import 'package:instagram/components/profile_widgets/criar_button.dart';
 import 'package:instagram/components/profile_widgets/interaction_buttons.dart';
+import 'package:instagram/components/profile_widgets/menu_acount.dart';
 import 'package:instagram/components/profile_widgets/profile_description.dart';
 import 'package:instagram/components/stories_widget.dart';
 import 'package:instagram/components/profile_widgets/info_profile.dart';
@@ -115,7 +116,14 @@ class _ProfileState extends State<MyProfile> {
                     ),
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MenuAcount(),
+                        ),
+                      );
+                    },
                     icon: Icon(
                       Icons.menu,
                       size: 35,
@@ -169,7 +177,9 @@ class _ProfileState extends State<MyProfile> {
                       ],
                     ),
                     const ProfileDescription(),
-                    const InteractionButtons(isMyprofile: true,),
+                    const InteractionButtons(
+                      isMyprofile: true,
+                    ),
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
