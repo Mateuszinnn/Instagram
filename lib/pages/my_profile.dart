@@ -27,7 +27,7 @@ class _ProfileState extends State<MyProfile> {
   Widget build(BuildContext context) {
     double widhtTotal = MediaQuery.of(context).size.width;
     double widthButton = (widhtTotal / 2) - 15;
-    double height = widthButton <= 170 ? 60 : 30;
+    double height = widthButton <= 190 ? 60 : 30;
 
     return Scaffold(
       body: RefreshIndicator(

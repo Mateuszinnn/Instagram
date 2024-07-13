@@ -17,6 +17,7 @@ class _PublicationPageState extends State<PublicationPage> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black,
         leading: IconButton(
           onPressed: () {
             Navigator.pushNamedAndRemoveUntil(
@@ -25,7 +26,7 @@ class _PublicationPageState extends State<PublicationPage> {
               (Route<dynamic> route) => false,
             );
           },
-          icon: const Icon(Icons.close_rounded),
+          icon: const Icon(Icons.close_rounded, color: Colors.white,),
         ),
         centerTitle: true,
         title: const Text(
@@ -121,39 +122,42 @@ class _PublicationPageState extends State<PublicationPage> {
               ),
               Expanded(
                 child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          buildSquareImage(
-                              'assets/images/mineira.jpg', widthTela),
-                          buildSquareImage(
-                              'assets/images/images.jpeg', widthTela),
-                          buildSquareImage(
-                              'assets/images/pasta.jpeg', widthTela),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          buildSquareImage(
-                              'assets/images/sushi.jpeg', widthTela),
-                          buildSquareImage(
-                              'assets/images/tacos.jpg', widthTela),
-                          buildSquareImage(
-                              'assets/images/pizza.jpeg', widthTela),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          buildSquareImage(
-                              'assets/images/cachorro-quente.jpg', widthTela),
-                          buildSquareImage(
-                              'assets/images/tomato.jpg', widthTela),
-                          buildSquareImage(
-                              'assets/images/images.jpeg', widthTela),
-                        ],
-                      ),
-                    ],
+                  child: Container(
+                    color: Colors.black,
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            buildSquareImage(
+                                'assets/images/mineira.jpg', widthTela),
+                            buildSquareImage(
+                                'assets/images/images.jpeg', widthTela),
+                            buildSquareImage(
+                                'assets/images/pasta.jpeg', widthTela),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            buildSquareImage(
+                                'assets/images/sushi.jpeg', widthTela),
+                            buildSquareImage(
+                                'assets/images/tacos.jpg', widthTela),
+                            buildSquareImage(
+                                'assets/images/pizza.jpeg', widthTela),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            buildSquareImage(
+                                'assets/images/cachorro-quente.jpg', widthTela),
+                            buildSquareImage(
+                                'assets/images/tomato.jpg', widthTela),
+                            buildSquareImage(
+                                'assets/images/images.jpeg', widthTela),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

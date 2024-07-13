@@ -5,7 +5,6 @@ import 'package:instagram/components/post_widgets/more_section/more_button.dart'
 import 'package:instagram/components/post_widgets/send_section/send_button.dart';
 import 'package:instagram/components/profile_widget.dart';
 import 'package:instagram/pages/other_profile.dart';
-import 'package:instagram/pages/publication.dart';
 
 List<String> posts = [
   "assets/images/pizza.jpeg",
