@@ -76,7 +76,7 @@ class ChatCollapsedContent extends StatelessWidget {
               const SizedBox(width: 5),
               CustomTextbutton(
                 text: 'Solicitações',
-                width: widthButton + 10,
+                width: widthButton + 20,
                 onPressed: () {},
                 height: height,
                 isColumn: false,

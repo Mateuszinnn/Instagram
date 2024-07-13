@@ -70,7 +70,7 @@ class _ChatSectionState extends State<ChatSection> {
                             showModalBottomSheet(
                               showDragHandle: true,
                               backgroundColor:
-                                  const Color.fromARGB(255, 37, 54, 65),
+                                  Theme.of(context).colorScheme.onSecondaryContainer,
                               context: context,
                               builder: (BuildContext context) {
                                 return ContasButton(

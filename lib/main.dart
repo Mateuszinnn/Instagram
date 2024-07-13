@@ -27,6 +27,9 @@ class _MyAppState extends State<MyApp> {
       theme: lightmode,
       darkTheme: darkmode,
       home: const InstaHomePage(),
+      routes: {      
+        '/publication': (context) => const PublicationPage(), 
+      },
     );
   }
 }

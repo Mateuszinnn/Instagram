@@ -77,6 +77,7 @@ class _PublicationPageState extends State<PublicationPage> {
                       icon: const Icon(
                         FontAwesomeIcons.upRightAndDownLeftFromCenter,
                         size: 18,
+                        color: Colors.white,
                       ),
                     ),
                   ),
