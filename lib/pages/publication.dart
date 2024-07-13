@@ -164,9 +164,9 @@ class _PublicationPageState extends State<PublicationPage> {
             right: 0,
             child: Container(
               height: 40,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: const Color.fromARGB(255, 63, 63, 63),
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(topLeft: Radius.circular(20), bottomLeft: Radius.circular(20)),
+                color: Color.fromARGB(255, 63, 63, 63),
               ),
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
