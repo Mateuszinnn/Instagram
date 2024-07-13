@@ -32,7 +32,12 @@ class _MenuAcountState extends State<MenuAcount> {
 
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(Icons.arrow_back_ios_new_rounded),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(Icons.arrow_back_ios_new_rounded),
+        ),
         title: Text(
           'Configurações e atividade',
           style: TextStyle(
@@ -42,46 +47,48 @@ class _MenuAcountState extends State<MenuAcount> {
         ),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: CustomSearchBar(
-                  isExpanded: isExpanded,
-                  onExpand: _expandSearchBar,
-                  onCollapse: _collapseSearchBar),
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-              child: Row(
-                children: [
-                  Text(
-                    'Sua conta',
-                    style: TextStyle(
-                        color: Colors.grey,
-                        fontFamily: 'Instagram',
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Spacer(),
-                  Icon(
-                    FontAwesomeIcons.meta,
-                    color: Colors.grey,
-                    size: 15,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    'Meta',
-                    style: TextStyle(
-                        color: Colors.grey,
-                        fontFamily: 'Instagram',
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
+        child: Container(
+          color: Theme.of(context).colorScheme.surface,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: CustomSearchBar(
+                    isExpanded: isExpanded,
+                    onExpand: _expandSearchBar,
+                    onCollapse: _collapseSearchBar),
               ),
-            ),
-            AcountButton(
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                child: Row(
+                  children: [
+                    Text(
+                      'Sua conta',
+                      style: TextStyle(
+                          color: Colors.grey,
+                          fontFamily: 'Instagram',
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Spacer(),
+                    Icon(
+                      FontAwesomeIcons.meta,
+                      color: Colors.grey,
+                      size: 15,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      'Meta',
+                      style: TextStyle(
+                          color: Colors.grey,
+                          fontFamily: 'Instagram',
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: FontAwesomeIcons.circleUser,
                 text: 'Central de contas',
@@ -90,55 +97,56 @@ class _MenuAcountState extends State<MenuAcount> {
                     'Senhas, segurança, dados pessoais, preferências de anúncios',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: RichText(
-                text: const TextSpan(
-                  children: [
-                    TextSpan(
-                      text:
-                          'Gerencie sia experência conectadas e configurações de contas nas tecnologias da meta.',
-                      style: TextStyle(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: RichText(
+                  text: const TextSpan(
+                    children: [
+                      TextSpan(
+                        text:
+                            'Gerencie sia experência conectadas e configurações de contas nas tecnologias da meta.',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontFamily: 'Instagram',
+                          fontSize: 13,
+                        ),
+                      ),
+                      TextSpan(
+                        text: ' Saiba mais',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontFamily: 'Instagram',
+                          fontSize: 13,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Divider(
+                thickness: 5,
+                height: 5,
+                color: Theme.of(context).colorScheme.tertiary,
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Como você usa o Instagram',
+                    style: TextStyle(
                         color: Colors.grey,
                         fontFamily: 'Instagram',
-                        fontSize: 13,
-                      ),
-                    ),
-                    TextSpan(
-                      text: ' Saiba mais',
-                      style: TextStyle(
-                        color: Colors.blue,
-                        fontFamily: 'Instagram',
-                        fontSize: 13,
-                      ),
-                    ),
-                  ],
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Divider(
-              thickness: 5,
-              height: 5,
-              color: Theme.of(context).colorScheme.tertiary,
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'Como você usa o Instagram',
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontFamily: 'Instagram',
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-            AcountButton(
+              AcountButton(
                 widhtButton: widthButton,
                 icon: FontAwesomeIcons.bookmark,
                 text: '  Salvos',
@@ -146,8 +154,9 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: FontAwesomeIcons.clockRotateLeft,
                 text: '  Arquivar',
@@ -155,17 +164,19 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
-                icon: FontAwesomeIcons.chartLine,
+                icon: Icons.monitor_heart_outlined,
                 text: '  Sua Atividade',
                 hasDescription: false,
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: FontAwesomeIcons.bell,
                 text: '  Notificações',
@@ -173,8 +184,9 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: FontAwesomeIcons.clock,
                 text: '  Tempo gasto',
@@ -182,29 +194,30 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            const SizedBox(
-              height: 10,
-            ),
-            Divider(
-              thickness: 5,
-              height: 5,
-              color: Theme.of(context).colorScheme.tertiary,
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'Para profissionais',
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontFamily: 'Instagram',
-                      fontWeight: FontWeight.bold),
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Divider(
+                thickness: 5,
+                height: 5,
+                color: Theme.of(context).colorScheme.tertiary,
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Para profissionais',
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontFamily: 'Instagram',
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
-            ),
-            AcountButton(
+              AcountButton(
                 widhtButton: widthButton,
                 icon: FontAwesomeIcons.chartColumn,
                 text: '  Insight',
@@ -212,8 +225,9 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: FontAwesomeIcons.clock,
                 text: '  Conteúdo programado',
@@ -221,8 +235,9 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: FontAwesomeIcons.chartColumn,
                 text: '  Ferramentas e controles para criadores de conteúdo',
@@ -230,8 +245,9 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: Icons.verified_outlined,
                 text: '  Meta Verified',
@@ -239,29 +255,30 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            const SizedBox(
-              height: 10,
-            ),
-            Divider(
-              thickness: 5,
-              height: 5,
-              color: Theme.of(context).colorScheme.tertiary,
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'Quem pode ver seu conteúdo',
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontFamily: 'Instagram',
-                      fontWeight: FontWeight.bold),
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Divider(
+                thickness: 5,
+                height: 5,
+                color: Theme.of(context).colorScheme.tertiary,
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Quem pode ver seu conteúdo',
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontFamily: 'Instagram',
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
-            ),
-            AcountButton(
+              AcountButton(
                 widhtButton: widthButton,
                 icon: FontAwesomeIcons.lock,
                 text: '  Privacidade da conta',
@@ -269,8 +286,9 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: FontAwesomeIcons.star,
                 text: '  Amigos próximos',
@@ -278,8 +296,9 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: Icons.grid_view_outlined,
                 text: '  Publicações cruzadas',
@@ -287,8 +306,9 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: Icons.block,
                 text: '  Bloqueados',
@@ -296,8 +316,9 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: FontAwesomeIcons.eyeSlash,
                 text: '  Ocultar story e transmissão ao vivo',
@@ -305,29 +326,30 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            const SizedBox(
-              height: 10,
-            ),
-            Divider(
-              thickness: 5,
-              height: 5,
-              color: Theme.of(context).colorScheme.tertiary,
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'Como os outros podem interagir com você',
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontFamily: 'Instagram',
-                      fontWeight: FontWeight.bold),
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Divider(
+                thickness: 5,
+                height: 5,
+                color: Theme.of(context).colorScheme.tertiary,
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Como os outros podem interagir com você',
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontFamily: 'Instagram',
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
-            ),
-            AcountButton(
+              AcountButton(
                 widhtButton: widthButton,
                 icon: FontAwesomeIcons.facebookMessenger,
                 text: '  Mensagens e respostas ao story',
@@ -335,8 +357,9 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: FontAwesomeIcons.threads,
                 text: '  Marcações e menções',
@@ -344,8 +367,9 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: FontAwesomeIcons.comment,
                 text: '  Comentários',
@@ -353,8 +377,9 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: FontAwesomeIcons.arrowsRotate,
                 text: '  Compartilhamento e remixes',
@@ -362,8 +387,9 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: Icons.person_off_outlined,
                 text: '  Restritas',
@@ -371,8 +397,9 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: FontAwesomeIcons.circleExclamation,
                 text: '  Limitar interações',
@@ -380,8 +407,9 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: FontAwesomeIcons.font,
                 text: '  Palavras ocultas',
@@ -389,8 +417,9 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: Icons.person_add_alt_outlined,
                 text: '  Seguir e convidar amigos',
@@ -398,29 +427,30 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            const SizedBox(
-              height: 10,
-            ),
-            Divider(
-              thickness: 5,
-              height: 5,
-              color: Theme.of(context).colorScheme.tertiary,
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'O que você vê',
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontFamily: 'Instagram',
-                      fontWeight: FontWeight.bold),
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Divider(
+                thickness: 5,
+                height: 5,
+                color: Theme.of(context).colorScheme.tertiary,
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'O que você vê',
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontFamily: 'Instagram',
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
-            ),
-            AcountButton(
+              AcountButton(
                 widhtButton: widthButton,
                 icon: FontAwesomeIcons.star,
                 text: '  Favoritos',
@@ -428,8 +458,9 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: FontAwesomeIcons.bellSlash,
                 text: '  Silenciados',
@@ -437,8 +468,9 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: Icons.perm_media_outlined,
                 text: '  Sugestões de conteúdo',
@@ -446,8 +478,9 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: FontAwesomeIcons.heart,
                 text: '  Número de curtidas e compartilhamentos',
@@ -455,29 +488,30 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            const SizedBox(
-              height: 10,
-            ),
-            Divider(
-              thickness: 5,
-              height: 5,
-              color: Theme.of(context).colorScheme.tertiary,
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'Seu App e suas mídias',
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontFamily: 'Instagram',
-                      fontWeight: FontWeight.bold),
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Divider(
+                thickness: 5,
+                height: 5,
+                color: Theme.of(context).colorScheme.tertiary,
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Seu App e suas mídias',
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontFamily: 'Instagram',
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
-            ),
-            AcountButton(
+              AcountButton(
                 widhtButton: widthButton,
                 icon: Icons.phone_iphone_rounded,
                 text: '  Permissões do dispositivo',
@@ -485,8 +519,9 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: Icons.download_rounded,
                 text: '  Arquivar e baixar',
@@ -494,8 +529,9 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: Icons.accessibility,
                 text: '  Acessibilidade',
@@ -503,8 +539,9 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: Icons.translate,
                 text: '  Idioma',
@@ -512,8 +549,9 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-                AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: Icons.signal_cellular_alt,
                 text: '  Qualidade de mídia',
@@ -521,8 +559,9 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-                AcountButton(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
                 widhtButton: widthButton,
                 icon: Icons.computer_rounded,
                 text: '  Permissões do site',
@@ -530,16 +569,241 @@ class _MenuAcountState extends State<MenuAcount> {
                 description: '',
                 hasIcon: true,
                 color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).colorScheme.surface),
-            const SizedBox(
-              height: 10,
-            ),
-            Divider(
-              thickness: 5,
-              height: 5,
-              color: Theme.of(context).colorScheme.tertiary,
-            ),
-          ],
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Divider(
+                thickness: 5,
+                height: 5,
+                color: Theme.of(context).colorScheme.tertiary,
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Para famílias',
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontFamily: 'Instagram',
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              AcountButton(
+                widhtButton: widthButton,
+                icon: Icons.people_alt_outlined,
+                text: '  Surpervisão',
+                hasDescription: false,
+                description: '',
+                hasIcon: true,
+                color: Theme.of(context).colorScheme.primary,
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Divider(
+                thickness: 5,
+                height: 5,
+                color: Theme.of(context).colorScheme.tertiary,
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Seus pedidos e campanhas de arrecadação de fundos',
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontFamily: 'Instagram',
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              AcountButton(
+                widhtButton: widthButton,
+                icon: Icons.monetization_on_outlined,
+                text: '  Campanhas de arrecadação de fundos',
+                hasDescription: false,
+                description: '',
+                hasIcon: true,
+                color: Theme.of(context).colorScheme.primary,
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
+                widhtButton: widthButton,
+                icon: FontAwesomeIcons.boxesPacking,
+                text: '  Pedidos e pagamentos',
+                hasDescription: false,
+                description: '',
+                hasIcon: true,
+                color: Theme.of(context).colorScheme.primary,
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Divider(
+                thickness: 5,
+                height: 5,
+                color: Theme.of(context).colorScheme.tertiary,
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Mais informações e suporte',
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontFamily: 'Instagram',
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              AcountButton(
+                widhtButton: widthButton,
+                icon: FontAwesomeIcons.lifeRing,
+                text: '  Ajuda',
+                hasDescription: false,
+                description: '',
+                hasIcon: true,
+                color: Theme.of(context).colorScheme.primary,
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
+                widhtButton: widthButton,
+                icon: Icons.shield,
+                text: '  Central de Privacidade',
+                hasDescription: false,
+                description: '',
+                hasIcon: true,
+                color: Theme.of(context).colorScheme.primary,
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
+                widhtButton: widthButton,
+                icon: Icons.person_outline_outlined,
+                text: '  Status da Conta',
+                hasDescription: false,
+                description: '',
+                hasIcon: true,
+                color: Theme.of(context).colorScheme.primary,
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
+                widhtButton: widthButton,
+                icon: Icons.info_outline_rounded,
+                text: '  Sobre',
+                hasDescription: false,
+                description: '',
+                hasIcon: true,
+                color: Theme.of(context).colorScheme.primary,
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Divider(
+                thickness: 5,
+                height: 5,
+                color: Theme.of(context).colorScheme.tertiary,
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Também da Meta',
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontFamily: 'Instagram',
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              AcountButton(
+                widhtButton: widthButton,
+                icon: FontAwesomeIcons.whatsapp,
+                text: '  Whatsapp',
+                hasDescription: false,
+                description: '',
+                hasIcon: true,
+                color: Theme.of(context).colorScheme.primary,
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
+                widhtButton: widthButton,
+                icon: FontAwesomeIcons.threads,
+                text: '  Threads',
+                hasDescription: false,
+                description: '',
+                hasIcon: true,
+                color: Theme.of(context).colorScheme.primary,
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              AcountButton(
+                widhtButton: widthButton,
+                icon: FontAwesomeIcons.facebook,
+                text: '  Facebook',
+                hasDescription: false,
+                description: '',
+                hasIcon: true,
+                color: Theme.of(context).colorScheme.primary,
+                backgroundColor: Theme.of(context).colorScheme.surface,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Divider(
+                thickness: 5,
+                height: 5,
+                color: Theme.of(context).colorScheme.tertiary,
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Entrar',
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontFamily: 'Instagram',
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    'Adicionar conta',
+                    style:
+                        TextStyle(fontFamily: 'Instagram', color: Colors.blue),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    'Sair     ',
+                    textAlign: TextAlign.start,
+                    style:
+                        TextStyle(fontFamily: 'Instagram', color: Colors.red),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+            ],
+          ),
         ),
       ),
     );

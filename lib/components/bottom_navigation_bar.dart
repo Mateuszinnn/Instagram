@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/components/bottom_navigation_widgets/bar_item.dart';
+import 'package:instagram/pages/publication.dart';
 
-class Bottomnavigationbar  extends StatelessWidget {
+class Bottomnavigationbar extends StatelessWidget {
   final int pageIndex;
   final Function(int) onTabSelected;
 
-  const Bottomnavigationbar ({
+  const Bottomnavigationbar({
     super.key,
     required this.pageIndex,
     required this.onTabSelected,
@@ -39,11 +40,18 @@ class Bottomnavigationbar  extends StatelessWidget {
               BarItem(
                 isSelected: pageIndex == 2,
                 icon: pageIndex == 2 ? Icons.add_box : Icons.add_box_outlined,
-                onTap: () => onTabSelected(2),
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const PublicationPage(),
+                  ),
+                ),
               ),
               BarItem(
                 isSelected: pageIndex == 3,
-                icon: pageIndex == 3 ? Icons.video_library : Icons.video_library_outlined,
+                icon: pageIndex == 3
+                    ? Icons.video_library
+                    : Icons.video_library_outlined,
                 onTap: () => onTabSelected(3),
               ),
               BarItem(
